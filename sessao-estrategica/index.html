@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sessão Estratégica Gratuita · Recria</title>
+<meta name="description" content="Agende sua sessão estratégica gratuita com diagnóstico do seu negócio. Descubra seus gargalos e venda todos os dias.">
+<link rel="icon" href="recria-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,600;1,700;1,800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold:#C9A24E;--gold-bright:#E4C988;--gold-dim:#A0802E;
+    --black:#000;--ink:#0A0A0A;--bg:#0b0b0b;--card:#121212;--line:#2a2a2a;
+    --white:#fff;--cream:#F4F1EA;--muted:#C9C5BC;--muted2:#8f8b82;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);font-family:'Lora',serif;color:var(--cream);line-height:1.55;overflow-x:hidden}
+  .wrap{max-width:920px;margin:0 auto;padding:0 24px}
+
+  /* glows */
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse 900px 600px at 50% -5%, #C9A24E18 0%, transparent 60%),
+              radial-gradient(ellipse 700px 500px at 90% 30%, #C9A24E0e 0%, transparent 55%)}
+  main{position:relative;z-index:1}
+
+  header{padding:26px 0;display:flex;justify-content:center}
+  header img{height:54px}
+
+  /* HERO */
+  .hero{text-align:center;padding:24px 0 44px}
+  .badge{display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--gold-dim);color:var(--gold-bright);
+    font-family:sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:9px 18px;border-radius:40px;margin-bottom:28px}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-bright);box-shadow:0 0 10px var(--gold-bright)}
+  h1{font-family:'Playfair Display',serif;font-weight:800;font-size:52px;line-height:1.05;letter-spacing:-.02em;color:#fff}
+  h1 .acc{font-style:italic;color:var(--gold-bright)}
+  .hero p.lead{font-size:21px;color:var(--muted);max-width:660px;margin:24px auto 0}
+  .hero p.lead .g{color:var(--gold-bright);font-weight:600}
+  .cta-btn{display:inline-block;margin-top:34px;background:var(--gold);color:#0a0a0a;font-family:'Playfair Display',serif;font-weight:800;
+    font-size:22px;padding:18px 40px;border-radius:6px;text-decoration:none;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 30px #C9A24E33}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px #C9A24E55}
+  .scarcity{margin-top:18px;font-size:15px;color:var(--muted2);font-family:sans-serif}
+  .scarcity b{color:var(--gold-bright)}
+
+  /* DIVIDER */
+  .rule{width:70px;height:3px;background:var(--gold);border:0;margin:0 auto}
+
+  /* BENEFITS */
+  .benefits{padding:54px 0 20px}
+  .benefits h2{font-family:'Playfair Display',serif;font-weight:700;font-size:34px;text-align:center;color:#fff;margin-bottom:42px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .b{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:30px 26px}
+  .b .ic{width:50px;height:50px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;
+    font-size:24px;color:var(--gold-bright);margin-bottom:18px}
+  .b h3{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:#fff;margin-bottom:10px}
+  .b p{font-size:16px;color:var(--muted)}
+
+  /* FORM */
+  .form-sec{padding:56px 0 70px}
+  .form-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:44px;max-width:660px;margin:0 auto;
+    box-shadow:0 30px 80px #00000060}
+  .form-card .ey{font-family:sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);text-align:center}
+  .form-card h2{font-family:'Playfair Display',serif;font-weight:800;font-size:34px;color:#fff;text-align:center;margin:12px 0 8px;line-height:1.1}
+  .form-card .sub{text-align:center;color:var(--muted);font-size:17px;margin-bottom:32px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-family:sans-serif;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--muted);margin-bottom:8px;text-transform:uppercase}
+  .field input,.field select{width:100%;background:#0d0d0d;border:1.5px solid var(--line);border-radius:8px;color:#fff;
+    font-family:'Lora',serif;font-size:17px;padding:14px 16px;transition:border-color .15s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--gold)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23C9A24E' stroke-width='3'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 16px center}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .submit{width:100%;margin-top:10px;background:var(--gold);color:#0a0a0a;border:0;border-radius:8px;cursor:pointer;
+    font-family:'Playfair Display',serif;font-weight:800;font-size:22px;padding:18px;transition:transform .15s,box-shadow .15s;box-shadow:0 10px 30px #C9A24E33}
+  .submit:hover{transform:translateY(-2px);box-shadow:0 14px 40px #C9A24E55}
+  .submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+  .privacy{text-align:center;font-size:13px;color:var(--muted2);margin-top:16px;font-family:sans-serif}
+
+  /* SUCCESS */
+  .success{display:none;text-align:center;padding:30px 10px}
+  .success.show{display:block}
+  .success .check{width:78px;height:78px;border-radius:50%;background:var(--gold);color:#000;font-size:42px;display:flex;align-items:center;justify-content:center;margin:0 auto 22px}
+  .success h2{font-family:'Playfair Display',serif;font-size:32px;color:#fff;margin-bottom:14px}
+  .success p{color:var(--muted);font-size:18px;max-width:440px;margin:0 auto}
+
+  footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted2);font-family:sans-serif;font-size:14px}
+  footer .wm{font-family:'Playfair Display',serif;letter-spacing:.3em;color:var(--gold);font-weight:700;font-size:15px;margin-bottom:8px}
+
+  @media(max-width:720px){
+    h1{font-size:36px}
+    .hero p.lead{font-size:18px}
+    .grid{grid-template-columns:1fr;gap:14px}
+    .form-card{padding:28px 22px}
+    .form-card h2{font-size:27px}
+    .row2{grid-template-columns:1fr}
+    .benefits h2{font-size:27px}
+  }
+</style>
+</head>
+<body>
+<main>
+  <header><img src="recria-logo.png" alt="Recria"></header>
+
+  <section class="hero wrap">
+    <div class="badge"><span class="dot"></span>Sessão Estratégica Gratuita</div>
+    <h1>Agende sua <span class="acc">Sessão Estratégica</span> e tenha um diagnóstico do seu negócio</h1>
+    <p class="lead">Descubra <span class="g">onde estão os gargalos</span> que travam o seu faturamento e saia com um caminho claro para <span class="g">vender todos os dias</span> — com estratégia, não com sorte.</p>
+    <a href="#form" class="cta-btn">Quero minha sessão →</a>
+    <div class="scarcity">⏳ Abrimos apenas <b>2 a 3 sessões por semana</b>. Garanta a sua.</div>
+  </section>
+
+  <section class="benefits wrap">
+    <hr class="rule">
+    <h2 style="margin-top:36px">O que você recebe na sessão</h2>
+    <div class="grid">
+      <div class="b">
+        <div class="ic">🔍</div>
+        <h3>Diagnóstico real</h3>
+        <p>Uma análise honesta do seu negócio pra entender o que está travando suas vendas hoje.</p>
+      </div>
+      <div class="b">
+        <div class="ic">🎯</div>
+        <h3>Gargalos mapeados</h3>
+        <p>Identificamos os pontos de fuga de clientes e dinheiro na sua jornada de vendas.</p>
+      </div>
+      <div class="b">
+        <div class="ic">📈</div>
+        <h3>Plano pra vender</h3>
+        <p>Você sai com as próximas ações claras pra começar a vender de forma consistente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-sec wrap" id="form">
+    <div class="form-card">
+      <div id="formView">
+        <div class="ey">Falta pouco</div>
+        <h2>Preencha pra garantir sua sessão</h2>
+        <p class="sub">Leva menos de 1 minuto. Em seguida entramos em contato para agendar.</p>
+
+        <form id="leadForm">
+          <div class="field">
+            <label>Nome completo *</label>
+            <input type="text" name="nome" required placeholder="Seu nome">
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label>WhatsApp *</label>
+              <input type="tel" name="whatsapp" required placeholder="(00) 00000-0000">
+            </div>
+            <div class="field">
+              <label>E-mail *</label>
+              <input type="email" name="email" required placeholder="voce@email.com">
+            </div>
+          </div>
+          <div class="field">
+            <label>Nome do seu negócio</label>
+            <input type="text" name="negocio" placeholder="Como seu negócio se chama">
+          </div>
+          <div class="row2">
+            <div class="field">
+              <label>Segmento / nicho *</label>
+              <input type="text" name="segmento" required placeholder="Ex: estética, infoproduto...">
+            </div>
+            <div class="field">
+              <label>Faturamento mensal</label>
+              <select name="faturamento">
+                <option value="">Selecione</option>
+                <option>Ainda não faturo</option>
+                <option>Até R$ 5 mil</option>
+                <option>R$ 5 mil a R$ 20 mil</option>
+                <option>R$ 20 mil a R$ 50 mil</option>
+                <option>Acima de R$ 50 mil</option>
+                <option>Prefiro não informar</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label>Seu maior desafio hoje *</label>
+            <select name="desafio" required>
+              <option value="">Selecione</option>
+              <option>Atrair / captar clientes</option>
+              <option>Converter seguidores em vendas</option>
+              <option>Fortalecer minha presença digital</option>
+              <option>Ter consistência de vendas</option>
+              <option>Não sei por onde começar</option>
+            </select>
+          </div>
+          <button type="submit" class="submit" id="submitBtn">Garantir minha sessão estratégica →</button>
+          <div class="privacy">🔒 Seus dados estão seguros. Sem spam.</div>
+        </form>
+      </div>
+
+      <div class="success" id="successView">
+        <div class="check">✓</div>
+        <h2>Recebemos seu pedido!</h2>
+        <p>Em breve entramos em contato pelo WhatsApp e e-mail para agendar a sua sessão estratégica. Fica de olho! ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wm">RECRIA</div>
+    Recriando marketing, simplificando vendas · @agencia.recria
+  </footer>
+</main>
+
+<script>
+  // ====== CONFIG ======
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4sOVmBFewQIvUJ37wqPf5Z5YrT_1ERqcHD9kRRDLPTym9zv7d931eJndRxZlqbZbO/exec';
+  var TIPO = 'negocio'; // não alterar nesta página
+  // ====================
+
+  function getCanal(params){
+    var s = (params.get('utm_source') || '').toLowerCase();
+    if(!s) return 'organico';
+    if(s.indexOf('google')>=0 || s.indexOf('gads')>=0) return 'google';
+    if(s.indexOf('insta')>=0 || s==='ig' || s.indexOf('facebook')>=0 || s.indexOf('meta')>=0 || s==='fb') return 'instagram';
+    return s; // outro canal informado via utm
+  }
+
+  var params = new URLSearchParams(location.search);
+  var canal = getCanal(params);
+
+  document.getElementById('leadForm').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    var f = ev.target;
+    var payload = {
+      tipo: TIPO,
+      nome: f.nome.value.trim(),
+      whatsapp: f.whatsapp.value.trim(),
+      email: f.email.value.trim(),
+      negocio: f.negocio.value.trim(),
+      segmento: f.segmento.value.trim(),
+      faturamento: f.faturamento.value,
+      desafio: f.desafio.value,
+      canal: canal,
+      utm_source: params.get('utm_source') || '',
+      utm_medium: params.get('utm_medium') || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      pagina: location.href
+    };
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(){ showSuccess(); })
+    .catch(function(){ showSuccess(); }); // mesmo offline, não trava o lead
+  });
+
+  function showSuccess(){
+    document.getElementById('formView').style.display = 'none';
+    var s = document.getElementById('successView');
+    s.classList.add('show');
+    s.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+</script>
+</body>
+</html>
