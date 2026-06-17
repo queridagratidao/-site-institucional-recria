@@ -35,7 +35,7 @@
     <img src="assets/logo.png" alt="Recria" class="hero-logo">
     <p class="hero-pre">Marketing com propósito</p>
     <h1>Marketing que <em>vende.</em><br>Em qualquer fase do seu negócio.</h1>
-    <p class="hero-sub">O caminho não é postar mais, nem investir mais em tráfego. É ter a estratégia certa, personalizada pro seu negócio, no seu momento.</p>
+    <p class="hero-sub">Usamos neurociência e comportamento de compra pra criar comunicação certeira, que vende sem precisar de volume absurdo de conteúdo ou muito dinheiro em tráfego.</p>
     <a href="#para-quem" class="btn-gold">Quero conhecer</a>
   </div>
 </section>
@@ -141,9 +141,16 @@
 <section id="contato" class="section section-dark cta-final">
   <div class="container">
     <h2>Pronto pra vender com leveza?</h2>
-    <p>Vamos entender o seu momento e montar a estratégia certa pro seu negócio.</p>
-    <a href="https://wa.me/5551991091697" class="btn-gold" target="_blank" rel="noopener">Falar no WhatsApp</a>
-    <p class="contact-alt">ou no Instagram <a href="https://instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a></p>
+    <p>Preencha abaixo e a equipe da Recria entrará em contato para entender o seu momento.</p>
+    <form class="lead-form" id="leadFormInst">
+      <input type="text" name="nome" id="inst-nome" placeholder="Seu nome" required>
+      <input type="text" name="negocio" id="inst-negocio" placeholder="Nome do seu negócio" required>
+      <input type="tel" name="whatsapp" id="inst-whatsapp" placeholder="WhatsApp (com DDD)" required>
+      <input type="email" name="email" id="inst-email" placeholder="E-mail" required>
+      <button type="submit" class="btn-gold" id="inst-submitBtn">Quero minha proposta gratuita</button>
+      <p class="form-status" id="inst-formStatus"></p>
+    </form>
+    <p class="contact-alt">ou nos encontre no Instagram <a href="https://instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a></p>
   </div>
 </section>
 
@@ -154,6 +161,35 @@
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const SCRIPT_URL_INST = 'COLE_A_URL_DO_APPS_SCRIPT_AQUI';
+document.getElementById('leadFormInst').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('inst-submitBtn');
+  const status = document.getElementById('inst-formStatus');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+  const data = {
+    nome: document.getElementById('inst-nome').value,
+    negocio: document.getElementById('inst-negocio').value,
+    whatsapp: document.getElementById('inst-whatsapp').value,
+    email: document.getElementById('inst-email').value,
+    momento: 'Site institucional',
+    mensagem: ''
+  };
+  try {
+    await fetch(SCRIPT_URL_INST, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+    status.innerHTML = '✓ Recebido! Nossa equipe entrará em contato em breve.<br><br><a href="https://wa.me/5551991091697" target="_blank" rel="noopener" style="display:inline-block;background:#C9A24E;color:#000;padding:10px 22px;border-radius:4px;text-decoration:none;font-size:0.9rem;margin-top:4px;">Falar no WhatsApp agora</a>';
+    this.reset();
+  } catch {
+    status.textContent = 'Erro ao enviar. Tente pelo Instagram.';
+    status.style.color = '#ff6b6b';
+  } finally {
+    btn.textContent = 'Quero minha proposta gratuita';
+    btn.disabled = false;
+  }
+});
+</script>
 </body>
 </html>

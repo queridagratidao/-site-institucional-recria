@@ -99,6 +99,12 @@ blockquote {
 /* CTA Final */
 .cta-final { text-align: center; }
 .cta-final p { color: #bbb; max-width: 520px; margin: 0 auto 28px; }
+.cta-final .lead-form { max-width: 420px; margin: 0 auto 20px; display: flex; flex-direction: column; gap: 12px; text-align: left; }
+.cta-final .lead-form input { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,162,78,0.5); color: var(--white); padding: 13px 16px; border-radius: 4px; font-family: 'Lora', serif; font-size: 0.9rem; width: 100%; }
+.cta-final .lead-form input::placeholder { color: #666; }
+.cta-final .lead-form input:focus { outline: none; border-color: var(--gold); }
+.cta-final .lead-form button { padding: 14px; font-size: 1rem; width: 100%; border: none; cursor: pointer; }
+.form-status { font-size: 0.9rem; min-height: 20px; text-align: center; margin-top: 4px; }
 .contact-alt { margin-top: 20px; color: #888; font-size: 0.9rem; }
 .contact-alt a { color: var(--gold-light); text-decoration: none; }
 
