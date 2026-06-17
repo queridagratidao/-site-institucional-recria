@@ -147,6 +147,7 @@
       <input type="text" name="negocio" id="inst-negocio" placeholder="Nome do seu negócio" required>
       <input type="tel" name="whatsapp" id="inst-whatsapp" placeholder="WhatsApp (com DDD)" required>
       <input type="email" name="email" id="inst-email" placeholder="E-mail" required>
+      <textarea name="mensagem" id="inst-mensagem" placeholder="O que você mais precisa resolver agora? (opcional)" rows="3"></textarea>
       <button type="submit" class="btn-gold" id="inst-submitBtn">Quero minha proposta gratuita</button>
       <p class="form-status" id="inst-formStatus"></p>
     </form>
@@ -185,8 +186,8 @@ document.getElementById('leadFormInst').addEventListener('submit', async functio
     negocio: document.getElementById('inst-negocio').value,
     whatsapp: document.getElementById('inst-whatsapp').value,
     email: document.getElementById('inst-email').value,
-    momento: 'Site institucional',
-    mensagem: ''
+    momento: 'LP Institucional',
+    mensagem: document.getElementById('inst-mensagem').value
   };
   try {
     await fetch(SCRIPT_URL_INST, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
