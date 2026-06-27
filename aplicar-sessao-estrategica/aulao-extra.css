@@ -1,0 +1,30 @@
+/* Extensões de estilo só pras páginas do aulão, em cima do style.css da Recria */
+
+.video-wrap { position: relative; max-width: 820px; margin: 0 auto 40px; border: 1px solid var(--gold); border-radius: 10px; overflow: hidden; }
+.video-wrap iframe { display: block; width: 100%; aspect-ratio: 16/9; height: auto; border: 0; }
+
+.cta-duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 760px; margin: 0 auto; }
+.cta-card {
+  border: 1px solid rgba(201,162,78,0.35); border-radius: 10px; padding: 30px 26px;
+  display: flex; flex-direction: column; gap: 14px; text-align: left;
+}
+.cta-card.destaque { border-color: var(--gold); background: rgba(201,162,78,0.05); }
+.cta-card h3 { font-size: 1.15rem; color: var(--white); }
+.cta-card p { color: #bbb; font-size: 0.88rem; }
+.cta-card .preco { color: var(--gold-light); font-style: italic; font-size: 0.95rem; }
+
+.lista-check { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 4px 0; }
+.lista-check li { color: #ccc; font-size: 0.88rem; padding-left: 20px; position: relative; }
+.lista-check li::before { content: "✓"; color: var(--gold); position: absolute; left: 0; }
+
+.aviso-urgencia {
+  display: inline-block; background: rgba(201,162,78,0.1); border: 1px solid var(--gold);
+  color: var(--gold-light); font-size: 0.82rem; padding: 8px 18px; border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.preco-grande { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--gold-light); }
+.preco-sub { color: #999; font-size: 0.85rem; margin-top: -8px; }
+
+.passo-unico { max-width: 480px; margin: 40px auto 0; text-align: center; }
+.btn-whatsapp-grupo { font-size: 1.05rem; padding: 16px 36px; }

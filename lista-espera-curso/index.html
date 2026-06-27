@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de espera: Cursos Recria</title>
+<meta name="description" content="Entre na lista de espera dos novos cursos da Recria. Seja avisado em primeira mão e com desconto exclusivo.">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="aulao-extra.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <img src="assets/logo.png" alt="Recria" class="nav-logo">
+  </div>
+</header>
+
+<section class="hook-section">
+  <div class="container">
+    <p class="hook-pre">Em breve · Cursos Recria</p>
+    <h2 class="hook-headline">Marketing e comercial<br>na prática, no <em>seu ritmo</em>.</h2>
+    <p class="hook-sub">Ainda não é hora de contratar uma agência inteira, mas você já pode começar a arrumar a casa. Os Cursos Recria ensinam o básico bem feito: campanha simples, rede social minimamente organizada e como se posicionar pra vender melhor.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width:600px;">
+    <div class="cta-card destaque" style="padding:32px 28px;">
+      <h3>O que vem por aí</h3>
+      <ul class="lista-check">
+        <li>Como fazer uma campanha básica levando pro WhatsApp</li>
+        <li>Como manter a rede social minimamente ativa</li>
+        <li>Como se posicionar pra vender melhor</li>
+        <li>Próximos cursos com tema liberado em primeira mão</li>
+      </ul>
+      <span class="preco">A partir de R$ 497</span>
+    </div>
+
+    <h2 style="text-align:center; margin-top:48px;">Entra na lista de espera</h2>
+    <p class="section-intro" style="text-align:center;">Quem entra agora é avisado primeiro e garante desconto de lançamento.</p>
+
+    <form class="lead-form" id="leadForm">
+      <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+      <input type="text" name="negocio" id="negocio" placeholder="Nome do seu negócio" required>
+      <input type="tel" name="whatsapp" id="whatsapp" placeholder="WhatsApp (com DDD)" required>
+      <input type="email" name="email" id="email" placeholder="E-mail" required>
+      <button type="submit" class="btn-gold" id="submitBtn">Quero entrar na lista de espera</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <img src="assets/logo.png" alt="Recria" class="footer-logo">
+    <p>&copy; <span id="year"></span> Recria. Recriando marketing, simplificando vendas.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPJ2CW9cOITclU-3_riBxyjElRp9qCz3fg7x904f1TEMo3tU2-jUjSGDSXCSz-vhFFhw/exec';
+const PROXIMA_PAGINA = '/entrar-grupo-wapp/';
+
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  const data = {
+    canal: 'Lista de espera curso',
+    nome: document.getElementById('nome').value,
+    negocio: document.getElementById('negocio').value,
+    whatsapp: document.getElementById('whatsapp').value,
+    email: document.getElementById('email').value,
+    momento: 'Lista de espera - Curso R$497',
+    mensagem: ''
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    status.textContent = 'Pronto! Te levando pro próximo passo...';
+    setTimeout(() => { window.location.href = PROXIMA_PAGINA; }, 700);
+  } catch {
+    status.textContent = 'Erro ao enviar. Tente novamente.';
+    status.style.color = '#ff6b6b';
+    btn.textContent = 'Quero entrar na lista de espera';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>

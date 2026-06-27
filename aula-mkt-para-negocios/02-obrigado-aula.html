@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sua aula gratuita | Recria</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="aulao-extra.css">
+<style>
+#oferta { opacity: 0; transition: opacity 0.6s ease; pointer-events: none; }
+#oferta.revelada { opacity: 1; pointer-events: auto; }
+#aviso-assista { text-align:center; color:#888; font-size:0.85rem; margin: 18px 0 0; }
+</style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <img src="assets/logo.png" alt="Recria" class="nav-logo">
+  </div>
+</header>
+
+<section class="hook-section" style="padding-bottom:50px;">
+  <div class="container">
+    <p class="hook-pre">Prontinho, seu acesso está liberado</p>
+    <h2 class="hook-headline">Descubra por que você<br><em>não vende</em> como gostaria.</h2>
+    <p class="hook-sub">Assista até o final. No último minuto eu te dou um presente.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="video-wrap">
+      <!-- TROCAR pelo ID real do vídeo no YouTube (não-listado) -->
+      <div id="ytPlayer"></div>
+    </div>
+
+    <p id="aviso-assista">Continue assistindo. Seu presente aparece aqui no meio da aula.</p>
+
+    <div id="oferta">
+      <h2 style="text-align:center;">Ficou até aqui? Tenho um presente pra você.</h2>
+      <p class="section-intro" style="text-align:center; max-width:620px; margin-left:auto; margin-right:auto;">Estou selecionando poucas pessoas por semana pra um diagnóstico de marketing totalmente gratuito. Escolha o caminho que faz mais sentido pro seu momento agora.</p>
+
+      <div class="cta-duo">
+        <div class="cta-card destaque">
+          <h3>Quero o Pacote Inicial</h3>
+          <p>Tráfego pago, gestão de redes, site com automação e treinamento comercial. Tudo pra você dar start num marketing e comercial eficiente. Condição especial só pra quem está nessa página: parcele no cartão ou pague no Pix com desconto.</p>
+          <span class="preco">A partir de R$ 1.500/mês</span>
+          <a href="/aula-mkt-para-negocios-pac-inicial/" class="btn-gold">Quero fechar agora</a>
+        </div>
+        <div class="cta-card">
+          <h3>Aplicar pra Sessão Estratégica</h3>
+          <p>Não é uma call de vendas, é um diagnóstico que eu mesma faço pro seu negócio. Por isso tem vagas limitadas por semana. O diagnóstico é seu de qualquer forma, fechando comigo ou não.</p>
+          <span class="preco">Vagas limitadas · saindo daqui você perde a prioridade</span>
+          <a href="/aplicar-sessao-estrategica/" class="btn-outline">Quero aplicar</a>
+        </div>
+      </div>
+
+      <div class="passo-unico">
+        <p style="color:#888; font-size:0.85rem;">Ainda está indeciso? Nem pelo Pacote Inicial, nem pela Sessão Estratégica, mesmo sem ter nada a perder nela? Então continue acompanhando e aprendendo comigo: entra no nosso grupo do WhatsApp. Lá tem conteúdo de valor, alguns exclusivos, e você recebe novidade, desconto e lançamento em primeira mão.</p>
+        <!-- TROCAR pelo link real de convite do grupo (mesmo grupo da lista de espera do curso) -->
+        <a href="LINK_GRUPO_WHATSAPP_AQUI" class="btn-outline" style="display:inline-block; margin-top:10px;">Entrar no grupo do WhatsApp</a>
+        <p style="color:#666; font-size:0.8rem; margin-top:14px;">Ou você pode não fazer nada e continuar na mesma situação: frustrado porque o negócio não vende, correndo o risco até de falir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <img src="assets/logo.png" alt="Recria" class="footer-logo">
+    <p>&copy; <span id="year"></span> Recria. Recriando marketing, simplificando vendas.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// TROCAR pelo ID real do vídeo no YouTube (não-listado)
+const YOUTUBE_VIDEO_ID = 'SEU_VIDEO_ID_AQUI';
+
+let player;
+let revelado = false;
+
+function revelarOferta() {
+  if (revelado) return;
+  revelado = true;
+  document.getElementById('aviso-assista').style.display = 'none';
+  document.getElementById('oferta').classList.add('revelada');
+}
+
+// Carrega a API do YouTube
+const tag = document.createElement('script');
+tag.src = 'https://www.youtube.com/iframe_api';
+document.head.appendChild(tag);
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('ytPlayer', {
+    videoId: YOUTUBE_VIDEO_ID,
+    playerVars: { rel: 0, modestbranding: 1 },
+    events: {
+      onReady: function() {
+        setInterval(function() {
+          try {
+            const duracao = player.getDuration();
+            const atual = player.getCurrentTime();
+            if (duracao > 0 && atual / duracao >= 0.5) {
+              revelarOferta();
+            }
+          } catch (err) {}
+        }, 2000);
+      }
+    }
+  });
+}
+
+// Fallback: se a API não carregar por algum motivo, libera a oferta depois de 4min
+// pra não perder venda por causa de bloqueio técnico de terceiros (adblock, etc).
+setTimeout(revelarOferta, 240000);
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicação · Sessão Estratégica Recria</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="aulao-extra.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <img src="assets/logo.png" alt="Recria" class="nav-logo">
+    <a href="/aula-mkt-para-negocios/02-obrigado-aula.html" class="nav-back">← Voltar pra aula</a>
+  </div>
+</header>
+
+<section class="hook-section">
+  <div class="container">
+    <span class="aviso-urgencia">Vagas limitadas por semana</span>
+    <h2 class="hook-headline">Aplique pra sua<br>Sessão Estratégica.</h2>
+    <p class="hook-sub">Não é uma reunião de vendas. É um diagnóstico que eu mesma faço, ao vivo, pro seu negócio. Por isso não atendo todo mundo toda semana, só quem realmente se aplica.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container" style="max-width:560px;">
+    <div class="cta-card" style="margin-bottom:36px;">
+      <h3>Sem risco pra você</h3>
+      <ul class="lista-check">
+        <li>O diagnóstico é seu de qualquer maneira, fechando comigo ou não</li>
+        <li>Se fizer sentido fechar algum serviço na sessão, ótimo, vamos pro próximo passo</li>
+        <li>Se não fizer sentido agora, você sai com clareza de onde está o seu gargalo</li>
+      </ul>
+    </div>
+
+    <div id="formBox">
+      <h2 style="text-align:center;">Formulário de aplicação</h2>
+      <p class="section-intro" style="text-align:center;">Depois de aplicar, nosso comercial entra em contato com a próxima data disponível.</p>
+
+      <form class="lead-form" id="leadForm">
+        <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
+        <input type="text" name="negocio" id="negocio" placeholder="Nome do seu negócio" required>
+        <input type="tel" name="whatsapp" id="whatsapp" placeholder="WhatsApp (com DDD)" required>
+        <input type="email" name="email" id="email" placeholder="E-mail" required>
+        <select name="momento" id="momento" required>
+          <option value="" disabled selected>Qual é o seu momento hoje?</option>
+          <option value="Não tenho marketing nem comercial estruturado">Não tenho marketing nem comercial estruturado</option>
+          <option value="Já tenho marketing e comercial, mas não vendo o suficiente">Já tenho marketing e comercial, mas não vendo o suficiente</option>
+          <option value="Já vendo bem, quero escalar">Já vendo bem, quero escalar</option>
+        </select>
+        <textarea name="mensagem" id="mensagem" placeholder="Qual o maior desafio do seu negócio hoje? (opcional)" rows="3"></textarea>
+        <button type="submit" class="btn-gold" id="submitBtn">Quero aplicar pra minha Sessão Estratégica</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+
+    <div id="confirmBox" style="display:none; text-align:center;">
+      <h2>Aplicação recebida.</h2>
+      <p class="section-intro">Nosso comercial vai entrar em contato no seu WhatsApp com a próxima data disponível pra sua Sessão Estratégica.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <img src="assets/logo.png" alt="Recria" class="footer-logo">
+    <p>&copy; <span id="year"></span> Recria. Recriando marketing, simplificando vendas.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPJ2CW9cOITclU-3_riBxyjElRp9qCz3fg7x904f1TEMo3tU2-jUjSGDSXCSz-vhFFhw/exec';
+
+document.getElementById('leadForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  const data = {
+    canal: 'Aulão',
+    nome: document.getElementById('nome').value,
+    negocio: document.getElementById('negocio').value,
+    whatsapp: document.getElementById('whatsapp').value,
+    email: document.getElementById('email').value,
+    momento: 'Aplicação Sessão Estratégica - ' + document.getElementById('momento').value,
+    mensagem: document.getElementById('mensagem').value,
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    document.getElementById('formBox').style.display = 'none';
+    document.getElementById('confirmBox').style.display = 'block';
+  } catch {
+    status.textContent = 'Erro ao enviar. Tente novamente.';
+    status.style.color = '#ff6b6b';
+    btn.textContent = 'Quero aplicar pra minha Sessão Estratégica';
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
