@@ -16,32 +16,33 @@
 <header class="navbar">
   <div class="container nav-inner">
     <img src="assets/logo.png" alt="Recria" class="nav-logo">
-    <a href="/aula-mkt-para-negocios/02-obrigado-aula.html" class="nav-back">← Voltar pra aula</a>
+    <a href="/aula-mkt-para-negocios/02-obrigado-aula.html" class="nav-back">← Voltar para a aula</a>
   </div>
 </header>
 
 <section class="hook-section">
   <div class="container">
-    <span class="aviso-urgencia">Vagas limitadas por semana</span>
-    <h2 class="hook-headline">Aplique pra sua<br>Sessão Estratégica.</h2>
-    <p class="hook-sub">Não é uma reunião de vendas. É um diagnóstico que eu mesma faço, ao vivo, pro seu negócio. Por isso não atendo todo mundo toda semana, só quem realmente se aplica.</p>
+    <span class="aviso-urgencia">Vagas limitadas</span>
+    <h2 class="hook-headline">Aplique para a sua<br>Sessão Estratégica.</h2>
+    <p class="hook-sub">Não é uma reunião de vendas. É um diagnóstico que eu mesma faço, ao vivo, para o seu negócio. Por isso não atendemos muitas pessoas por semana ou por mês. Temos uma lista de espera, onde as pessoas aplicam e o nosso time comercial entra em contato com a próxima data disponível.</p>
   </div>
 </section>
 
 <section class="section" style="padding-top:0;">
   <div class="container" style="max-width:560px;">
     <div class="cta-card" style="margin-bottom:36px;">
-      <h3>Sem risco pra você</h3>
+      <h3>Sem risco para você</h3>
       <ul class="lista-check">
-        <li>O diagnóstico é seu de qualquer maneira, fechando comigo ou não</li>
-        <li>Se fizer sentido fechar algum serviço na sessão, ótimo, vamos pro próximo passo</li>
-        <li>Se não fizer sentido agora, você sai com clareza de onde está o seu gargalo</li>
+        <li>O diagnóstico é seu de qualquer maneira, fechando com a Recria ou não</li>
+        <li>Se fizer sentido fechar algum serviço conosco na sessão, ótimo, vamos para o próximo passo</li>
+        <li>Se não fizer sentido agora, você sai com clareza de quais são seus gargalos e para onde você quer ir</li>
+        <li>Você não tem nada a perder</li>
       </ul>
     </div>
 
     <div id="formBox">
       <h2 style="text-align:center;">Formulário de aplicação</h2>
-      <p class="section-intro" style="text-align:center;">Depois de aplicar, nosso comercial entra em contato com a próxima data disponível.</p>
+      <p class="section-intro" style="text-align:center;">Depois de aplicar, nosso comercial entrará em contato com a próxima data disponível para a sua confirmação.</p>
 
       <form class="lead-form" id="leadForm">
         <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
@@ -55,14 +56,14 @@
           <option value="Já vendo bem, quero escalar">Já vendo bem, quero escalar</option>
         </select>
         <textarea name="mensagem" id="mensagem" placeholder="Qual o maior desafio do seu negócio hoje? (opcional)" rows="3"></textarea>
-        <button type="submit" class="btn-gold" id="submitBtn">Quero aplicar pra minha Sessão Estratégica</button>
+        <button type="submit" class="btn-gold" id="submitBtn">Quero aplicar para a minha Sessão Estratégica</button>
         <p class="form-status" id="formStatus"></p>
       </form>
     </div>
 
     <div id="confirmBox" style="display:none; text-align:center;">
       <h2>Aplicação recebida.</h2>
-      <p class="section-intro">Nosso comercial vai entrar em contato no seu WhatsApp com a próxima data disponível pra sua Sessão Estratégica.</p>
+      <p class="section-intro">Nosso comercial vai entrar em contato no seu WhatsApp com a próxima data disponível para a sua Sessão Estratégica.</p>
     </div>
   </div>
 </section>
@@ -108,7 +109,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   } catch {
     status.textContent = 'Erro ao enviar. Tente novamente.';
     status.style.color = '#ff6b6b';
-    btn.textContent = 'Quero aplicar pra minha Sessão Estratégica';
+    btn.textContent = 'Quero aplicar para a minha Sessão Estratégica';
     btn.disabled = false;
   }
 });
