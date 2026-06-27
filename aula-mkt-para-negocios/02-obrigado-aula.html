@@ -110,7 +110,7 @@ function onYouTubeIframeAPIReady() {
           try {
             const duracao = player.getDuration();
             const atual = player.getCurrentTime();
-            if (duracao > 0 && atual / duracao >= 0.5) {
+            if (duracao > 0 && atual / duracao >= 0.6) {
               revelarOferta();
             }
           } catch (err) {}
