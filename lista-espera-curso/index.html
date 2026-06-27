@@ -23,7 +23,7 @@
   <div class="container">
     <p class="hook-pre">Em breve · Cursos Recria</p>
     <h2 class="hook-headline">Marketing e comercial<br>na prática, no <em>seu ritmo</em>.</h2>
-    <p class="hook-sub">Ainda não é hora de contratar uma agência inteira, mas você já pode começar a arrumar a casa. Os Cursos Recria ensinam o básico bem feito: campanha simples, rede social minimamente organizada e como se posicionar pra vender melhor.</p>
+    <p class="hook-sub">Ainda não é hora de contratar uma agência inteira, mas você já pode começar arrumando a casa. Os Cursos Recria ensinam o básico bem feito: campanhas de anúncios para você já conseguir clientes, rede social minimamente organizada para você ter autoridade e passar credibilidade, time comercial minimamente organizado e sabendo atender e converter, e você se posicionando melhor.</p>
   </div>
 </section>
 
@@ -32,16 +32,17 @@
     <div class="cta-card destaque" style="padding:32px 28px;">
       <h3>O que vem por aí</h3>
       <ul class="lista-check">
-        <li>Como fazer uma campanha básica levando pro WhatsApp</li>
-        <li>Como manter a rede social minimamente ativa</li>
-        <li>Como se posicionar pra vender melhor</li>
-        <li>Próximos cursos com tema liberado em primeira mão</li>
+        <li>Como fazer campanhas de anúncios que levam direto para o seu WhatsApp</li>
+        <li>Como ter uma rede social apresentável</li>
+        <li>Conteúdos de valor para gerar autoridade, credibilidade e aumentar as vendas</li>
+        <li>Como se posicionar melhor, tanto online quanto presencial</li>
+        <li>Treinamento básico para o seu time comercial vender</li>
+        <li>Próximos cursos com desconto e liberação em primeira mão</li>
       </ul>
-      <span class="preco">A partir de R$ 497</span>
     </div>
 
-    <h2 style="text-align:center; margin-top:48px;">Entra na lista de espera</h2>
-    <p class="section-intro" style="text-align:center;">Quem entra agora é avisado primeiro e garante desconto de lançamento.</p>
+    <h2 style="text-align:center; margin-top:48px;">Entre para a lista de espera</h2>
+    <p class="section-intro" style="text-align:center;">Quem entra agora é avisado primeiro e garante o desconto de lançamento.</p>
 
     <form class="lead-form" id="leadForm">
       <input type="text" name="nome" id="nome" placeholder="Seu nome" required>
@@ -80,7 +81,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
     negocio: document.getElementById('negocio').value,
     whatsapp: document.getElementById('whatsapp').value,
     email: document.getElementById('email').value,
-    momento: 'Lista de espera - Curso R$497',
+    momento: 'Lista de espera - Curso Recria',
     mensagem: ''
   };
 
@@ -91,7 +92,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
-    status.textContent = 'Pronto! Te levando pro próximo passo...';
+    status.textContent = 'Pronto! Te levando para o próximo passo...';
     setTimeout(() => { window.location.href = PROXIMA_PAGINA; }, 700);
   } catch {
     status.textContent = 'Erro ao enviar. Tente novamente.';
