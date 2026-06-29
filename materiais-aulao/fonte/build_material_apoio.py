@@ -16,7 +16,7 @@ PAGE_W, PAGE_H = A4
 
 INSTAGRAM = "https://instagram.com/agencia.recria"
 SITE = "https://www.agenciarecria.com.br"
-GRUPO_WPP = "LINK_GRUPO_WHATSAPP_AQUI"  # TROCAR quando o grupo for criado
+GRUPO_WPP = "https://chat.whatsapp.com/Dh1nhxW4POm2h0Z6iPXkIV"
 URL_PACOTE_INICIAL = "https://www.agenciarecria.com.br/aula-mkt-para-negocios-pac-inicial/"
 URL_SESSAO_ESTRATEGICA = "https://www.agenciarecria.com.br/aplicar-sessao-estrategica/"
 
