@@ -64,8 +64,12 @@ const PROXIMA_PAGINA = '02-obrigado-aula.html';
 function detectarCanal() {
   const params = new URLSearchParams(window.location.search);
   const source = (params.get('utm_source') || '').toLowerCase();
-  if (source.includes('google')) return 'Google';
-  if (source.includes('instagram') || source.includes('ig') || source.includes('facebook') || source.includes('fb')) return 'Instagram';
+  if (source === 'instagram_ads') return 'Instagram Ads';
+  if (source === 'instagram_organico') return 'Instagram Orgânico';
+  if (source === 'google_ads') return 'Google Ads';
+  if (source === 'jessie') return 'Jessie';
+  if (source.includes('google')) return 'Google Ads';
+  if (source.includes('instagram') || source.includes('ig') || source.includes('facebook') || source.includes('fb')) return 'Instagram Orgânico';
   if (source) return source;
   return 'Orgânico';
 }
