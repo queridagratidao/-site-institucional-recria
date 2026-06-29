@@ -68,6 +68,19 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxPJ2CW9cOITclU-3_riBxyjElRp9qCz3fg7x904f1TEMo3tU2-jUjSGDSXCSz-vhFFhw/exec';
 const PROXIMA_PAGINA = '/entrar-grupo-wapp/';
 
+function detectarCanal() {
+  const params = new URLSearchParams(window.location.search);
+  const source = (params.get('utm_source') || '').toLowerCase();
+  if (source === 'instagram_ads') return 'Instagram Ads';
+  if (source === 'instagram_organico') return 'Instagram Orgânico';
+  if (source === 'google_ads') return 'Google Ads';
+  if (source === 'jessie') return 'Jessie';
+  if (source.includes('google')) return 'Google Ads';
+  if (source.includes('instagram') || source.includes('ig') || source.includes('facebook') || source.includes('fb')) return 'Instagram Orgânico';
+  if (source) return source;
+  return 'Orgânico';
+}
+
 document.getElementById('leadForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = document.getElementById('submitBtn');
@@ -76,7 +89,7 @@ document.getElementById('leadForm').addEventListener('submit', async function(e)
   btn.disabled = true;
 
   const data = {
-    canal: 'Lista de espera curso',
+    canal: detectarCanal(),
     nome: document.getElementById('nome').value,
     negocio: document.getElementById('negocio').value,
     whatsapp: document.getElementById('whatsapp').value,
