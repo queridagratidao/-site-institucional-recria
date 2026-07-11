@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jornada AME-SE | Camila Sartori</title>
+<meta name="description" content="Curso online de autoconhecimento e autoestima para mulheres, com base em terapia do esquema e terapia cognitivo-comportamental.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rosa-claro:#fbeef7;
+    --lilas-claro:#f2e6f7;
+    --branco:#ffffff;
+    --magenta:#9c1256;
+    --magenta-escuro:#6e0e3d;
+    --roxo-profundo:#5a1042;
+    --rosa-bonus:#f3d2ec;
+    --texto:#3a2233;
+    --texto-claro:#6b4b60;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Nunito',sans-serif;
+    color:var(--texto);
+    line-height:1.6;
+    background:var(--branco);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand{font-family:'Quicksand',sans-serif;}
+  img{max-width:100%;display:block;}
+  .container{max-width:900px;margin:0 auto;padding:0 24px;}
+  section{padding:70px 0;}
+  .center{text-align:center;}
+  .btn{
+    display:inline-block;
+    background:var(--magenta);
+    color:#fff;
+    font-family:'Quicksand',sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    padding:16px 36px;
+    border-radius:40px;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(156,18,86,.25);
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-outline{
+    background:transparent;
+    border:2px solid #fff;
+    color:#fff;
+    box-shadow:none;
+  }
+  .highlight{
+    background:#fff;
+    color:var(--magenta-escuro);
+    padding:2px 10px;
+    font-style:italic;
+    font-weight:700;
+    box-decoration-break:clone;
+  }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg,var(--lilas-claro) 0%,var(--rosa-claro) 60%,#fff 100%);
+    padding:50px 0 70px;
+  }
+  .eyebrow{color:var(--texto-claro);font-size:.95rem;margin-bottom:6px;}
+  .logo-mark{
+    display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:8px;
+  }
+  .logo-mark img{max-height:64px;width:auto;}
+  .hero h1{
+    text-align:center;
+    font-size:2.6rem;
+    color:var(--magenta);
+    margin-bottom:18px;
+  }
+  .hero .subtitle{
+    text-align:center;
+    font-style:italic;
+    font-weight:700;
+    font-size:1.3rem;
+    color:var(--texto);
+    margin-bottom:28px;
+  }
+  .hero p{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto 28px;
+    font-size:1.05rem;
+  }
+  .hero .cta-line{
+    text-align:center;
+    font-weight:700;
+    color:var(--magenta);
+    margin-bottom:6px;
+  }
+  .hero .cta-line a{color:var(--magenta-escuro);text-decoration:underline;font-weight:700;}
+  .video-frame{
+    max-width:640px;margin:32px auto 0;
+    border-radius:14px;overflow:hidden;
+    box-shadow:0 20px 40px rgba(90,16,66,.18);
+    aspect-ratio:16/9;
+    background:#111 url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22 fill=%22%23ffffff33%22/><polygon points=%229,7 9,17 18,12%22 fill=%22white%22/></svg>') center/64px no-repeat;
+    display:flex;align-items:flex-end;
+    color:#fff;font-size:.85rem;
+  }
+  .video-frame .label{background:rgba(0,0,0,.55);padding:10px 16px;width:100%;}
+  .cta-center{text-align:center;margin-top:20px;}
+
+  /* SOBRE A CAMILA */
+  .sobre{background:#fff;}
+  .sobre-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center;}
+  .sobre h2{color:var(--magenta);margin-bottom:16px;font-size:1.6rem;}
+  .sobre p{margin-bottom:14px;}
+  @media(max-width:720px){.sobre-grid{grid-template-columns:1fr;}}
+
+  /* DESEJO */
+  .desejo{background:linear-gradient(180deg,#fdf2fb,#fbd9ef);}
+  .desejo .container{max-width:680px;text-align:center;}
+  .desejo h2{color:var(--magenta);font-style:italic;margin-bottom:18px;font-size:1.6rem;}
+  .desejo p{margin-bottom:14px;}
+  .desejo .quote{
+    background:#fff;color:var(--magenta-escuro);font-weight:700;font-style:italic;
+    padding:14px 18px;border-radius:8px;margin:20px 0;display:inline-block;
+  }
+  .foto-placeholder{
+    background:#e7d3e2;border-radius:16px;aspect-ratio:3/4;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--texto-claro);font-size:.9rem;text-align:center;padding:20px;
+  }
+
+  /* DEPOIMENTOS */
+  .depoimentos{background:var(--roxo-profundo);color:#fff;}
+  .depoimentos h2{text-align:center;font-style:italic;margin-bottom:36px;}
+  .depo-card{max-width:640px;margin:0 auto 40px;text-align:center;}
+  .depo-video{
+    background:#111;border-radius:12px;aspect-ratio:16/9;margin-bottom:16px;
+    display:flex;align-items:flex-end;color:#fff;font-size:.85rem;
+    background-image:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><circle cx=%2212%22 cy=%2212%22 r=%2210%22 fill=%22%23ffffff33%22/><polygon points=%229,7 9,17 18,12%22 fill=%22white%22/></svg>');
+    background-repeat:no-repeat;background-position:center;background-size:56px;
+  }
+  .depo-video span{background:rgba(0,0,0,.5);padding:8px 14px;width:100%;}
+  .depo-nome{font-weight:700;font-family:'Quicksand',sans-serif;}
+  .depo-cidade{font-style:italic;opacity:.85;margin-bottom:14px;font-size:.9rem;}
+  .depo-texto{font-style:italic;opacity:.95;}
+
+  /* LISTA MUDAR VIDA */
+  .lista-vida{
+    background:linear-gradient(180deg,#f6e9f3,#eeddf0);
+  }
+  .lista-vida h2{text-align:center;text-decoration:underline;margin-bottom:34px;font-style:italic;}
+  .lista-vida ol{list-style:none;counter-reset:item;max-width:680px;margin:0 auto;}
+  .lista-vida li{
+    counter-increment:item;position:relative;padding:10px 0 10px 38px;font-size:1.02rem;
+  }
+  .lista-vida li::before{
+    content:counter(item)".";position:absolute;left:0;font-weight:700;color:var(--magenta);
+  }
+  .lista-vida b{color:var(--magenta-escuro);}
+
+  /* JORNADA / LINHA DO TEMPO */
+  .jornada{background:#fff;}
+  .jornada h2{text-align:center;color:var(--magenta);margin-bottom:10px;}
+  .jornada .sub{text-align:center;max-width:640px;margin:0 auto 46px;color:var(--texto-claro);}
+  .timeline{position:relative;max-width:720px;margin:0 auto;}
+  .timeline::before{
+    content:"";position:absolute;left:20px;top:6px;bottom:6px;width:3px;
+    background:linear-gradient(180deg,var(--rosa-bonus),var(--magenta));
+    border-radius:3px;
+  }
+  .t-step{position:relative;padding:0 0 40px 60px;}
+  .t-step:last-child{padding-bottom:0;}
+  .t-dot{
+    position:absolute;left:9px;top:2px;width:24px;height:24px;border-radius:50%;
+    background:var(--magenta);color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:.8rem;font-weight:700;box-shadow:0 0 0 5px #fff, 0 0 0 6px var(--rosa-bonus);
+  }
+  .t-step h3{color:var(--magenta-escuro);font-size:1.05rem;margin-bottom:4px;}
+  .t-step p{color:var(--texto);font-size:.98rem;}
+  .t-step.hoje .t-dot{background:#b9a0b3;}
+  .t-step.depois{background:var(--rosa-claro);border-radius:14px;padding-top:16px;padding-bottom:24px;margin-bottom:0;}
+  .aviso-terapia{
+    max-width:680px;margin:44px auto 0;background:var(--rosa-bonus);border-radius:14px;
+    padding:22px 26px;font-size:.95rem;color:var(--roxo-profundo);text-align:center;
+  }
+  .aviso-terapia b{color:var(--magenta-escuro);}
+
+  /* MODULOS */
+  .modulos{background:linear-gradient(180deg,#fdeef8,#fbdaf0);}
+  .modulos h2{text-align:center;text-decoration:underline;color:var(--magenta-escuro);margin-bottom:40px;font-style:italic;}
+  .modulo{text-align:center;max-width:640px;margin:0 auto 34px;}
+  .modulo .tag{
+    display:inline-block;background:var(--magenta-escuro);color:#fff;font-weight:700;
+    padding:6px 16px;border-radius:2px;margin-bottom:4px;font-family:'Quicksand',sans-serif;
+  }
+  .modulo .titulo{display:block;font-weight:700;color:var(--magenta-escuro);margin-bottom:10px;font-family:'Quicksand',sans-serif;}
+
+  /* BONUS */
+  .bonus{background:#f8f2fa;}
+  .bonus > .container > h2{text-align:center;margin-bottom:8px;color:var(--magenta);}
+  .bonus > .container > p.sub{text-align:center;color:var(--texto-claro);margin-bottom:36px;}
+  .bonus-card{
+    background:var(--rosa-bonus);border-radius:10px;padding:22px 26px;margin-bottom:20px;
+  }
+  .bonus-card .num{font-weight:700;color:var(--magenta-escuro);font-family:'Quicksand',sans-serif;}
+  .bonus-card .titulo{display:block;font-weight:700;color:var(--magenta-escuro);margin:2px 0 10px;font-family:'Quicksand',sans-serif;font-size:1.05rem;}
+  .bonus-card .preco{margin-top:10px;font-weight:700;color:var(--magenta-escuro);}
+  .bonus-card .de{text-decoration:line-through;opacity:.6;font-weight:400;}
+  .bonus-total{text-align:center;margin-top:30px;}
+  .bonus-total .valor{font-size:1.3rem;font-weight:700;color:var(--magenta-escuro);font-family:'Quicksand',sans-serif;}
+
+  /* PRECO */
+  .preco-final{background:var(--magenta-escuro);color:#fff;text-align:center;}
+  .preco-final h2{font-style:italic;margin-bottom:20px;font-size:1.4rem;}
+  .preco-box{
+    background:#fff;color:var(--magenta-escuro);display:inline-block;
+    padding:18px 30px;border-radius:8px;margin-bottom:26px;font-weight:700;font-size:1.15rem;
+  }
+  .preco-box .a-vista{background:var(--rosa-bonus);padding:2px 8px;border-radius:4px;}
+  .garantia{margin-top:16px;font-size:.9rem;opacity:.9;}
+  .garantia i{font-style:italic;}
+
+  /* LISTA DE ESPERA TERAPIA */
+  .lista-espera{background:linear-gradient(180deg,#fff,var(--rosa-claro));}
+  .lista-espera .box{
+    max-width:680px;margin:0 auto;background:#fff;border:2px solid var(--rosa-bonus);
+    border-radius:18px;padding:40px;text-align:center;
+    box-shadow:0 12px 30px rgba(90,16,66,.08);
+  }
+  .lista-espera h2{color:var(--magenta);margin-bottom:14px;}
+  .lista-espera p{color:var(--texto);margin-bottom:22px;}
+  .form-espera{display:none;text-align:left;margin-top:22px;}
+  .form-espera.aberto{display:block;}
+  .form-espera label{font-size:.85rem;font-weight:700;color:var(--texto-claro);display:block;margin-bottom:4px;}
+  .form-espera input{
+    width:100%;padding:12px 14px;border-radius:8px;border:1px solid #ddc3d6;
+    margin-bottom:16px;font-family:'Nunito',sans-serif;font-size:1rem;
+  }
+  .form-msg{margin-top:14px;font-weight:700;color:var(--magenta-escuro);display:none;}
+
+  /* FAQ */
+  .faq{background:#efe3ed;}
+  .faq h2{text-align:center;color:var(--magenta-escuro);margin-bottom:34px;}
+  .faq-item{
+    background:var(--rosa-bonus);border-radius:6px;padding:20px 24px;margin-bottom:16px;
+    border-left:4px solid var(--magenta);
+  }
+  .faq-item .pergunta{font-weight:700;color:var(--magenta-escuro);margin-bottom:8px;font-size:.92rem;letter-spacing:.02em;}
+  .faq-item .resposta{font-size:.96rem;}
+
+  footer{background:#fff;text-align:center;padding:40px 0;}
+  footer .contato-btn{
+    background:#2f5fa8;color:#fff;border-radius:30px;padding:12px 28px;text-decoration:none;
+    font-weight:700;display:inline-block;margin-bottom:24px;
+  }
+  footer .legal{font-size:.72rem;color:#998;max-width:640px;margin:0 auto 8px;}
+  footer .assinatura{font-size:.78rem;font-weight:700;color:#665;}
+
+  .marca-dev{
+    text-align:center;font-size:.7rem;color:#c9a9c0;padding:14px 0;background:#fbf3f9;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <div class="logo-mark">
+      <img src="img/logo-icon.png" alt="Jornada AME-SE">
+    </div>
+    <p class="eyebrow center">Psicóloga Camila Sartori</p>
+    <h1>Jornada AME-SE</h1>
+    <p class="subtitle">Curso online de autoconhecimento e autoestima para mulheres</p>
+    <p>Aprenda a acreditar e investir no seu potencial. Com a Jornada AME-SE, você vai entender quais são suas crenças limitantes e como superá-las, vai aprender a enfrentar os obstáculos criados a partir de vivências do passado, e vai começar a mudar o jeito que você enxerga a si mesma, ganhando mais qualidade de vida e mais autocontrole.</p>
+    <p>Este curso foi construído a partir da terapia do esquema e da terapia cognitivo-comportamental, sob a minha ótica de psicóloga, com a experiência de mais de três mil atendimentos, nos quais atuo todos os dias ajudando nessa transformação.</p>
+    <p class="cta-line">Quer ter uma vida mais leve, com mais autoestima e mais confiança em você mesma?</p>
+    <p class="center"><a href="#preco">Então essa jornada é para você!</a></p>
+    <div class="video-frame">
+      <iframe width="100%" height="100%" style="aspect-ratio:16/9;border:0;" src="https://www.youtube.com/embed/Oet-bhpOsfI" title="Jornada AME-SE - Apresentação" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="cta-center"><a class="btn" href="#preco">Quero fazer o curso</a></div>
+  </div>
+</section>
+
+<section class="sobre">
+  <div class="container sobre-grid">
+    <div class="foto-placeholder"><img src="img/camila-2.jpg" alt="Camila Sartori" style="width:100%;height:100%;object-fit:cover;border-radius:16px;"></div>
+    <div>
+      <h2>Quem estará com você nessa Jornada de autoconhecimento?</h2>
+      <p>Sou psicóloga formada pela PUC-RS desde 2018, com Mestrado em Psicologia Clínica pela mesma instituição e atualmente doutoranda em Psicologia. Realizo atendimentos clínicos para adultos e casais, fundamentados na abordagem Cognitivo-Comportamental e na Terapia do Esquema.</p>
+      <p>Os atendimentos são realizados via consultas on-line através de vídeo chamadas por plataformas digitais.</p>
+      <p>No momento não tenho mais agenda disponível, mas você pode entrar na lista de espera clicando no botão abaixo.</p>
+      <div><a class="btn" href="#lista-espera">Entrar na lista de espera</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="desejo">
+  <div class="container">
+    <h2>Já imaginou como seria bom confiar em você mesma?</h2>
+    <p>Como seria bom ter a coragem de fazer o que você bem entende. De tomar as rédeas da própria vida, de ter uma autoestima fortalecida para viver relacionamentos mais saudáveis.</p>
+    <p>De buscar seus sonhos. De se posicionar.</p>
+    <p class="quote">Aprenda a buscar aquilo que você quer, e que, acima de tudo, você merece.</p>
+    <div class="cta-center"><a class="btn" href="#preco">Quero ser mais confiante</a></div>
+  </div>
+</section>
+
+<section class="depoimentos">
+  <div class="container">
+    <h2>Opinião das alunas</h2>
+    <div class="depo-card">
+      <div class="depo-video" style="background:#111;"><iframe width="100%" height="100%" style="aspect-ratio:16/9;border:0;display:block;" src="https://www.youtube.com/embed/zOMwwiVY1Yw" title="Depoimento Rosângela" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="depo-nome">Rosângela</div>
+      <div class="depo-cidade">Salvador / BA</div>
+      <p class="depo-texto">"O curso é uma imersão em si mesma, traz autoconhecimento de forma interativa e vira a chave em todas as áreas da nossa vida."</p>
+    </div>
+  </div>
+</section>
+
+<section class="lista-vida">
+  <div class="container">
+    <h2>Como esta jornada vai mudar sua vida:</h2>
+    <ol>
+      <li>Autoconhecimento, com ajuda de uma <b>psicóloga que há anos trabalha com mulheres</b>;</li>
+      <li>Você vai conseguir <b>identificar quais são suas crenças limitantes</b> e como modificá-las;</li>
+      <li>Vai <b>descobrir a origem</b>, muitas vezes na infância, das suas crenças limitantes;</li>
+      <li><b>Fortalecer pensamentos mais saudáveis e confiantes</b> dentro da sua mente;</li>
+      <li>Fortalecer sua autoconfiança, acreditando que <b>você é capaz</b>;</li>
+      <li><b>Quebrar o seu ciclo da insegurança</b> emocional;</li>
+      <li><b>Fortalecer sua autoestima</b>, aprendendo a reconhecer o seu valor;</li>
+      <li>Ter uma postura menos crítica consigo mesma, conseguindo <b>se amar e se aceitar mais</b>;</li>
+      <li>Aprender a <b>lidar melhor com suas emoções</b>;</li>
+      <li><b>Aprender a dizer não</b> e a estabelecer limites saudáveis.</li>
+    </ol>
+    <div class="cta-center"><a class="btn" href="#preco">Quero ser minha melhor versão</a></div>
+  </div>
+</section>
+
+<section class="jornada">
+  <div class="container">
+    <h2>Sua jornada dentro do AME-SE</h2>
+    <p class="sub">Um passo de cada vez. Veja onde você está hoje e onde essa jornada pode te levar.</p>
+    <div class="timeline">
+      <div class="t-step hoje">
+        <div class="t-dot">•</div>
+        <h3>Onde você está agora</h3>
+        <p>Insegurança, autocrítica, crenças limitantes que vêm de longe, dificuldade de se posicionar, talvez ciúme ou apego demais em relacionamentos.</p>
+      </div>
+      <div class="t-step">
+        <div class="t-dot">1</div>
+        <h3>Autoconhecimento na Prática</h3>
+        <p>Você se conecta com a sua história de vida e entende de onde vieram suas crenças limitantes.</p>
+      </div>
+      <div class="t-step">
+        <div class="t-dot">2</div>
+        <h3>Confiando em si</h3>
+        <p>Identifica o ciclo da insegurança, aprende a combatê-lo e passa a enfrentar os medos que travam sua vida.</p>
+      </div>
+      <div class="t-step">
+        <div class="t-dot">3</div>
+        <h3>Cuidando das suas emoções</h3>
+        <p>Desenvolve inteligência emocional, mais estabilidade, e aprende a estabelecer limites saudáveis.</p>
+      </div>
+      <div class="t-step">
+        <div class="t-dot">4</div>
+        <h3>Fortalecendo sua autoestima</h3>
+        <p>Reconhece seu verdadeiro valor, suas qualidades, potencialidades e forças.</p>
+      </div>
+      <div class="t-step">
+        <div class="t-dot">5</div>
+        <h3>Amando-se</h3>
+        <p>Pratica autoaceitação e gratidão, e se liberta da crítica interna.</p>
+      </div>
+      <div class="t-step depois">
+        <div class="t-dot">✓</div>
+        <h3>Onde você chega</h3>
+        <p>Mais autoestima, mais confiança para se posicionar, menos apego e menos ciúme nos relacionamentos, mais leveza para viver o seu dia a dia.</p>
+      </div>
+    </div>
+    <div class="aviso-terapia">
+      A Jornada AME-SE é um curso de autoconhecimento, <b>não substitui o acompanhamento terapêutico individual.</b> Se ao final da jornada você sentir que quer dar o próximo passo com uma terapia 1:1 com a Camila, você pode entrar na lista de espera abaixo.
+    </div>
+    <div class="cta-center"><a class="btn" href="#lista-espera">Quero entrar na lista de espera</a></div>
+  </div>
+</section>
+
+<section class="modulos">
+  <div class="container">
+    <h2>Conheça os módulos do curso:</h2>
+    <div class="modulo">
+      <span class="tag">Módulo 1</span>
+      <span class="titulo">Autoconhecimento na Prática</span>
+      <p>Você vai se conectar com a sua história de vida, descobrindo quais necessidades emocionais básicas não foram supridas, e como isso pode ter influenciado na formação das suas crenças limitantes e esquemas mentais.</p>
+    </div>
+    <div class="modulo">
+      <span class="tag">Módulo 2</span>
+      <span class="titulo">Confiando em si</span>
+      <p>Irá identificar o seu ciclo da insegurança e aprender a combatê-lo, bem como modificar suas crenças limitantes. Vai se encorajar a enfrentar os medos que travam a sua vida, e aumentar a sua autoeficácia, pilar central para ser mais autoconfiante.</p>
+    </div>
+    <div class="modulo">
+      <span class="tag">Módulo 3</span>
+      <span class="titulo">Cuidando das suas emoções</span>
+      <p>Você irá aprender a desenvolver sua inteligência emocional e como lidar melhor com o que sente. Desenvolvendo maior estabilidade emocional, bem como estabelecendo limites saudáveis na sua vida.</p>
+    </div>
+    <div class="modulo">
+      <span class="tag">Módulo 4</span>
+      <span class="titulo">Fortalecendo sua autoestima</span>
+      <p>Você irá desenvolver todos os pilares da sua autoestima, que vão fazer com que você consiga reconhecer o seu verdadeiro valor, suas qualidades, potencialidades, forças e virtudes.</p>
+    </div>
+    <div class="modulo">
+      <span class="tag">Módulo 5</span>
+      <span class="titulo">Amando-se</span>
+      <p>Você vai aprender a como praticar a autoaceitação, gratidão e a se livrar da crítica interna, podendo assim fortalecer mais o seu amor próprio.</p>
+    </div>
+    <div class="cta-center"><a class="btn" href="#preco">Quero começar minha jornada</a></div>
+  </div>
+</section>
+
+<section class="bonus">
+  <div class="container">
+    <h2>Jornada AME-SE</h2>
+    <p class="sub">Veja todos os bônus que você vai levar de presente ao se inscrever agora:</p>
+    <div class="bonus-card">
+      <span class="num">Bônus #1:</span>
+      <span class="titulo">Mentoria Individual</span>
+      <p>Comprando o curso, você ganha uma mentoria individual com a Camila, para tirar suas dúvidas ao longo da jornada e dar um up na sua autoestima.</p>
+      <p class="preco">De <span class="de">R$ 200,00</span> por R$ 0,00</p>
+    </div>
+    <div class="bonus-card">
+      <span class="num">Bônus #2:</span>
+      <span class="titulo">Combo de Lives da Autoconfiança na Prática</span>
+      <p>Horas de conteúdo da série Autoconfiança na Prática, que não estão mais disponíveis, mas você recebe como aluna da Jornada AME-SE.</p>
+      <p class="preco">De <span class="de">R$ 97,00</span> por R$ 0,00</p>
+    </div>
+    <div class="bonus-card">
+      <span class="num">Bônus #3:</span>
+      <span class="titulo">Ebook Livre-se da Procrastinação e Construa Novos Hábitos</span>
+      <p>Um ebook de presente para te ajudar no processo de combate à procrastinação, com conteúdo exclusivo para construir novos hábitos.</p>
+      <p class="preco">De <span class="de">R$ 47,00</span> por R$ 0,00</p>
+    </div>
+    <div class="bonus-card">
+      <span class="num">Bônus #4:</span>
+      <span class="titulo">Atualizações Vitalícias do Curso</span>
+      <p>A Jornada AME-SE está em constante atualização. Quem compra agora garante acesso a todas as atualizações futuras do curso, sem nenhum custo adicional.</p>
+    </div>
+    <div class="bonus-total">
+      <p>Total em bônus:</p>
+      <p class="valor">de R$ 344,00 por R$ 0,00</p>
+      <p style="font-size:.85rem;font-weight:400;color:var(--texto-claro);margin-top:6px;">+ atualizações do curso sempre inclusas</p>
+    </div>
+    <div class="cta-center" style="margin-top:20px;"><a class="btn" href="#preco">Quero acessar a Jornada AME-SE</a></div>
+  </div>
+</section>
+
+<section class="preco-final" id="preco">
+  <div class="container">
+    <h2>Dê mais um passo na sua jornada por apenas</h2>
+    <div class="preco-box">12x de R$ 29,64<br>ou <span class="a-vista">R$ 297,00</span> à vista sem juros</div>
+    <div class="cta-center"><a class="btn btn-outline" href="#lista-espera">Quero ser aluna</a></div>
+    <p class="garantia">Pagamento <i>100% seguro</i> e com <b>7 dias de garantia</b> de satisfação, ou <i>seu dinheiro de volta</i>.</p>
+  </div>
+</section>
+
+<section class="lista-espera" id="lista-espera">
+  <div class="container">
+    <div class="box">
+      <h2>Quer dar o próximo passo?</h2>
+      <p>Se depois da Jornada AME-SE você sentir que quer seguir com um acompanhamento terapêutico individual com a Camila, deixe seus dados abaixo. No momento a agenda está em lista de espera, e você será uma das primeiras a ser chamada assim que abrir uma vaga.</p>
+      <button class="btn" onclick="document.getElementById('form-espera').classList.add('aberto'); this.style.display='none';">Entrar na lista de espera</button>
+      <form id="form-espera" class="form-espera" onsubmit="return enviarListaEspera(event)">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" required>
+        <label for="whatsapp">WhatsApp</label>
+        <input id="whatsapp" name="whatsapp" type="tel" required>
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" required>
+        <div class="cta-center"><button class="btn" type="submit">Quero entrar na lista</button></div>
+        <p class="form-msg" id="form-msg">Recebemos o seu contato! A Camila vai falar com você assim que houver uma vaga.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2>Perguntas Frequentes</h2>
+    <div class="faq-item">
+      <div class="pergunta">PARA QUEM É A JORNADA AME-SE?</div>
+      <div class="resposta">É para mulheres acima de 18 anos que buscam mais confiança em si e uma autoestima mais elevada, através do desenvolvimento do autoconhecimento e do amor próprio. Para quem busca viver uma vida que vale a pena ser vivida, sem os medos e inseguranças atrapalhando a conquista do que deseja.</div>
+    </div>
+    <div class="faq-item">
+      <div class="pergunta">QUANDO E COMO VOU RECEBER O ACESSO?</div>
+      <div class="resposta">Você terá acesso por 1 ano, disponível na sua área de membros no site da Hotmart. Assim que realizar a compra, seja pelo cartão ou boleto, você já recebe um e-mail com o acesso.</div>
+    </div>
+    <div class="faq-item">
+      <div class="pergunta">PRECISO TER UMA CONTA NA HOTMART?</div>
+      <div class="resposta">Sim. Se você ainda não tiver, não tem problema: ao colocar suas informações na hora da compra, o acesso é enviado automaticamente para o e-mail que você usou no cadastro.</div>
+    </div>
+    <div class="faq-item">
+      <div class="pergunta">A JORNADA OFERECE CERTIFICADO?</div>
+      <div class="resposta">Sim, você recebe um certificado de conclusão com as horas de aula realizadas após finalizar todos os módulos.</div>
+    </div>
+    <div class="faq-item">
+      <div class="pergunta">SOU PSICÓLOGA, POSSO FAZER O CURSO?</div>
+      <div class="resposta">A Jornada AME-SE é voltada para mulheres que querem desenvolver autoconfiança e autoestima. Se você é psicóloga, o curso pode te ajudar nesses aspectos também, além de servir como material de apoio na sua prática com pacientes.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="margin-bottom:16px;">Dúvidas ou problemas para se inscrever?</p>
+    <a class="contato-btn" href="https://wa.link/wdtnkt" target="_blank" rel="noopener">Entrar em contato</a>
+    <p class="legal">Aviso legal: nenhuma informação contida neste produto deve ser interpretada como afirmação da obtenção de resultados. Qualquer referência ao desempenho passado ou potencial de uma estratégia abordada no conteúdo não é, e não deve ser interpretada como uma indicação ou garantia de qualquer resultado específico.</p>
+    <p class="assinatura">Camila Sartori da Silva &copy; 2026 — Todos os direitos reservados</p>
+    <p class="assinatura">Criado pela Agência Recria</p>
+  </div>
+</footer>
+
+<div class="marca-dev">Mockup produzido pela Agência Recria para aprovação — cores e textos sujeitos a ajuste</div>
+
+<script>
+  // Placeholder: substituir pela URL do Google Apps Script conectado à planilha de lista de espera.
+  var GOOGLE_SHEETS_WEBHOOK_URL = "";
+
+  function enviarListaEspera(evt){
+    evt.preventDefault();
+    var form = evt.target;
+    var msg = document.getElementById('form-msg');
+
+    if(GOOGLE_SHEETS_WEBHOOK_URL){
+      var dados = new FormData(form);
+      fetch(GOOGLE_SHEETS_WEBHOOK_URL, { method: "POST", body: dados, mode: "no-cors" })
+        .catch(function(){ /* silencioso: no-cors não retorna status legível */ });
+    }
+
+    form.querySelectorAll('input').forEach(function(i){ i.disabled = true; });
+    form.querySelector('button[type="submit"]').style.display = 'none';
+    msg.style.display = 'block';
+    return false;
+  }
+</script>
+
+</body>
+</html>
