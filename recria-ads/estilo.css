@@ -53,3 +53,5 @@ footer{background:var(--preto);color:#9d927c;text-align:center;padding:30px 20px
 .total p{color:#e9e4da;margin:0}.total .tv{font-family:'Playfair Display';font-size:56px;color:var(--ouro2);line-height:1.1;margin:6px 0}
 .total .inc{margin-top:14px;font-family:'Playfair Display';font-style:italic;font-size:22px;color:var(--ouro2)}
 @media(max-width:560px){.bonus{flex-direction:column;align-items:flex-start}}
+
+.foto-img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:8px;border:2px solid var(--ouro);display:block}
