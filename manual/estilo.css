@@ -17,7 +17,7 @@ p{margin-bottom:14px}
 .center{text-align:center}
 .btn{display:inline-block;background:var(--ouro);color:var(--preto);font-weight:700;font-size:18px;padding:18px 34px;border-radius:6px;text-decoration:none;letter-spacing:.02em;box-shadow:0 6px 24px rgba(201,162,78,.35);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
-.logo{height:64px;margin-bottom:34px}
+.logo{height:84px;margin-bottom:14px}
 .video{aspect-ratio:16/9;background:#141414;border:1.5px solid var(--ouro);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--ouro2);margin:30px 0;font-size:16px;text-align:center;padding:20px}
 .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .card{background:#fff;border-left:5px solid var(--ouro);padding:22px;border-radius:6px}
@@ -96,7 +96,7 @@ body.claro{--off:#EFE6D6;--txt:#3b2c12;--ouro-t:#9a7424}
 .claro .total{background:#fbf5e8}
 .claro .prova,.claro .hero-img{border:0;box-shadow:0 10px 30px rgba(59,44,18,.18)}
 .claro .ornamento{height:14px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='14'%3E%3Cpath d='M0 7h90M130 7h90' stroke='%239a7424' stroke-width='1.5'/%3E%3Ccircle cx='110' cy='7' r='4' fill='none' stroke='%239a7424' stroke-width='1.5'/%3E%3C/svg%3E") center no-repeat;margin:0 auto 6px;max-width:220px}
-.logo{height:130px;margin:-20px 0 0}
+.logo{height:84px;margin:-14px 0 -6px}
 .claro [style*="b8ad96"]{color:#6b5520!important}
 .claro .combo,.claro .dark .combo{background:#fbf5e8;border:1px solid #d9c394;border-left:5px solid var(--ouro);color:#3b2c12}
 .claro .combo h3 span{color:var(--ouro-t)}

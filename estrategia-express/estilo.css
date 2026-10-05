@@ -17,7 +17,7 @@ p{margin-bottom:14px}
 .center{text-align:center}
 .btn{display:inline-block;background:var(--ouro);color:var(--preto);font-weight:700;font-size:18px;padding:18px 34px;border-radius:6px;text-decoration:none;letter-spacing:.02em;box-shadow:0 6px 24px rgba(201,162,78,.35);transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
-.logo{height:64px;margin-bottom:34px}
+.logo{height:84px;margin-bottom:14px}
 .video{aspect-ratio:16/9;background:#141414;border:1.5px solid var(--ouro);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--ouro2);margin:30px 0;font-size:16px;text-align:center;padding:20px}
 .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 .card{background:#fff;border-left:5px solid var(--ouro);padding:22px;border-radius:6px}
@@ -94,4 +94,4 @@ body.escuro{--off:#000;--txt:#eee7d6;background:#000}
 .escuro .hero-img,.escuro .prova{border:1px solid rgba(201,162,78,.5)}
 .escuro .destaque{background:var(--ouro);color:#0b0b0b;font-weight:700;padding:16px 20px;border-radius:6px;margin:18px 0}
 .escuro .destaque *{color:#0b0b0b}
-.logo{height:130px;margin:-20px 0 0}
+.logo{height:84px;margin:-14px 0 -6px}
