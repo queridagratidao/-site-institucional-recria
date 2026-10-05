@@ -23,7 +23,7 @@ fbq("init","2122997488598240");fbq("track","PageView");
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2122997488598240&ev=PageView&noscript=1"/></noscript>
 <!-- Fim Meta Pixel -->
-<script>window.RECRIA={CHECKOUT:"https://pay.hotmart.com/V82947349N?off=i1ls7uh4&checkoutMode=10",VALOR:47};</script>
+<script>window.RECRIA={CHECKOUT:"https://pay.hotmart.com/V82947349N",VALOR:47,NOME:"Manual de Narrativas Atraentes Que Vendem"};</script>
 </head><body class="claro">
 
 <section class="dark"><div class="wrap center">
@@ -34,7 +34,7 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <p class="sub">Seu aliado para vender sem parecer que está vendendo.</p>
 <div class="cit">"Quem vende mais não é quem tem o melhor produto. É quem conta as melhores histórias."</div>
 <img class="hero-img" src="assets/m_hero.jpg" alt="Manual de Narrativas Atraentes Que Vendem em tablet, notebook e página impressa">
-<a class="btn" href="#oferta" data-checkout>Quero o Manual por R$ 47</a>
+<a class="btn" href="https://pay.hotmart.com/V82947349N" data-checkout>Quero o Manual por R$ 47</a>
 <p style="font-size:14px;color:#b8ad96;margin-top:14px">Acesso imediato · Garantia de 7 dias</p>
 </div></section>
 
@@ -132,7 +132,7 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <div class="de">De R$ 1.000</div>
 <div class="v">R$ 47</div>
 <p style="margin-top:10px">à vista, ou parcelado no cartão</p>
-<a class="btn" href="#oferta" data-checkout style="margin-top:16px">Quero o Manual</a>
+<a class="btn" href="https://pay.hotmart.com/V82947349N" data-checkout style="margin-top:16px">Quero o Manual</a>
 <small>Acesso vitalício · Equivale a R$ 0,12 por dia em 1 ano</small>
 </div>
 </div></section>
@@ -163,26 +163,20 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <section><div class="wrap center">
 <h2>Dê adeus a postar todo dia, a fazer lives e lançamentos e à frustração por <em>não vender.</em></h2>
 <p class="sub">Tenha mais liberdade de tempo e de escolha. Uma vida mais tranquila, próspera e leve, sem neura.</p>
-<a class="btn" href="#oferta" data-checkout>Quero o Manual por R$ 47</a>
+<a class="btn" href="https://pay.hotmart.com/V82947349N" data-checkout>Quero o Manual por R$ 47</a>
 </div></section>
 
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5565993292068" target="_blank" rel="noopener">WhatsApp (65) 99329-2068</a><br>Pagamento processado com segurança pela Hotmart.</footer>
 
-<div class="sticky"><div><b>R$ 47</b><br><small>Acesso vitalício</small></div><a class="btn" href="#oferta" data-checkout>Quero o Manual</a></div>
+<div class="sticky"><div><b>R$ 47</b><br><small>Acesso vitalício</small></div><a class="btn" href="https://pay.hotmart.com/V82947349N" data-checkout>Quero o Manual</a></div>
 
 <script>
 (function(){var c=window.RECRIA||{};
-if(typeof fbq!=='undefined')fbq('track','ViewContent',{content_name:'Manual de Narrativas Atraentes Que Vendem',value:c.VALOR,currency:'BRL'});
+if(typeof fbq!=='undefined')fbq('track','ViewContent',{content_name:c.NOME,value:c.VALOR,currency:'BRL'});
+var q=location.search?(c.CHECKOUT.indexOf('?')>-1?'&':'?')+location.search.slice(1):'';
 document.querySelectorAll('a[data-checkout]').forEach(function(a){
- a.addEventListener('click',function(e){
-  var ref=a.getAttribute('href');
-  if(ref==='#oferta'&&!a.closest('#oferta')){return;}
-  e.preventDefault();
-  if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:c.VALOR,currency:'BRL'});
-  var u=c.CHECKOUT+(location.search?'&'+location.search.slice(1):'');
-  window.location.href=u;
- });
- a.setAttribute('rel','noopener');
+ a.href=c.CHECKOUT+q;a.rel='noopener';
+ a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:c.VALOR,currency:'BRL'});});
 });
 })();
 </script>
