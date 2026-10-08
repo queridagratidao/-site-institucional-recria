@@ -72,10 +72,10 @@ fbq("init","2122997488598240");fbq("track","PageView");
 </div>
 <div class="plano melhor"><em class="tag">Melhor valor</em>
 <h3>Anual</h3>
-<div class="v">R$ 470<small class="mes">por ano</small></div>
+<div class="v">R$ 358,80<small class="mes">por ano · equivale a R$ 29,90 por mês</small></div>
 <ul>
 <li><b>Pague uma vez</b> ou <b>parcele em até 12 vezes</b> no cartão</li>
-<li>Economia de R$ 94 em relação ao plano mensal</li>
+<li>Economia de R$ 205,20 em relação ao plano mensal (R$ 564 no ano)</li>
 <li>Um ano inteiro de acesso, sem se preocupar com a cobrança mensal</li>
 <li>Garantia de 7 dias</li>
 </ul>
@@ -84,11 +84,11 @@ fbq("init","2122997488598240");fbq("track","PageView");
 </div>
 <div class="comp-wrap"><table class="comp">
 <tr><th></th><th>Mensal</th><th>Anual</th></tr>
-<tr><td>Valor</td><td>R$ 47 por mês</td><td>R$ 470 por ano</td></tr>
+<tr><td>Valor</td><td>R$ 47 por mês (R$ 564 no ano)</td><td>R$ 358,80 por ano (R$ 29,90 por mês)</td></tr>
 <tr><td>Como pagar</td><td>Cartão de crédito, todo mês</td><td>À vista ou em até 12x no cartão</td></tr>
 <tr><td>Cancelamento</td><td>A qualquer momento</td><td>Pagamento do ano já realizado, com garantia de 7 dias</td></tr>
 <tr><td>Acesso</td><td>Enquanto a assinatura estiver ativa</td><td>12 meses</td></tr>
-<tr><td>Economia</td><td>-</td><td>R$ 94 no ano</td></tr>
+<tr><td>Economia</td><td>-</td><td>R$ 205,20 no ano</td></tr>
 </table></div>
 <p class="nota" style="margin-top:14px">Garantia de 7 dias · Assinatura gerenciada pela Hotmart</p>
 
@@ -144,7 +144,7 @@ document.querySelectorAll('a[data-plano]').forEach(function(a){
  if(!url)return;
  var q=location.search?(url.indexOf('?')>-1?'&':'?')+location.search.slice(1):'';
  a.href=url+q;a.rel='noopener';
- a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:a.getAttribute('data-plano')==='anual'?470:47,currency:'BRL'});});
+ a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:a.getAttribute('data-plano')==='anual'?358.8:47,currency:'BRL'});});
 });})();
 </script>
 </body></html>
