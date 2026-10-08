@@ -91,11 +91,11 @@ fbq("init","2122997488598240");fbq("track","PageView");
 
 <section class="dark"><div class="wrap">
 <h2>Quer ainda mais vantagem? <em>Leve também os combos</em></h2>
-<p>Na tela de pagamento você pode adicionar o combo que quiser, com um único clique.</p>
+<p>Prefere levar o curso junto com um combo? Escolha abaixo e vá direto para o pagamento.</p>
 <div class="combo"><h3>Combo 1 <span>curso + combo por R$ 27</span></h3>
-<ul><li>Curso Express</li><li>Mapa do Cliente</li><li>Mapa das Dores e Desejos</li><li>Mapa de Análise SWOT</li><li>Mapa do Objetivo Eficiente</li><li>Mapa da Estratégia Atraente</li><li>Lista de nichos para atuar</li><li>Acesso por 6 meses</li></ul></div>
+<ul><li>Curso Express</li><li>Mapa do Cliente</li><li>Mapa das Dores e Desejos</li><li>Mapa de Análise SWOT</li><li>Mapa do Objetivo Eficiente</li><li>Mapa da Estratégia Atraente</li><li>Lista de nichos para atuar</li><li>Acesso por 6 meses</li></ul><a class="btn btn-combo" data-combo href="https://pay.hotmart.com/W83080520B?bid=1791486196941">Quero o Combo 1 por R$ 27</a></div>
 <div class="combo"><h3>Combo 2 <span>curso + combo por R$ 37</span></h3>
-<ul><li>Curso Express</li><li>Tudo do Combo 1</li><li>Livros que todo empreendedor deveria ler</li><li>Mapa do 1º Produto</li><li>Manual de Narrativas Atraentes Que Vendem</li><li>Pacote de artes editáveis para criativos no Canva</li><li>Pacote de artes editáveis para e-book no Canva</li><li>Acesso por 1 ano</li></ul></div>
+<ul><li>Curso Express</li><li>Tudo do Combo 1</li><li>Livros que todo empreendedor deveria ler</li><li>Mapa do 1º Produto</li><li>Manual de Narrativas Atraentes Que Vendem</li><li>Pacote de artes editáveis para criativos no Canva</li><li>Pacote de artes editáveis para e-book no Canva</li><li>Acesso por 1 ano</li></ul><a class="btn btn-combo" data-combo href="https://pay.hotmart.com/B83080881G">Quero o Combo 2 por R$ 37</a></div>
 </div></section>
 
 <section><div class="wrap"><div class="selo">
@@ -131,13 +131,32 @@ fbq("init","2122997488598240");fbq("track","PageView");
 
 <div class="sticky"><div><b>R$ 15</b><br><small>Acesso por 1 ano</small></div><a class="btn" href="https://pay.hotmart.com/V83075845Y" data-checkout>Quero o curso</a></div>
 
+<div class="modal" id="escolha" hidden role="dialog" aria-modal="true" aria-labelledby="mt"><div class="modal-box">
+<button class="modal-x" type="button" aria-label="Fechar">×</button>
+<h3 id="mt">Quer levar mais junto?</h3>
+<p>Escolha como prefere comprar. Você vai direto para o pagamento seguro da Hotmart.</p>
+<a class="op" data-op href="https://pay.hotmart.com/V83075845Y" data-valor="15"><b>Só o Curso Express</b><span>R$ 15</span></a>
+<a class="op" data-op href="https://pay.hotmart.com/W83080520B?bid=1791486196941" data-valor="27"><b>Curso + Combo 1</b><small>Mapas e lista de nichos, acesso por 6 meses</small><span>R$ 27</span></a>
+<a class="op destaque" data-op href="https://pay.hotmart.com/B83080881G" data-valor="37"><em class="tag">Mais completo</em><b>Curso + Combo 2</b><small>Tudo do Combo 1, Manual de Narrativas, livros, artes editáveis, acesso por 1 ano</small><span>R$ 37</span></a>
+</div></div>
 <script>
 (function(){var c=window.RECRIA||{};
 if(typeof fbq!=='undefined')fbq('track','ViewContent',{content_name:c.NOME,value:c.VALOR,currency:'BRL'});
 var q=location.search?(c.CHECKOUT.indexOf('?')>-1?'&':'?')+location.search.slice(1):'';
 document.querySelectorAll('a[data-checkout]').forEach(function(a){
  a.href=c.CHECKOUT+q;a.rel='noopener';
- a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:c.VALOR,currency:'BRL'});});
+ a.addEventListener('click',function(e){var m=document.getElementById('escolha');if(m){e.preventDefault();m.hidden=false;document.body.style.overflow='hidden';}else if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:c.VALOR,currency:'BRL'});});
+});
+var m=document.getElementById('escolha');
+function fechar(){m.hidden=true;document.body.style.overflow='';}
+if(m){
+ m.addEventListener('click',function(e){if(e.target===m||e.target.className==='modal-x')fechar();});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!m.hidden)fechar();});
+}
+document.querySelectorAll('a[data-op],a[data-combo]').forEach(function(a){
+ var base=a.getAttribute('href');a.href=base+(base.indexOf('?')>-1?(q?'&'+q.slice(1):''):q);a.rel='noopener';
+ var v=+(a.getAttribute('data-valor')||(base.indexOf('W83080520B')>-1?27:37));
+ a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:v,currency:'BRL'});});
 });
 })();
 </script>
