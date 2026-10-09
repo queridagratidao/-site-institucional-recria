@@ -29,7 +29,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
   CHECKOUT: link do checkout da Hotmart (ex.: https://pay.hotmart.com/XXXXXXXX)
   Enquanto estiverem vazios, o vídeo mostra um espaço reservado e os botões levam até o preço.
 =============================================================================== -->
-<script>window.RECRIA={VIDEO:"",CHECKOUT:""};</script>
+<script>window.RECRIA={VIDEO:"",CHECKOUT:"https://pay.hotmart.com/X107955216M"};</script>
 
 </head><body>
 
@@ -173,7 +173,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
 <footer>Recria Ads · Agência Recria<br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
 <script>
 (function(){var c=window.RECRIA||{};
-if(c.CHECKOUT){document.querySelectorAll('a[data-checkout]').forEach(function(a){a.href=c.CHECKOUT;a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:97,currency:'BRL'});});a.target="_blank";a.rel="noopener";});}
+if(c.CHECKOUT){document.querySelectorAll('a[data-checkout]').forEach(function(a){var q=location.search?(c.CHECKOUT.indexOf('?')>-1?'&':'?')+location.search.slice(1):'';a.href=c.CHECKOUT+q;a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:97,currency:'BRL'});});a.target="_blank";a.rel="noopener";});}
 if(c.VIDEO){var v=c.VIDEO,src=v,m;
  if((m=v.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/)))src="https://www.youtube.com/embed/"+m[1]+"?rel=0";
  else if((m=v.match(/vimeo\.com\/(\d+)/)))src="https://player.vimeo.com/video/"+m[1];
