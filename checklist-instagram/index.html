@@ -98,7 +98,7 @@ document.getElementById('leadForm').addEventListener('submit',async function(e){
  if(dig.length<10||dig.length>11){st.textContent='Informe o WhatsApp com DDD, por exemplo 51 99999-9999.';return;}
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){st.textContent='Informe um e-mail válido.';return;}
  btn.textContent='Enviando...';btn.disabled=true;st.textContent='';
- var data={canal:detectarCanal(),nome:nome,negocio:'',whatsapp:wa,email:em,momento:'Checklist Instagram - Captura',mensagem:''};
+ var data={canal:detectarCanal(),nome:nome,negocio:'',whatsapp:wa,email:em,momento:'Checklist Instagram - Captura',mensagem:'',utm:location.search.replace(/^\?/,''),pagina:location.href};
  try{
   await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
   if(typeof fbq!=='undefined')fbq('track','Lead');
