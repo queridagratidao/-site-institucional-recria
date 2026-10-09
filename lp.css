@@ -150,6 +150,7 @@ body{background:#000;color:#eee7d6}
 .comp td{color:#e9e4da}
 @media(max-width:720px){.planos{grid-template-columns:1fr}.plano .v{font-size:44px}.comp td:first-child{white-space:normal}}
 .lead-form{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left}
+.lead-form label{display:flex;flex-direction:column;gap:6px;font-size:16px;color:inherit}
 .lead-form select,.lead-form input{width:100%;padding:16px 18px;border-radius:6px;border:1.5px solid rgba(201,162,78,.5);background:#fff;color:#2a2a2a;font-family:inherit;font-size:17px}
 .lead-form select:focus,.lead-form input:focus{outline:2px solid var(--ouro);border-color:var(--ouro)}
 .lead-form .btn{width:100%;border:0;cursor:pointer;font-family:inherit}
