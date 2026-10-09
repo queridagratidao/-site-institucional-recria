@@ -18,8 +18,8 @@ fbq("init","2122997488598240");fbq("track","PageView");
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2122997488598240&ev=PageView&noscript=1"/></noscript>
 <!-- Fim Meta Pixel -->
-<!-- CONFIGURAÇÃO: cole em AGENDA o link da sua página de agendamento (Google Agenda, Calendly etc.). EMBED=true mostra a agenda dentro da página (se a ferramenta permitir). -->
-<script>window.MENTORIA={AGENDA:"",EMBED:false};</script>
+<!-- CONFIGURAÇÃO: API = URL do app da Web do Apps Script (apps-script-mentoria.gs). Se estiver vazia, usa AGENDA (link externo, opcional). -->
+<script>window.MENTORIA={API:"",AGENDA:"",EMBED:false};</script>
 </head><body class="escuro">
 <section class="dark"><div class="wrap center">
 <img class="logo" src="../assets/logo.png" alt="Agência Recria">
@@ -29,25 +29,62 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <a class="btn" id="agendar" href="#" target="_blank" rel="noopener">Escolher o horário do primeiro encontro</a>
 <p id="aviso" style="font-size:15px;color:#b8ad96;margin-top:14px"></p>
 <div id="agenda" style="display:none;max-width:860px;margin:26px auto 0"></div>
+<div id="reserva" style="display:none;max-width:640px;margin:28px auto 0;text-align:left">
+<form id="fr" class="lead-form" novalidate>
+<label>Seu nome<input name="nome" required autocomplete="name"></label>
+<label>Nome do seu negócio (se tiver)<input name="negocio"></label>
+<label>WhatsApp<input name="whatsapp" required inputmode="tel" autocomplete="tel" placeholder="(51) 99999-9999"></label>
+<label>E-mail (o convite do Google Meet vai para ele)<input name="email" type="email" required autocomplete="email"></label>
+<label>Dia<select name="dia" id="sdia" required></select></label>
+<label>Horário<select name="hora" id="shora" required></select></label>
+<button class="btn" type="submit" id="bok">Confirmar o primeiro encontro</button>
+<p id="msg" style="font-size:15px;margin-top:10px"></p>
+</form></div>
 </div></section>
 <section><div class="wrap">
 <h2>Como funciona <em>daqui para frente</em></h2>
 <ul class="lista">
-<li><b>1. Escolha o horário.</b> Marque o próximo horário disponível que for melhor para você.</li>
-<li><b>2. Receba a confirmação.</b> O agendamento chega no seu e-mail, e eu também sou avisada.</li>
+<li><b>1. Escolha o horário.</b> Marque o próximo horário disponível que for melhor para você. O encontro dura 1 hora e acontece por Google Meet.</li>
+<li><b>2. Receba a confirmação.</b> O agendamento chega no seu e-mail, com o link do Google Meet, e eu também sou avisada.</li>
 <li><b>3. Eu confirmo.</b> Se precisar ajustar, eu entro em contato para alinharmos o melhor dia e horário.</li>
-<li><b>4. Alinhamos tudo juntas.</b> No primeiro encontro, definimos o plano e já deixamos os próximos encontros agendados.</li>
+<li><b>4. Alinhamos tudo juntas.</b> No primeiro encontro, definimos o plano e já deixamos os próximos encontros agendados. Os encontros são gravados, e você recebe a ata e um material direcional.</li>
 </ul>
 <p style="text-align:center;margin-top:24px">Também enviamos as informações de acesso por e-mail, pela Hotmart. Se não encontrar, olhe a caixa de spam.</p>
 <div style="text-align:center;margin-top:24px"><a class="btn" href="https://wa.me/5551991091697?text=Oi%2C%20acabei%20de%20entrar%20na%20Mentoria%20Recria" target="_blank" rel="noopener">Falar com a Amanda no WhatsApp</a></div>
 </div></section>
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
 <script>
-(function(){var m=window.MENTORIA||{},b=document.getElementById('agendar');
-if(m.AGENDA){b.href=m.AGENDA;
- if(typeof fbq!=='undefined')fbq('track','Purchase',{value:5000,currency:'BRL'});
+(function(){
+var m=window.MENTORIA||{},b=document.getElementById('agendar'),av=document.getElementById('aviso');
+function fb(){if(typeof fbq!=='undefined')fbq('track','Purchase',{value:5000,currency:'BRL'});}
+function off(t){b.removeAttribute('href');b.style.opacity='.5';b.style.pointerEvents='none';av.textContent=t||'A agenda será liberada em instantes. Enquanto isso, chame a Amanda no WhatsApp abaixo.';}
+if(m.API){
+ b.style.display='none';fb();
+ var R=document.getElementById('reserva'),F=document.getElementById('fr'),D=document.getElementById('sdia'),H=document.getElementById('shora'),M=document.getElementById('msg'),slots={};
+ av.textContent='Carregando os horários...';
+ var tz='America/Sao_Paulo';
+ function dia(d){return new Date(d).toLocaleDateString('pt-BR',{timeZone:tz,weekday:'long',day:'2-digit',month:'2-digit'});}
+ function hora(d){return new Date(d).toLocaleTimeString('pt-BR',{timeZone:tz,hour:'2-digit',minute:'2-digit'});}
+ function chave(d){return new Date(d).toLocaleDateString('en-CA',{timeZone:tz});}
+ fetch(m.API+'?acao=slots').then(function(r){return r.json();}).then(function(j){
+  if(!j.ok||!j.slots||!j.slots.length){off('No momento não há horários livres. Chame a Amanda no WhatsApp abaixo e combinamos.');b.style.display='';return;}
+  j.slots.forEach(function(s){var k=chave(s.inicio);(slots[k]=slots[k]||[]).push(s);});
+  Object.keys(slots).forEach(function(k){var o=document.createElement('option');o.value=k;o.textContent=dia(slots[k][0].inicio);D.appendChild(o);});
+  function horas(){H.innerHTML='';(slots[D.value]||[]).forEach(function(s){var o=document.createElement('option');o.value=s.inicio;o.textContent=hora(s.inicio)+' às '+hora(s.fim);H.appendChild(o);});}
+  D.onchange=horas;horas();av.textContent='';R.style.display='block';
+ }).catch(function(){off('Não consegui carregar os horários agora. Chame a Amanda no WhatsApp abaixo.');b.style.display='';});
+ F.addEventListener('submit',function(e){e.preventDefault();
+  var d={acao:'agendar',nome:F.nome.value.trim(),negocio:F.negocio.value.trim(),whatsapp:F.whatsapp.value.trim(),email:F.email.value.trim(),inicio:H.value};
+  if(!d.nome||!d.whatsapp||!d.email||!d.inicio){M.textContent='Preencha todos os campos.';return;}
+  var bt=document.getElementById('bok');bt.disabled=true;M.textContent='Agendando...';
+  fetch(m.API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(function(r){return r.json();}).then(function(j){
+   if(j.ok){F.style.display='none';R.innerHTML='<div class="box" style="text-align:center"><h2>Tudo certo!</h2><p>Seu primeiro encontro está marcado para <b>'+dia(d.inicio)+' às '+hora(d.inicio)+'</b>. O convite com o link do Google Meet foi enviado para <b>'+d.email+'</b>. Se não aparecer, olhe o spam.</p></div>';}
+   else{M.textContent=(j.erro||'Não foi possível agendar.')+' Tente outro horário ou chame a Amanda no WhatsApp.';bt.disabled=false;}
+  }).catch(function(){M.textContent='Falha de conexão. Tente de novo ou chame a Amanda no WhatsApp.';bt.disabled=false;});
+ });
+}else if(m.AGENDA){b.href=m.AGENDA;fb();
  if(m.EMBED){var a=document.getElementById('agenda');a.style.display='block';a.innerHTML='<iframe src="'+m.AGENDA+'" style="width:100%;height:680px;border:0;border-radius:8px;background:#fff" title="Agenda da Mentoria Recria"></iframe>';}
-}else{b.removeAttribute('href');b.style.opacity='.5';b.style.pointerEvents='none';document.getElementById('aviso').textContent='A agenda será liberada em instantes. Enquanto isso, chame a Amanda no WhatsApp abaixo.';}
+}else{off();}
 })();
 </script>
 </body></html>
