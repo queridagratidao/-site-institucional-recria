@@ -80,13 +80,15 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <script>
 const SCRIPT_URL='https://script.google.com/macros/s/AKfycbzmffW-fZJ3FTydV9TRyiI2ZLUv9vxMppKqpN00so8kIyyU-WsqGjlO8pJhdnTJPnwcQg/exec';
 function detectarCanal(){
- var s=(new URLSearchParams(location.search).get('utm_source')||'').toLowerCase();
- if(s==='instagram_ads')return 'Instagram Ads';
- if(s==='instagram_organico')return 'Instagram Orgânico';
- if(s==='google_ads')return 'Google Ads';
- if(s.includes('google'))return 'Google Ads';
- if(s.includes('instagram')||s==='ig'||s.includes('facebook')||s==='fb')return 'Instagram Orgânico';
- return s||'Orgânico';
+ var p=new URLSearchParams(location.search);
+ var s=(p.get('utm_source')||'').toLowerCase();
+ if(!s)return 'Orgânico (sem UTM)';
+ if(s.indexOf('automacao')>-1||s.indexOf('automação')>-1)return 'Automação Instagram';
+ if(s.indexOf('recriadores')>-1)return 'Comunidade Recriadores (WhatsApp)';
+ if(s.indexOf('google')>-1)return 'Google Ads';
+ if(s.indexOf('bio')>-1)return 'Link da bio (Instagram)';
+ if(s==='instagram_ads'||s.indexOf('ads')>-1)return 'Instagram Ads';
+ return s;
 }
 document.getElementById('leadForm').addEventListener('submit',async function(e){
  e.preventDefault();
