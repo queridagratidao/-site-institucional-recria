@@ -59,7 +59,7 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <p id="msg" style="font-size:15px;margin-top:10px"></p>
 </form>
 <div id="ok" style="display:none;text-align:center"><div class="box"><h2>Recebi!</h2><p>Em breve eu entro em contato pelo WhatsApp para alinharmos os detalhes. Se quiser adiantar, é só me chamar.</p></div></div>
-<div style="text-align:center;margin-top:24px"><a class="btn" href="https://wa.me/5551991091697?text=Oi%2C%20acabei%20de%20contratar%20o%20Recria%20EUpresa" target="_blank" rel="noopener">Falar com a Amanda no WhatsApp</a></div>
+<div style="text-align:center;margin-top:24px"><a class="btn" id="wa" href="https://wa.me/5551991091697?text=Oi%2C%20acabei%20de%20contratar%20o%20Recria%20EUpresa" target="_blank" rel="noopener">Falar com a Amanda no WhatsApp</a></div>
 <p style="text-align:center;margin-top:18px;font-size:15px">Você também receberá o comprovante da compra por e-mail, pela Hotmart. Se não encontrar, olhe a caixa de spam.</p>
 </div></section>
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
@@ -77,7 +77,7 @@ F.addEventListener('submit',function(e){e.preventDefault();
   fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(pronto).catch(function(){M.textContent='Falha de conexão. Tente de novo ou chame a Amanda no WhatsApp.';b.disabled=false;});
  }else{
   var t='Oi, acabei de contratar o Recria EUpresa!%0A'+['Nome: '+d.nome,'Negócio: '+d.negocio,'Instagram: '+d.instagram,'WhatsApp: '+d.whatsapp,'E-mail: '+d.email,'Período: '+d.plano,'Verba: '+d.verba,'Destino: '+d.destino,'Obs: '+d.obs].map(encodeURIComponent).join('%0A');
-  window.open('https://wa.me/5551991091697?text='+t,'_blank');pronto();}
+  var w=document.getElementById('wa');if(w)w.href='https://wa.me/5551991091697?text='+t;pronto();}
 });
 })();
 </script>

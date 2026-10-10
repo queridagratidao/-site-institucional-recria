@@ -43,7 +43,7 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <button class="btn" type="submit" id="bok">Quero o meu site</button>
 <p id="msg" style="font-size:15px;margin-top:10px"></p>
 </form>
-<div id="ok" style="display:none;text-align:center"><div class="box" style="background:#0b0b0b;color:var(--ouro2);border:1.5px solid var(--ouro);border-left:6px solid var(--ouro);font-weight:400"><h2 style="color:var(--ouro2)">Recebi!</h2><p style="color:#e9e4da">Nos próximos dias eu entro em contato com você para alinharmos tudo sobre o seu site. Se o que você precisa for mais complexo do que o site básico, eu passo um orçamento à parte.</p></div></div>
+<div id="ok" style="display:none;text-align:center"><div class="box" style="background:#0b0b0b;color:var(--ouro2);border:1.5px solid var(--ouro);border-left:6px solid var(--ouro);font-weight:400"><h2 style="color:var(--ouro2)">Recebi!</h2><p style="color:#e9e4da">Nos próximos dias eu entro em contato com você para alinharmos tudo sobre o seu site. Se o que você precisa for mais complexo do que o site básico, eu passo um orçamento à parte.</p></div><p style="margin-top:18px"><a class="btn" id="wa" href="https://wa.me/5551991091697" target="_blank" rel="noopener">Falar com a Amanda no WhatsApp</a></p></div>
 <p style="text-align:center;margin-top:24px"><a href="../recria-eupresa/" style="color:var(--ouro2)">Voltar para o Recria EUpresa</a></p>
 </div></section>
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
@@ -66,7 +66,7 @@ F.addEventListener('submit',function(e){e.preventDefault();
   fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(pronto).catch(function(){M.textContent='Falha de conexão. Tente de novo ou chame a Amanda no WhatsApp.';b.disabled=false;});
  }else{
   var t='Oi, quero um site com a Recria (R$ 2.000 em até 12x).%0A'+CAMPOS.map(function(k){return encodeURIComponent(k+': '+(d[k]||''));}).join('%0A');
-  window.open('https://wa.me/5551991091697?text='+t,'_blank');pronto();}
+  var w=document.getElementById('wa');if(w)w.href='https://wa.me/5551991091697?text='+t;pronto();}
 });
 })();
 </script>
