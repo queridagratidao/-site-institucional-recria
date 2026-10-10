@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Contrato de 3, 6 ou 12 meses · Agência Recria</title>
+<link rel="icon" href="../assets/icone.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lp.css">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init","2122997488598240");fbq("track","PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2122997488598240&ev=PageView&noscript=1"/></noscript>
+<!-- Fim Meta Pixel -->
+<!-- CONFIGURAÇÃO: API = URL do app da Web do Apps Script (apps-script-eupresa.gs). Vazia = abre o WhatsApp com os dados preenchidos. -->
+<script>window.EUPRESA={API:""};</script>
+</head><body class="escuro">
+<section class="dark"><div class="wrap center">
+<img class="logo" src="../assets/logo.png" alt="Agência Recria">
+<div class="kick">Recria EUpresa · contratos maiores</div>
+<h1>Quero fechar um contrato de <em>3, 6 meses ou 1 ano</em></h1>
+<p class="sub">Conte um pouco sobre o seu negócio. Eu entro em contato para conversarmos, e você já garante os bônus de quem chega por esta página.</p>
+</div></section>
+<section><div class="wrap" style="max-width:640px">
+<ul class="lista" style="margin-bottom:26px"><li>Análise de perfil, para ajustar o que for preciso no seu Instagram.</li><li>Treinamento do seu time comercial ou de vendas.</li><li>Banco de criativos (as peças dos seus anúncios) para testarmos no início, sem custo adicional.</li></ul>
+<form class="lead-form" id="fr" novalidate style="max-width:none">
+<label>Seu nome<input name="nome" required autocomplete="name"></label>
+<label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+<label>WhatsApp com DDD<input name="whatsapp" required inputmode="tel" autocomplete="tel" placeholder="(51) 99999-9999"></label>
+<label>Qual é o seu nicho ou negócio?<input name="nicho" required placeholder="Ex.: salão de beleza, clínica, mercado"></label>
+<label>Que prazo mais interessa?<select name="prazo"><option value="">Selecione (opcional)</option><option>3 meses</option><option>6 meses</option><option>1 ano</option><option>Ainda não sei</option></select></label>
+<label>Qual é a sua principal dor hoje?<input name="dor" required placeholder="Ex.: poucos clientes novos, vendas paradas, pouco tempo"></label>
+<button class="btn" type="submit" id="bok">Quero conversar sobre o contrato</button>
+<p id="msg" style="font-size:15px;margin-top:10px"></p>
+</form>
+<div id="ok" style="display:none;text-align:center"><div class="box" style="background:#0b0b0b;color:var(--ouro2);border:1.5px solid var(--ouro);border-left:6px solid var(--ouro);font-weight:400"><h2 style="color:var(--ouro2)">Recebi!</h2><p style="color:#e9e4da">Nos próximos dias eu entro em contato com você para marcarmos uma reunião, entender o seu negócio e fechar o contrato de 3, 6 meses ou 1 ano, e já começar a ativar tudo, com os bônus que você ganhou por estar nesta página.</p></div></div>
+<p style="text-align:center;margin-top:24px"><a href="../recria-eupresa/" style="color:var(--ouro2)">Voltar para o Recria EUpresa</a></p>
+</div></section>
+<footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
+<script>
+(function(){
+var F=document.getElementById('fr'),M=document.getElementById('msg'),TIPO="contrato",CAMPOS=["nome", "email", "whatsapp", "nicho", "prazo", "dor"];
+F.addEventListener('submit',function(e){e.preventDefault();
+ var d={tipo:TIPO};
+ CAMPOS.forEach(function(k){var el=F.elements[k];
+  if(el&&el.length&&el[0]&&el[0].type==='checkbox'){d[k]=[].slice.call(el).filter(function(c){return c.checked;}).map(function(c){return c.value;}).join('; ');}
+  else if(el){d[k]=el.value.trim();}});
+ var z=(d.whatsapp||'').replace(/\D/g,'');if(z.indexOf('55')===0&&z.length>11)z=z.substring(2);
+ if(!d.nome||!d.nicho||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email||'')){M.textContent='Preencha o nome, um e-mail válido e o seu nicho.';return;}
+ if(z.length<10||z.length>11){M.textContent='Informe o WhatsApp com DDD.';return;}
+ if(TIPO==='contrato'&&!d.dor){M.textContent='Conte qual é a sua principal dor hoje.';return;}
+ if(TIPO==='site'&&!d.motivo){M.textContent='Conte por que você acha que precisa de um site.';return;}
+ d.pagina=location.href;var API=(window.EUPRESA||{}).API;
+ function pronto(){F.style.display='none';document.getElementById('ok').style.display='block';if(typeof fbq!=='undefined')fbq('track','Lead');}
+ if(API){var b=document.getElementById('bok');b.disabled=true;M.textContent='Enviando...';
+  fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(pronto).catch(function(){M.textContent='Falha de conexão. Tente de novo ou chame a Amanda no WhatsApp.';b.disabled=false;});
+ }else{
+  var t='Oi, quero fechar um contrato de 3, 6 meses ou 1 ano com a Recria.%0A'+CAMPOS.map(function(k){return encodeURIComponent(k+': '+(d[k]||''));}).join('%0A');
+  window.open('https://wa.me/5551991091697?text='+t,'_blank');pronto();}
+});
+})();
+</script>
+</body></html>

@@ -177,3 +177,8 @@ footer a{color:#E4C988}
 .exemplos .card p{margin-bottom:8px}
 .exemplos .dest{color:var(--ouro2)}
 .plano .tag,.escuro .plano .tag{color:#0b0b0b !important}
+.comp tr.tot td{background:rgba(201,162,78,.2);color:var(--ouro2);font-family:'Playfair Display',serif;font-weight:700;font-size:20px;border-top:2px solid var(--ouro);border-bottom:2px solid var(--ouro)}
+.comp tr.tot td:first-child{font-family:'Lora',serif;font-size:15px;letter-spacing:.04em;white-space:normal}
+.comp tr.tot td small{display:block;font-family:'Lora',serif;font-weight:400;font-size:13px;color:#e9e4da;letter-spacing:0}
+.plano li.tot{background:rgba(201,162,78,.16);border-top:0;border-radius:6px;margin:4px 0;padding-left:30px;color:var(--ouro2)}
+.plano li.tot:before{left:8px}
