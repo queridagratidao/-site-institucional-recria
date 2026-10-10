@@ -74,7 +74,7 @@ F.addEventListener('submit',function(e){e.preventDefault();
  d.pagina=location.href;
  function pronto(){F.style.display='none';document.getElementById('ok').style.display='block';}
  if(API){var b=document.getElementById('bok');b.disabled=true;M.textContent='Enviando...';
-  fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(pronto).catch(function(){M.textContent='Falha de conexão. Tente de novo ou chame a Amanda no WhatsApp.';b.disabled=false;});
+  fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok===false){M.textContent='Não foi possível enviar ('+(j.erro||'erro')+'). Confira os campos ou chame a Amanda no WhatsApp.';b.disabled=false;}else{pronto();}}).catch(function(){pronto();});
  }else{
   var t='Oi, acabei de contratar o Recria EUpresa!%0A'+['Nome: '+d.nome,'Negócio: '+d.negocio,'Instagram: '+d.instagram,'WhatsApp: '+d.whatsapp,'E-mail: '+d.email,'Período: '+d.plano,'Verba: '+d.verba,'Destino: '+d.destino,'Obs: '+d.obs].map(encodeURIComponent).join('%0A');
   var w=document.getElementById('wa');if(w)w.href='https://wa.me/5551991091697?text='+t;pronto();}
