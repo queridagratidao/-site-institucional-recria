@@ -59,7 +59,7 @@ F.addEventListener('submit',function(e){e.preventDefault();
  d.pagina=location.href;var API=(window.EUPRESA||{}).API;
  function pronto(){F.style.display='none';document.getElementById('ok').style.display='block';if(typeof fbq!=='undefined')fbq('track','Lead');}
  if(API){var b=document.getElementById('bok');b.disabled=true;M.textContent='Enviando...';
-  fetch(API,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(pronto).catch(function(){M.textContent='Falha de conexão. Tente de novo ou chame a Amanda no WhatsApp.';b.disabled=false;});
+  fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok===false){M.textContent='Não foi possível enviar ('+(j.erro||'erro')+'). Confira os campos ou chame a Amanda no WhatsApp.';b.disabled=false;}else{pronto();}}).catch(function(){pronto();});
  }else{
   var t='Oi, quero fechar um contrato de 3, 6 meses ou 1 ano com a Recria.%0A'+CAMPOS.map(function(k){return encodeURIComponent(k+': '+(d[k]||''));}).join('%0A');
   var w=document.getElementById('wa');if(w)w.href='https://wa.me/5551991091697?text='+t;pronto();}
