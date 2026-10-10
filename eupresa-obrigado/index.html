@@ -58,8 +58,8 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <button class="btn" type="submit" id="bok">Enviar os dados</button>
 <p id="msg" style="font-size:15px;margin-top:10px"></p>
 </form>
-<div id="ok" style="display:none;text-align:center"><div class="box"><h2>Recebi!</h2><p>Em breve eu entro em contato pelo WhatsApp para alinharmos os detalhes. Se quiser adiantar, é só me chamar.</p></div></div>
-<div style="text-align:center;margin-top:24px"><a class="btn" id="wa" href="https://wa.me/5551991091697?text=Oi%2C%20acabei%20de%20contratar%20o%20Recria%20EUpresa" target="_blank" rel="noopener">Falar com a Amanda no WhatsApp</a></div>
+<div id="ok" style="display:none;text-align:center"><div class="box" style="background:#0b0b0b;color:var(--ouro2);border:1.5px solid var(--ouro);border-left:6px solid var(--ouro);font-weight:400"><h2 style="color:var(--ouro2)">Recebi!</h2><p style="color:#e9e4da">Em breve eu entro em contato pelo WhatsApp para alinharmos os detalhes. Se quiser adiantar, é só me chamar.</p></div><div style="text-align:center;margin-top:18px"><a class="btn" id="wa" href="https://wa.me/5551991091697?text=Oi%2C%20acabei%20de%20contratar%20o%20Recria%20EUpresa" target="_blank" rel="noopener">Falar com a Amanda no WhatsApp</a></div></div>
+
 <p style="text-align:center;margin-top:18px;font-size:15px">Você também receberá o comprovante da compra por e-mail, pela Hotmart. Se não encontrar, olhe a caixa de spam.</p>
 </div></section>
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
@@ -72,7 +72,7 @@ F.addEventListener('submit',function(e){e.preventDefault();
  var d={};['nome','negocio','whatsapp','email','instagram','plano','verba','destino','obs'].forEach(function(k){d[k]=F[k].value.trim();});
  if(!d.nome||!d.negocio||!d.whatsapp||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)||!d.plano||!d.verba||!d.destino){M.textContent='Preencha os campos obrigatórios (nome, negócio, WhatsApp, e-mail válido, período, verba e destino).';return;}
  d.pagina=location.href;
- function pronto(){F.style.display='none';document.getElementById('ok').style.display='block';}
+ function pronto(){F.style.display='none';document.getElementById('ok').style.display='block';var w=document.getElementById('wa');if(w){w.style.pointerEvents='none';setTimeout(function(){w.style.pointerEvents='';},1500);}}
  if(API){var b=document.getElementById('bok');b.disabled=true;M.textContent='Enviando...';
   fetch(API,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(function(r){return r.json();}).then(function(j){if(j&&j.ok===false){M.textContent='Não foi possível enviar ('+(j.erro||'erro')+'). Confira os campos ou chame a Amanda no WhatsApp.';b.disabled=false;}else{pronto();}}).catch(function(){pronto();});
  }else{
