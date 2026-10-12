@@ -43,8 +43,17 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <section id="ajuda" style="display:none"><div class="wrap center">
 <div class="kick">Quer ajuda individual?</div>
 <h2>Se você quiser que eu <em>pegue na sua mão</em></h2>
-<p style="max-width:700px;margin:0 auto 12px">Para aplicar tudo isso no seu negócio com acompanhamento, conheça a consultoria e a mentoria da Recria.</p>
+<p id="ajuda-txt" style="max-width:720px;margin:0 auto 14px"></p>
 <div class="grid" id="ajuda-grid" style="text-align:left"></div>
+<div class="comp-wrap" id="ajuda-comp" style="display:none;margin-top:22px"><table class="comp">
+<tr><th></th><th>Consultoria</th><th>Mentoria</th></tr>
+<tr><td>Formato</td><td>Pontual: por sessão</td><td>Acompanhamento contínuo</td></tr>
+<tr><td>Duração</td><td>1 sessão (ou um pacote de sessões)</td><td>6 meses</td></tr>
+<tr><td>Como funciona</td><td>Em cada sessão, resolvemos uma dor do seu negócio</td><td>1 encontro individual por mês, por Google Meet, e dúvidas pelo WhatsApp em horário comercial</td></tr>
+<tr><td>O que você recebe</td><td>Um documento com o gargalo identificado e as possíveis formas de ajustar</td><td>Acompanhamento do que foi combinado: eu cobro o que ficou de tarefa, vejo a sua evolução, os dados e as métricas</td></tr>
+<tr><td>Ideal para</td><td>Quem precisa resolver uma dor específica agora</td><td>Quem quer um intensivo para executar o passo a passo com alguém no pé</td></tr>
+<tr><td>Investimento</td><td>A partir de R$ 67 por sessão, ou pacote de sessões</td><td>R$ 5.000 em até 12x, 6 meses de acompanhamento</td></tr>
+</table></div>
 </div></section>
 <section><div class="wrap center">
 <h2>Conheça tudo o que a Recria <em>oferece</em></h2>
@@ -69,16 +78,18 @@ lista.forEach(function(s){var x=P[s];if(!x)return;
  var a=d.querySelector('a');a.href='../'+s+'/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_'+camp;
  a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:camp,para:s});});
  g.appendChild(d);});
-var AJ={"c":["Diagnóstico Recria","Uma consultoria individual, online, de 1 hora, para enxergar com clareza o próximo passo do seu negócio.","R$ 67","diagnostico-recria","Conhecer a consultoria"],"m":["Mentoria Recria","Acompanhamento individual para arrumar cada gargalo de marketing, negócio e comercial do seu negócio.","","mentoria-recria","Conhecer a mentoria"]};
+var AJ={"c":["Consultoria (Diagnóstico Recria)","Por sessão: em cada sessão resolvemos uma dor do seu negócio. Eu analiso a sua situação e entrego um documento com o gargalo e as formas de ajustar. Você pode contratar uma sessão ou um pacote de sessões.","A partir de R$ 67 por sessão","diagnostico-recria","Conhecer a consultoria"],"m":["Mentoria Recria","Acompanhamento contínuo por 6 meses, com 1 encontro individual por mês e dúvidas pelo WhatsApp em horário comercial. Nos encontros, eu cobro o que combinamos, olho a sua evolução, os dados e as métricas.","R$ 5.000 em até 12x","mentoria-recria","Conhecer a mentoria"]};
 var MAJ={"negocio-local":["c"],"esteira-de-produtos":["c"],"100-ideias-low-ticket":["c"],"medium-ticket":["c","m"],"high-ticket":["c","m"],"estrutura-de-negocio":["c","m"]};
-if(MAJ[p]){var ag=document.getElementById('ajuda-grid');
+if(MAJ[p]){var ag=document.getElementById('ajuda-grid'),dois=MAJ[p].length>1;
+ if(!dois)ag.style.maxWidth='520px',ag.style.margin='0 auto';
  MAJ[p].forEach(function(k){var x=AJ[k];var d=document.createElement('div');d.className='card';
   d.innerHTML='<h3></h3><p></p><p class="pr" style="color:var(--ouro2);font-weight:600"></p><a class="btn" style="font-size:15px;padding:12px 20px;margin-top:6px"></a>';
-  d.querySelector('h3').textContent=x[0];d.querySelectorAll('p')[0].textContent=x[1];
-  if(x[2])d.querySelector('.pr').textContent=x[2];else d.querySelector('.pr').remove();
+  d.querySelector('h3').textContent=x[0];d.querySelectorAll('p')[0].textContent=x[1];d.querySelector('.pr').textContent=x[2];
   var a=d.querySelector('a');a.textContent=x[4];a.href='../'+x[3]+'/?utm_source=obrigado&utm_medium=pagina&utm_campaign=ajuda_'+p;
   a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:p,para:x[3]});});
   ag.appendChild(d);});
+ document.getElementById('ajuda-txt').textContent=dois?'Para aplicar tudo isso no seu negócio com acompanhamento, conheça a consultoria e a mentoria da Recria. A consultoria é pontual; a mentoria é o acompanhamento contínuo.':'Se você quer ajuda para resolver uma dor específica do seu negócio, conheça a consultoria da Recria.';
+ if(dois)document.getElementById('ajuda-comp').style.display='block';
  document.getElementById('ajuda').style.display='block';}
 
 if(P[p]){var v=parseFloat(P[p][2].replace(/[^0-9,]/g,'').replace(',','.'));var k='pur_'+p,ja=false;
