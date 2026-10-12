@@ -55,11 +55,12 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
 <script>
 (function(){
-var P={"calendario-de-conteudos":["Recria Calendário de Conteúdos", "Planeje 30 dias de conteúdos, com planilha de bônus.", "R$ 5"],"calendario-com-ia":["Recria Calendário com IA", "Peça à IA o seu calendário do mês, personalizado para o seu negócio.", "R$ 8"],"negocio-local":["Recria Negócio Local no Digital", "Faça o seu negócio local também faturar no digital.", "R$ 10"],"post":["Recria Post", "Crie posts e carrosséis com ferramentas gratuitas e IA.", "R$ 10"],"reels":["Recria Reels", "Crie e edite Reels com ferramentas gratuitas e IA.", "R$ 12"],"esteira-de-produtos":["Recria Esteira de Produtos", "Monte a sua esteira e venda mais para cada cliente.", "R$ 12"],"miv":["Recria MIV", "Desenvolva o manual de identidade visual da sua marca.", "R$ 15"],"100-ideias-low-ticket":["Mais de 100 Ideias de Low Ticket", "Escolha o seu produto de entrada.", "R$ 15"],"medium-ticket":["Recria Medium Ticket", "Suba um degrau na esteira com um produto intermediário.", "R$ 17"],"high-ticket":["Recria High Ticket", "Descubra o momento certo de criar a sua oferta premium.", "R$ 27"],"estrutura-de-negocio":["Manual de Estrutura de Negócio", "Organize a base do seu negócio.", "R$ 37"]};
+var P={"calendario-de-conteudos":["Recria Calendário de Conteúdos", "Planeje 30 dias de conteúdos, com planilha de bônus.", "R$ 5"],"calendario-com-ia":["Recria Calendário com IA", "Peça à IA o seu calendário do mês, personalizado para o seu negócio.", "R$ 8"],"negocio-local":["Recria Negócio Local no Digital", "Faça o seu negócio local também faturar no digital.", "R$ 10"],"post":["Recria Post", "Crie posts e carrosséis com ferramentas gratuitas e IA.", "R$ 10"],"reels":["Recria Reels", "Crie e edite Reels com ferramentas gratuitas e IA.", "R$ 12"],"esteira-de-produtos":["Recria Esteira de Produtos", "Monte a sua esteira e venda mais para cada cliente.", "R$ 12"],"miv":["Recria MIV", "Desenvolva o manual de identidade visual da sua marca.", "R$ 15"],"100-ideias-low-ticket":["Mais de 100 Ideias de Low Ticket", "Escolha o seu produto de entrada.", "R$ 15"],"medium-ticket":["Recria Medium Ticket", "Suba um degrau na esteira com um produto intermediário.", "R$ 17"],"high-ticket":["Recria High Ticket", "Descubra o momento certo de criar a sua oferta premium.", "R$ 27"],"estrutura-de-negocio":["Manual de Estrutura de Negócio", "Organize a base do seu negócio.", "R$ 37"],"manual":["Manual de Narrativas Atraentes Que Vendem", "", "R$ 47"],"express":["Estratégia Atraente Que Vende, Express", "", "R$ 15"]};
 var MAP={"calendario-de-conteudos": ["calendario-com-ia", "post", "reels"], "calendario-com-ia": ["post", "reels", "miv"], "post": ["reels", "miv", "calendario-com-ia"], "reels": ["post", "miv", "calendario-de-conteudos"], "miv": ["post", "reels", "calendario-com-ia"], "negocio-local": ["esteira-de-produtos", "100-ideias-low-ticket", "medium-ticket"], "esteira-de-produtos": ["100-ideias-low-ticket", "medium-ticket", "high-ticket"], "100-ideias-low-ticket": ["medium-ticket", "esteira-de-produtos", "high-ticket"], "medium-ticket": ["high-ticket", "esteira-de-produtos", "estrutura-de-negocio"], "high-ticket": ["estrutura-de-negocio", "medium-ticket", "esteira-de-produtos"], "estrutura-de-negocio": ["esteira-de-produtos", "medium-ticket", "high-ticket"]};
 var DEF=["calendario-de-conteudos", "post", "esteira-de-produtos"];
 var p=(new URLSearchParams(location.search).get('p')||'').toLowerCase();
 var lista=(MAP[p]||DEF),camp=MAP[p]?p:'geral';
+var KIND={express:'curso'};
 var g=document.getElementById('para-voce-grid');
 lista.forEach(function(s){var x=P[s];if(!x)return;
  var d=document.createElement('div');d.className='card';
@@ -79,7 +80,11 @@ if(MAJ[p]){var ag=document.getElementById('ajuda-grid');
   a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:p,para:x[3]});});
   ag.appendChild(d);});
  document.getElementById('ajuda').style.display='block';}
-if(P[p]){var w=document.getElementById('suporte');w.href='https://wa.me/5551991091697?text='+encodeURIComponent('Oi, comprei o e-book '+P[p][0].replace(/^Recria /,'')+' da Recria e não recebi o acesso. Gostaria de ajuda.');}
+
+if(P[p]){var v=parseFloat(P[p][2].replace(/[^0-9,]/g,'').replace(',','.'));var k='pur_'+p,ja=false;
+ try{ja=sessionStorage.getItem(k)==='1';}catch(e){}
+ if(!ja&&v>0&&typeof fbq!=='undefined'){fbq('track','Purchase',{value:v,currency:'BRL',content_name:P[p][0],content_ids:[p],content_type:'product'});try{sessionStorage.setItem(k,'1');}catch(e){}}}
+if(P[p]){var w=document.getElementById('suporte');w.href='https://wa.me/5551991091697?text='+encodeURIComponent('Oi, comprei o '+(KIND[p]||'e-book')+' '+P[p][0].replace(/^Recria /,'')+' da Recria e não recebi o acesso. Gostaria de ajuda.');}
 })();
 </script>
 </body></html>
