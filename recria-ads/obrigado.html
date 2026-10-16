@@ -74,18 +74,21 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 <img class="logo" src="assets/logo.png" alt="Agência Recria">
 <div class="kick">Compra confirmada</div>
 <h1>Bem-vindo(a) ao <em>Recria Ads!</em> 🎉</h1>
-<p style="font-size:20px;max-width:700px;margin:0 auto">Que alegria ter você aqui. A partir de hoje, você começa a vender sem parecer aquele vendedor chato. Siga os 3 passos abaixo para começar agora mesmo.</p>
+<p style="font-size:20px;max-width:700px;margin:0 auto 12px">Que alegria ter você aqui! O acesso ao Recria Ads foi enviado pela Hotmart para o <b>e-mail que você usou na compra</b>. Para entrar na área de membros, é só abrir esse e-mail e clicar no botão de acesso. Se não encontrar, olhe também o spam e a aba Promoções.</p>
+<p style="font-size:18px;max-width:700px;margin:0 auto 16px">Se ainda assim não chegar, ou se tiver qualquer problema para acessar, toque no botão abaixo e me chame no WhatsApp, que a gente resolve.</p>
+<a class="btn" id="suporte" href="https://wa.me/5551991091697?text=Oi%2C%20comprei%20o%20Recria%20Ads%20e%20n%C3%A3o%20recebi%20o%20acesso.%20Gostaria%20de%20ajuda." target="_blank" rel="noopener">Chamar a Amanda no WhatsApp</a>
 </div></section>
 
 <section id="of" class="of-sec" style="display:none"><div class="wrap center" id="of-box"></div></section>
 
 <section><div class="wrap" style="max-width:760px">
-<div class="kick">Seus próximos passos</div>
+<div class="kick">Agora, o curso</div>
 <h2>Comece em <em>3 passos</em></h2>
+<p style="text-align:center;max-width:640px;margin:0 auto 22px">A partir de hoje, você começa a vender sem parecer aquele vendedor chato. Siga os passos abaixo para começar agora mesmo.</p>
 
 <div class="passo"><div class="n">1</div><div><h3>Acesse a sua sala de aula</h3>
-<p>Você vai receber no seu e-mail (o mesmo usado na compra) o acesso ao Recria Ads, enviado pela Hotmart. Não achou? Confira o spam e a aba Promoções.</p>
-<p>Se preferir, entre direto pelo botão abaixo com o seu e-mail e a sua senha da Hotmart:</p>
+<p>O seu acesso já está liberado na Hotmart. Você vai precisar do <b>e-mail da compra</b> para entrar na área de membros: abra o e-mail que a Hotmart enviou e clique no botão de acesso.</p>
+<p>Se preferir, entre direto pelo botão abaixo com o mesmo e-mail (e a sua senha da Hotmart, se já tiver):</p>
 <a class="btn" id="btn-sala" href="https://consumer.hotmart.com" target="_blank" rel="noopener">Acessar a sala de aula</a></div></div>
 
 <div class="passo"><div class="n">2</div><div><h3>Entre no grupo do WhatsApp do curso</h3>
@@ -210,6 +213,7 @@ function atualiza(){var l=larg(),tot=car.querySelectorAll('.vcard').length,i=Mat
 function passo(d){car.scrollBy({left:d*larg(),behavior:'smooth'});}
 if(pa)pa.addEventListener('click',function(){passo(-1);});if(pn)pn.addEventListener('click',function(){passo(1);});
 if(car){car.addEventListener('scroll',function(){atualiza();if(!arrastou&&car.scrollLeft>40){arrastou=true;if(typeof fbq!=='undefined')fbq('trackCustom','VitrineArrastou',{de:'recria-ads'});}},{passive:true});window.addEventListener('resize',atualiza);atualiza();}
+var su=document.getElementById('suporte');if(su)su.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueSuporte',{de:'recria-ads'});});
 var v=document.getElementById('ver-tudo');if(v)v.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:'recria-ads',para:'links'});});
 })();
 </script>
