@@ -29,8 +29,18 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 <script>window.RECRIA={SALA:"https://consumer.hotmart.com",WHATSAPP:"https://chat.whatsapp.com/Dh1nhxW4POm2h0Z6iPXkIV",OFERTA:{LINK:"",LINK_METRICAS:""}};</script>
 
 <style>
-.vitrine{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:1040px;margin:0 auto;text-align:left}
-.vitrine .card{flex:1 1 200px;max-width:240px}
+.v-dica{font-size:14px;color:#8a6d25;margin:0 0 10px;letter-spacing:.03em}
+.v-wrap{position:relative;max-width:1080px;margin:0 auto}
+.carrossel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px 4px 16px;text-align:left;scrollbar-width:thin;scrollbar-color:#C9A24E #efe7d4}
+.carrossel:focus-visible{outline:2px solid var(--ouro);outline-offset:2px}
+.vcard{flex:0 0 250px;scroll-snap-align:start;background:#fff;border-left:5px solid var(--ouro);border-radius:6px;padding:20px;display:flex;flex-direction:column;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.vcard h3{font-size:18px;margin:0 0 8px;line-height:1.25}
+.vcard p{font-size:15px;line-height:1.4;margin:0 0 10px;flex:1}
+.vcard .vp{flex:0;color:#a8822f;font-weight:700;font-size:18px}
+.vcard .btn{font-size:15px;padding:12px 18px;text-align:center}
+.v-seta{position:absolute;top:42%;width:42px;height:42px;border-radius:50%;border:0;background:var(--ouro);color:#0b0b0b;font-size:26px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);display:none;z-index:2}
+.v-ant{left:-14px}.v-prox{right:-14px}
+@media(min-width:900px){.v-seta{display:block}}
 .of-sec{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:#fbf8f1}
 .of-preco{display:inline-block;border:1.5px solid var(--ouro);border-radius:10px;padding:16px 28px;margin:6px 0 18px}
 .of-preco .v{display:block;font-family:"Playfair Display",serif;font-size:52px;line-height:1.05;color:#a8822f}
@@ -99,16 +109,28 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 </div></section>
 <section><div class="wrap center">
 <div class="kick">Continue o seu estudo</div>
-<h2>Outros materiais da <em>Recria</em></h2>
-<p style="max-width:680px;margin:0 auto 22px">Se quiser ir além do Recria Ads, estes são os e-books que eu indico para quem está começando.</p>
-<div class="vitrine">
-<div class="card"><h3>Mais de 100 Ideias de Low Ticket</h3><p>Escolha o seu produto de entrada.</p><p style="color:var(--ouro);font-weight:700">R$ 15</p><a class="btn" style="font-size:15px;padding:12px 20px;margin-top:6px" href="../100-ideias-low-ticket/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="100-ideias-low-ticket">Quero também</a></div>
-<div class="card"><h3>Recria Esteira de Produtos</h3><p>Monte a sua esteira e venda mais para cada cliente.</p><p style="color:var(--ouro);font-weight:700">R$ 12</p><a class="btn" style="font-size:15px;padding:12px 20px;margin-top:6px" href="../esteira-de-produtos/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="esteira-de-produtos">Quero também</a></div>
-<div class="card"><h3>Recria Medium Ticket</h3><p>Suba um degrau na esteira com um produto intermediário.</p><p style="color:var(--ouro);font-weight:700">R$ 17</p><a class="btn" style="font-size:15px;padding:12px 20px;margin-top:6px" href="../medium-ticket/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="medium-ticket">Quero também</a></div>
-<div class="card"><h3>Recria High Ticket</h3><p>Descubra o momento certo de criar a sua oferta premium.</p><p style="color:var(--ouro);font-weight:700">R$ 27</p><a class="btn" style="font-size:15px;padding:12px 20px;margin-top:6px" href="../high-ticket/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="high-ticket">Quero também</a></div>
-<div class="card"><h3>Recria MIV</h3><p>Desenvolva o manual de identidade visual da sua marca.</p><p style="color:var(--ouro);font-weight:700">R$ 15</p><a class="btn" style="font-size:15px;padding:12px 20px;margin-top:6px" href="../miv/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="miv">Quero também</a></div>
+<h2>A vitrine da <em>Recria</em></h2>
+<p style="max-width:700px;margin:0 auto 8px">Do primeiro passo à mentoria: arraste para o lado e escolha o que faz sentido para o seu momento.</p>
+<p class="v-dica" aria-hidden="true">Arraste para o lado →</p>
+<div class="v-wrap">
+<button type="button" class="v-seta v-ant" aria-label="Anterior">‹</button>
+<div class="carrossel" id="carrossel" tabindex="0" aria-label="Produtos da Recria">
+<div class="vcard"><h3>Recria Negócio Local no Digital</h3><p>Faça o seu negócio local também faturar no digital</p><p class="vp">R$ 10</p><a class="btn" href="../negocio-local/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="negocio-local">Quero também</a></div>
+<div class="vcard"><h3>Recria Esteira de Produtos</h3><p>Monte a sua esteira e venda mais para cada cliente</p><p class="vp">R$ 12</p><a class="btn" href="../esteira-de-produtos/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="esteira-de-produtos">Quero também</a></div>
+<div class="vcard"><h3>Recria MIV</h3><p>O manual de identidade visual da sua marca</p><p class="vp">R$ 15</p><a class="btn" href="../miv/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="miv">Quero também</a></div>
+<div class="vcard"><h3>Mais de 100 Ideias de Low Ticket</h3><p>Escolha o seu produto de entrada</p><p class="vp">R$ 15</p><a class="btn" href="../100-ideias-low-ticket/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="100-ideias-low-ticket">Quero também</a></div>
+<div class="vcard"><h3>Recria Medium Ticket</h3><p>Suba um degrau na esteira com um produto intermediário</p><p class="vp">R$ 17</p><a class="btn" href="../medium-ticket/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="medium-ticket">Quero também</a></div>
+<div class="vcard"><h3>Recria High Ticket</h3><p>O momento certo de criar a sua oferta premium</p><p class="vp">R$ 27</p><a class="btn" href="../high-ticket/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="high-ticket">Quero também</a></div>
+<div class="vcard"><h3>Manual de Estrutura de Negócio</h3><p>Organize a base do seu negócio</p><p class="vp">R$ 37</p><a class="btn" href="../estrutura-de-negocio/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="estrutura-de-negocio">Quero também</a></div>
+<div class="vcard"><h3>Comunidade Recria Business</h3><p>Vários cursos e novidades, mês a mês. Plano mensal ou anual</p><p class="vp">R$ 47/mês</p><a class="btn" href="../comunidade-recria-business/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="comunidade-recria-business">Conhecer</a></div>
+<div class="vcard"><h3>Manual de Narrativas Atraentes Que Vendem</h3><p>Aprenda a contar histórias que atraem e vendem</p><p class="vp">R$ 47</p><a class="btn" href="../manual/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="manual">Quero também</a></div>
+<div class="vcard"><h3>Diagnóstico Recria</h3><p>Consultoria online individual para achar o que trava o seu negócio</p><p class="vp">R$ 67</p><a class="btn" href="../diagnostico-recria/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="diagnostico-recria">Conhecer</a></div>
+<div class="vcard"><h3>Pacote inicial de presença digital</h3><p>Para quem está começando e quer a casa arrumada</p><p class="vp">R$ 1.500</p><a class="btn" href="../pacote-mkt-inicial/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="pacote-mkt-inicial">Conhecer</a></div>
+<div class="vcard"><h3>Mentoria Recria</h3><p>Acompanhamento individual, etapa por etapa</p><p class="vp">R$ 5.000</p><a class="btn" href="../mentoria-recria/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="mentoria-recria">Conhecer a mentoria</a></div>
 </div>
-<p style="max-width:680px;margin:26px auto 14px">Quer conhecer tudo o que a Recria oferece? Toque no botão abaixo.</p>
+<button type="button" class="v-seta v-prox" aria-label="Próximo">›</button>
+</div>
+<p style="max-width:680px;margin:26px auto 14px">Quer conhecer tudo o que a Recria oferece, inclusive os serviços? Toque no botão abaixo.</p>
 <a class="btn" id="ver-tudo" href="../links/?utm_source=obrigado&utm_medium=pagina&utm_campaign=ver_tudo_recria-ads">Ver todos os produtos e serviços</a>
 </div></section>
 <footer>Recria Ads · Agência Recria · @agencia.recria × @amandarecria</footer>
@@ -170,6 +192,11 @@ var REGUA='<div class="of-regua"><h3>O seu caminho, dia a dia</h3><div class="of
 <script>
 (function(){
 document.querySelectorAll('a[data-extra]').forEach(function(a){a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:'recria-ads',para:a.getAttribute('data-extra')});});});
+var car=document.getElementById('carrossel'),arrastou=false;
+function passo(d){car.scrollBy({left:d*(car.clientWidth*0.8),behavior:'smooth'});}
+var pa=document.querySelector('.v-ant'),pn=document.querySelector('.v-prox');
+if(pa)pa.addEventListener('click',function(){passo(-1);});if(pn)pn.addEventListener('click',function(){passo(1);});
+if(car)car.addEventListener('scroll',function(){if(!arrastou&&car.scrollLeft>40){arrastou=true;if(typeof fbq!=='undefined')fbq('trackCustom','VitrineArrastou',{de:'recria-ads'});}},{passive:true});
 var v=document.getElementById('ver-tudo');if(v)v.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:'recria-ads',para:'links'});});
 })();
 </script>
