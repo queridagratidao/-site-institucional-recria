@@ -180,7 +180,7 @@ if(c.VIDEO){var v=c.VIDEO,src=v,m;
  else if((m=v.match(/vimeo\.com\/(\d+)/)))src="https://player.vimeo.com/video/"+m[1];
  var box=document.getElementById("vsl"),av=document.getElementById("vslAviso");
  av.style.display="block";box.className="video vsl-capa";box.style.padding="0";
- box.innerHTML='<button type="button" class="vsl-play" aria-label="Assistir ao vídeo com som"><img src="assets/vsl-capa.jpg" alt="Você posta, posta... e quase ninguém compra? Assista ao vídeo do Recria Ads" width="1280" height="720"><span class="vsl-btn"><svg viewBox="0 0 24 24" width="38" height="38"><path d="M8 5v14l11-7z" fill="#0B0B0B"/></svg></span></button>';
+ box.innerHTML='<button type="button" class="vsl-play" aria-label="Assistir ao vídeo com som"><img src="assets/vsl-capa.jpg" alt="Você cria conteúdo e anúncio e ainda não vende? Assista ao vídeo do Recria Ads" width="1280" height="720"><span class="vsl-btn"><svg viewBox="0 0 24 24" width="38" height="38"><path d="M8 5v14l11-7z" fill="#0B0B0B"/></svg></span></button>';
  box.querySelector("button").addEventListener("click",function(){
   var sep=src.indexOf("?")>-1?"&":"?";
   box.innerHTML='<iframe src="'+src+sep+'autoplay=1" style="width:100%;height:100%;border:0;border-radius:8px" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de vendas do Recria Ads"></iframe>';
