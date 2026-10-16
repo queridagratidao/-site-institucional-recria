@@ -67,3 +67,7 @@ footer{background:var(--preto);color:#9d927c;text-align:center;padding:30px 20px
 .vsl-play{position:absolute;inset:0;z-index:2}
 .vsl-som{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:3;border:0;cursor:pointer;background:var(--ouro);color:#0B0B0B;font:700 17px/1 inherit;font-family:inherit;padding:14px 22px;border-radius:999px;box-shadow:0 4px 16px rgba(0,0,0,.5);animation:vslpulse 1.8s ease-in-out infinite}
 @keyframes vslpulse{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.06)}}
+.vsl-barra{position:absolute;left:0;right:0;bottom:0;height:6px;background:rgba(255,255,255,.18);border-radius:0 0 8px 8px;overflow:hidden}
+.vsl-barra i{display:block;height:100%;width:0;background:var(--ouro)}
+.vsl-capa .vsl-btn{left:auto;top:auto;right:3.5%;bottom:11%;width:58px;height:58px;margin:0;box-shadow:0 0 0 6px rgba(201,162,78,.3)}
+.vsl-capa .vsl-btn svg{width:26px;height:26px;margin-left:3px}
