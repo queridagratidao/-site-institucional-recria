@@ -92,6 +92,8 @@ var w=document.getElementById("btn-whats"); if(c.WHATSAPP){w.href=c.WHATSAPP;}el
 var OF=c.OFERTA||{};
 if(OF.LINK){
  var ofSec=document.getElementById("of"),ofBox=document.getElementById("of-box");
+ var GRUPO_LINK=c.WHATSAPP||"https://chat.whatsapp.com/Dh1nhxW4POm2h0Z6iPXkIV";
+ var GRUPO_TXT=c.WHATSAPP?"Entre no grupo do WhatsApp do Recria Ads, onde eu e a minha equipe compartilhamos conteúdos novos, bastidores e avisos.":"Entre na comunidade Recriadores, o grupo de WhatsApp de negócios que se reinventam e se recriam para vender cada vez mais.";
  var ET={
   up:{ev:"recria-ads-personalizado",kick:"Um convite para você, aluno(a)",h2:'Recria Ads <em>Personalizado</em>',
    ps:['Dentro do Recria Ads você já conta com o suporte: tira as suas dúvidas sobre as aulas nos comentários e no grupo do WhatsApp. O <b>Recria Ads Personalizado vai além disso</b>: sou eu olhando para o seu negócio, para os seus números e para os seus resultados.',
@@ -105,21 +107,28 @@ if(OF.LINK){
    ps:['Se agora você prefere algo mais simples, eu tenho o <b>Diagnóstico Recria</b>: uma consultoria individual comigo, de 1 hora, sobre o seu negócio.'],
    bul:['Por chamada de vídeo ou, sem chamada, por formulário e WhatsApp','Diagnóstico em PDF, com o passo a passo, em até 5 dias úteis','Atendimento feito por mim, sem terceirizar'],
    preco:'R$ 67',sub:'Pagamento único',btn:'Quero uma sessão do Diagnóstico por R$ 67',link:OF.LINK_DIAG||"https://hotmart.com/pt-br/marketplace/produtos/consultoria-recria/R106762961O",val:67,nao:'Não, obrigado(a)'}
+,
+  fim:{ev:"grupo",kick:"Tudo certo!",h2:'Vamos <em>seguir juntos</em>',
+   ps:['Sem problema! O mais importante agora é você começar o curso.',GRUPO_TXT],
+   bul:[],btn:'Entrar no grupo do WhatsApp',link:GRUPO_LINK}
  };
  var evt=function(n,d){if(typeof fbq!=="undefined")fbq("trackCustom",n,d||{});};
  var mostra=function(et){
   var o=ET[et],h='<div class="kick">'+o.kick+'</div><h2>'+o.h2+'</h2>';
   o.ps.forEach(function(t){h+='<p style="max-width:720px;margin:0 auto 14px">'+t+'</p>';});
-  h+='<ul class="lista" style="max-width:660px;margin:18px auto 20px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
+  if(o.bul.length)h+='<ul class="lista" style="max-width:660px;margin:18px auto 20px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
   if(o.cmp)h+=o.cmp;
   if(o.aviso)h+='<p class="of-aviso">'+o.aviso+'</p>';
   if(o.aviso2)h+='<p class="of-aviso">'+o.aviso2+'</p>';
-  h+='<div class="of-preco"><span class="v">'+o.preco+'</span><span class="s">'+o.sub+'</span></div><br><a class="btn" id="of-sim" href="'+o.link+'" target="_blank" rel="noopener">'+o.btn+'</a><button type="button" class="of-nao" id="of-nao">'+o.nao+'</button>';
+  if(o.preco)h+='<div class="of-preco"><span class="v">'+o.preco+'</span><span class="s">'+o.sub+'</span></div><br>';
+  h+='<a class="btn" id="of-sim" href="'+o.link+'" target="_blank" rel="noopener">'+o.btn+'</a>';
+  if(o.nao)h+='<button type="button" class="of-nao" id="of-nao">'+o.nao+'</button>';
   ofBox.innerHTML=h;ofSec.style.display="block";
+  if(et==="fim"){evt("GrupoWhatsAppVisto",{de:"recria-ads"});document.getElementById("of-sim").addEventListener("click",function(){evt("GrupoWhatsAppClique",{de:"recria-ads"});});return;}
   evt("OfertaVista",{oferta:o.ev,de:"recria-ads"});
   document.getElementById("of-sim").addEventListener("click",function(){evt("OfertaAceita",{oferta:o.ev,de:"recria-ads"});if(typeof fbq!=="undefined")fbq("track","InitiateCheckout",{value:o.val,currency:"BRL",content_name:o.ev});});
   document.getElementById("of-nao").addEventListener("click",function(){evt("OfertaRecusada",{oferta:o.ev,de:"recria-ads"});
-   if(et==="up"){mostra("down");ofSec.scrollIntoView({behavior:"smooth",block:"start"});}else{ofSec.style.display="none";}});
+   mostra(et==="up"?"down":"fim");ofSec.scrollIntoView({behavior:"smooth",block:"start"});});
  };
  mostra("up");
 }
