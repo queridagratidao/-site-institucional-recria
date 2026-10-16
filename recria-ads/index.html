@@ -38,7 +38,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
 <img class="logo" src="assets/logo.png" alt="Agência Recria">
 <div class="kick">Recria Ads</div>
 <h1>Aprenda a criar conteúdos e anúncios <em>sem cara de anúncio</em></h1>
-<p style="font-size:20px;max-width:760px;margin:0 auto">Em apenas 10 minutos por dia, em cerca de 1 mês você vai ter tudo aplicado no seu negócio e vai aprender a vender todo santo dia sem parecer aquele vendedor chato.</p>
+<p style="font-size:20px;max-width:760px;margin:0 auto">Você só precisa de 10 minutos por dia e, em cerca de um mês, terá tudo aplicado no seu negócio e vai aprender a vender todo santo dia sem parecer aquele vendedor chato.</p>
 <p class="vsl-aviso" id="vslAviso" style="display:none">🔊 Para ouvir com som, clique no vídeo. Ele tem legenda, então dá para assistir sem áudio também.</p>
 <div class="video" id="vsl">▶ Vídeo de vendas<br>(em breve)</div>
 <a class="btn" href="#oferta" data-checkout>Quero entrar no Recria Ads</a>
@@ -175,18 +175,32 @@ fbq('init','2122997488598240');fbq('track','PageView');
 <script>
 (function(){var c=window.RECRIA||{};
 if(c.CHECKOUT){document.querySelectorAll('a[data-checkout]').forEach(function(a){var q=location.search?(c.CHECKOUT.indexOf('?')>-1?'&':'?')+location.search.slice(1):'';a.href=c.CHECKOUT+q;a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:97,currency:'BRL'});});a.target="_blank";a.rel="noopener";});}
-if(c.VIDEO){var v=c.VIDEO,src=v,m;
- if((m=v.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/)))src="https://www.youtube.com/embed/"+m[1]+"?rel=0&playsinline=1&modestbranding=1";
+if(c.VIDEO){var v=c.VIDEO,src=v,m,yid="";
+ if((m=v.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/))){yid=m[1];src="https://www.youtube.com/embed/"+yid+"?rel=0&playsinline=1&modestbranding=1";}
  else if((m=v.match(/vimeo\.com\/(\d+)/)))src="https://player.vimeo.com/video/"+m[1];
- var box=document.getElementById("vsl"),av=document.getElementById("vslAviso");
- av.style.display="block";box.className="video vsl-capa";box.style.padding="0";
- box.innerHTML='<button type="button" class="vsl-play" aria-label="Assistir ao vídeo com som"><img src="assets/vsl-capa.jpg" alt="Você cria conteúdo e anúncio e ainda não vende? Assista ao vídeo do Recria Ads" width="1280" height="720"><span class="vsl-btn"><svg viewBox="0 0 24 24" width="38" height="38"><path d="M8 5v14l11-7z" fill="#0B0B0B"/></svg></span></button>';
- box.querySelector("button").addEventListener("click",function(){
-  var sep=src.indexOf("?")>-1?"&":"?";
-  box.innerHTML='<iframe src="'+src+sep+'autoplay=1" style="width:100%;height:100%;border:0;border-radius:8px" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de vendas do Recria Ads"></iframe>';
-  av.style.display="none";
-  if(typeof fbq!=="undefined")fbq("trackCustom","VSLPlay");
- });}
+ var box=document.getElementById("vsl"),av=document.getElementById("vslAviso"),pl=null,tocou=false;
+ box.className="video vsl-capa";box.style.padding="0";
+ box.innerHTML='<div id="ytp" class="vsl-yt"></div><button type="button" class="vsl-play" aria-label="Assistir ao vídeo com som"><img src="assets/vsl-capa.jpg" alt="Você cria conteúdo e anúncio e ainda não vende? Assista ao vídeo do Recria Ads" width="1280" height="720"><span class="vsl-btn"><svg viewBox="0 0 24 24" width="38" height="38"><path d="M8 5v14l11-7z" fill="#0B0B0B"/></svg></span></button><button type="button" class="vsl-som" style="display:none">🔊 Ouvir com som</button>';
+ var cap=box.querySelector(".vsl-play"),som=box.querySelector(".vsl-som");
+ function avisa(t){av.textContent=t;av.style.display="block";}
+ function contou(){if(!tocou){tocou=true;if(typeof fbq!=="undefined")fbq("trackCustom","VSLPlay");}}
+ function comSom(){
+  contou();som.style.display="none";cap.style.display="none";av.style.display="none";
+  if(pl&&pl.unMute){pl.seekTo(0,true);pl.unMute();pl.setVolume(100);pl.playVideo();}
+  else{box.innerHTML='<iframe src="'+src+(src.indexOf("?")>-1?"&":"?")+'autoplay=1" style="width:100%;height:100%;border:0;border-radius:8px" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de vendas do Recria Ads"></iframe>';}
+ }
+ cap.addEventListener("click",comSom);som.addEventListener("click",comSom);
+ avisa("🔊 Para ouvir com som, clique no vídeo. Ele tem legenda, então dá para assistir sem áudio também.");
+ if(yid){
+  window.onYouTubeIframeAPIReady=function(){
+   pl=new YT.Player("ytp",{videoId:yid,width:"100%",height:"100%",playerVars:{autoplay:1,mute:1,playsinline:1,rel:0,modestbranding:1,controls:1},events:{
+    onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(x){}},
+    onStateChange:function(e){if(e.data===1&&!tocou){cap.style.display="none";som.style.display="block";avisa("▶ O vídeo está rodando sem som, com legenda. Clique em “Ouvir com som” para ativar o áudio.");}}
+   }});
+  };
+  var t=document.createElement("script");t.src="https://www.youtube.com/iframe_api";t.async=true;document.head.appendChild(t);
+ }
+}
 })();
 </script>
 </body></html>
