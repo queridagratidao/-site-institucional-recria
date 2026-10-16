@@ -18,6 +18,12 @@ fbq("init","2122997488598240");fbq("track","PageView");
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2122997488598240&ev=PageView&noscript=1"/></noscript>
 <!-- Fim Meta Pixel -->
+<style>
+.of-preco{display:inline-block;border:1.5px solid var(--ouro);border-radius:10px;padding:16px 28px;margin:6px 0 18px}
+.of-preco .v{display:block;font-family:"Playfair Display",serif;font-size:52px;line-height:1.05;color:var(--ouro)}
+.of-preco .s{display:block;font-size:16px;margin-top:6px}
+.of-nao{display:block;margin:20px auto 0;font-size:16px;color:#c9bda4;text-decoration:underline;background:none;border:0;cursor:pointer;font-family:inherit}
+</style>
 </head><body class="escuro">
 <section class="dark"><div class="wrap center">
 <img class="logo" src="../assets/logo.png" alt="Agência Recria">
@@ -26,6 +32,8 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <p class="sub" style="font-size:18px;margin-top:6px">Se ainda assim não chegar, toque no botão abaixo e me chame no WhatsApp, que a gente resolve.</p>
 <a class="btn" id="suporte" href="https://wa.me/5551991091697?text=Oi%2C%20comprei%20um%20e-book%20da%20Recria%20e%20n%C3%A3o%20recebi%20o%20acesso.%20Gostaria%20de%20ajuda." target="_blank" rel="noopener">Chamar a Amanda no WhatsApp</a>
 </div></section>
+<section id="of" style="display:none"><div class="wrap center" id="of-box"></div></section>
+<div id="resto">
 
 <section><div class="wrap center">
 <div class="kick">Um convite</div>
@@ -61,6 +69,7 @@ fbq("init","2122997488598240");fbq("track","PageView");
 <p style="max-width:700px;margin:0 auto 22px">Quer saber tudo o que a Recria pode fazer pelo seu negócio? Toque no botão abaixo.</p>
 <a class="btn" href="../links/?utm_source=obrigado&utm_medium=pagina&utm_campaign=ver_tudo">Ver tudo o que a Recria oferece</a>
 </div></section>
+</div>
 <footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
 <script>
 (function(){
@@ -96,6 +105,47 @@ if(P[p]){var v=parseFloat(P[p][2].replace(/[^0-9,]/g,'').replace(',','.'));var k
  try{ja=sessionStorage.getItem(k)==='1';}catch(e){}
  if(!ja&&v>0&&typeof fbq!=='undefined'){fbq('track','Purchase',{value:v,currency:'BRL',content_name:P[p][0],content_ids:[p],content_type:'product'});try{sessionStorage.setItem(k,'1');}catch(e){}}}
 if(P[p]){var w=document.getElementById('suporte');w.href='https://wa.me/5551991091697?text='+encodeURIComponent('Oi, comprei o '+(KIND[p]||'e-book')+' '+P[p][0].replace(/^Recria /,'')+' da Recria e não recebi o acesso. Gostaria de ajuda.');}
+
+/* ===== Oferta logo após a compra: upsell -> downsell -> restante da página ===== */
+var GR={};['calendario-de-conteudos','calendario-com-ia','post','reels','miv'].forEach(function(x){GR[x]='c';});
+['negocio-local','esteira-de-produtos','100-ideias-low-ticket','medium-ticket','high-ticket','estrutura-de-negocio'].forEach(function(x){GR[x]='n';});
+var OFS={
+ c:{up:{ev:'recria-ads',kick:'Um convite',h2:'Transforme o seu conteúdo em <em>máquinas de venda</em>',
+   ps:['Se você acabou de comprar o <b>{nome}</b>, o próximo passo para te ajudar é transformar os seus posts, os seus reels, o seu conteúdo em máquinas de venda. Vendendo com leveza, sem parecer que está vendendo e sem parecer aquele vendedor chato.',
+       'Por isso eu te convido a conhecer o <b>Recria Ads</b>: aprenda a criar conteúdos e anúncios sem cara de anúncio. Eu vou abrir para você a metodologia que uso na minha agência, a mesma que só os meus clientes têm acesso, com neurociência, jornada do consumidor e tudo o que eu sintetizei em mais de 10 anos de prática.',
+       'Você só precisa de 10 minutos por dia e, em cerca de um mês, terá tudo aplicado no seu negócio.'],
+   bul:['<b>8 módulos</b>, com uma aula por dia de no máximo 10 minutos','A metodologia da Agência Recria: neurociência, jornada do consumidor, storytelling, ganchos e copy','Materiais práticos em PDF e atividades em cada aula','Suporte nos comentários e grupo do WhatsApp do curso','<b>1 ano de acesso</b>'],
+   preco:'R$ 97',sub:'ou em até 12x no cartão · Garantia de 7 dias',btn:'Sim, quero o Recria Ads',link:'https://pay.hotmart.com/X107955216M',val:97,nao:'Agora não, obrigado(a)'},
+  down:{ev:'manual',kick:'Tudo bem!',h2:'Talvez o curso completo <em>não seja para agora</em>',
+   ps:['Então eu separei um primeiro passo mais leve, em e-book: o <b>Manual de Narrativas Atraentes Que Vendem</b>. É o seu aliado para vender sem parecer que está vendendo, sem lives, sem lançamentos e sem postar todo dia.'],
+   bul:['<b>E-book vitalício</b>, com mais de 50 páginas','Neuromarketing, copywriting e storytelling','Narrativas que vendem em story, feed e outros formatos','Acervo de ideias "copia e cola" para adaptar ao seu negócio','Bônus surpresa e desconto em cursos e workshops'],
+   preco:'R$ 47',sub:'Acesso imediato · Garantia de 7 dias',btn:'Quero o Manual por R$ 47',link:'https://pay.hotmart.com/V82947349N',val:47,nao:'Não, obrigado(a). Quero continuar'}},
+ n:{up:{ev:'diagnostico',kick:'Um convite',h2:'Vamos olhar para o <em>seu negócio</em>, juntos',
+   ps:['Se você acabou de comprar o <b>{nome}</b>, o próximo passo para te ajudar é aplicar isso no seu negócio, com alguém olhando para o seu caso.',
+       'Por isso eu te convido para o <b>Diagnóstico Recria</b>: uma consultoria individual comigo, de uma hora, e um diagnóstico documentado do seu negócio, com o passo a passo para você agir.'],
+   bul:['<b>Você escolhe como prefere:</b> por chamada de vídeo (1 hora) ou, sem chamada, por formulário e WhatsApp','Eu analiso os gargalos de marketing, comercial e negócio','Você recebe o diagnóstico em PDF, com o passo a passo, por WhatsApp e e-mail em até 5 dias úteis','Atendimento feito por mim, sem terceirizar','Aula bônus de marketing e comercial, e desconto em sessões extras'],
+   preco:'R$ 67',sub:'Pagamento único · Como o atendimento é individual, as vagas na agenda são limitadas',btn:'Sim, quero o meu diagnóstico',link:'https://hotmart.com/pt-br/marketplace/produtos/consultoria-recria/R106762961O',val:67,nao:'Agora não, obrigado(a)'},
+  down:{ev:'express',kick:'Sem problema!',h2:'Que tal um <em>primeiro passo</em> mais leve?',
+   ps:['Se agora não dá para uma consultoria, eu tenho um curso em vídeo, curto e direto, para você começar a aplicar: o <b>Curso Express, Estratégia Atraente Que Vende</b>. Nele você aprende a vender com produtos de baixo ticket, em 10 etapas.'],
+   bul:['<b>Curso em vídeo</b>, em 10 etapas','Passo a passo para criar e vender produtos de baixo ticket','Acesso por 1 ano'],
+   preco:'R$ 15',sub:'à vista, ou em 2x no cartão · Garantia de 7 dias',btn:'Quero o Curso Express por R$ 15',link:'https://pay.hotmart.com/V83075845Y?off=6u4lczxn',val:15,nao:'Não, obrigado(a). Quero continuar'}}
+};
+var gr=GR[p],resto=document.getElementById('resto'),ofSec=document.getElementById('of'),ofBox=document.getElementById('of-box');
+function evt(n,d){if(typeof fbq!=='undefined')fbq('trackCustom',n,d||{});}
+function liberaResto(rolar){ofSec.style.display='none';resto.style.display='block';if(rolar)resto.scrollIntoView({behavior:'smooth',block:'start'});}
+function mostra(etapa){
+ var o=OFS[gr][etapa],nome=(P[p]&&P[p][0])||'seu e-book';
+ var h='<div class="kick">'+o.kick+'</div><h2>'+o.h2+'</h2>';
+ o.ps.forEach(function(t){h+='<p style="max-width:720px;margin:0 auto 14px">'+t.replace('{nome}',nome)+'</p>';});
+ h+='<ul class="lista" style="max-width:640px;margin:18px auto 22px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
+ h+='<div class="of-preco"><span class="v">'+o.preco+'</span><span class="s">'+o.sub+'</span></div><br><a class="btn" id="of-sim" href="'+o.link+'" target="_blank" rel="noopener">'+o.btn+'</a><button type="button" class="of-nao" id="of-nao">'+o.nao+'</button>';
+ ofBox.innerHTML=h;ofSec.style.display='block';
+ evt('OfertaVista',{oferta:o.ev,de:p});
+ document.getElementById('of-sim').addEventListener('click',function(){evt('OfertaAceita',{oferta:o.ev,de:p});if(typeof fbq!=='undefined')fbq('track','InitiateCheckout',{value:o.val,currency:'BRL',content_name:o.ev});resto.style.display='block';});
+ document.getElementById('of-nao').addEventListener('click',function(){evt('OfertaRecusada',{oferta:o.ev,de:p});
+  if(etapa==='up'){mostra('down');ofSec.scrollIntoView({behavior:'smooth',block:'start'});}else{liberaResto(true);}});
+}
+if(gr&&OFS[gr]){resto.style.display='none';mostra('up');}
 })();
 </script>
 </body></html>
