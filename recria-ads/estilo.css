@@ -55,3 +55,11 @@ footer{background:var(--preto);color:#9d927c;text-align:center;padding:30px 20px
 @media(max-width:560px){.bonus{flex-direction:column;align-items:flex-start}}
 
 .foto-img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:8px;border:2px solid var(--ouro);display:block}
+
+.vsl-aviso{font-size:16px;color:var(--ouro2);margin:26px 0 -14px}
+.video.vsl-capa{background:#000;overflow:hidden;position:relative;margin-top:30px}
+.vsl-play{all:unset;cursor:pointer;display:block;position:relative;width:100%;height:100%}
+.vsl-play img{display:block;width:100%;height:100%;object-fit:cover;border-radius:8px}
+.vsl-btn{position:absolute;left:50%;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--ouro);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 10px rgba(201,162,78,.28);transition:transform .2s}
+.vsl-play:hover .vsl-btn,.vsl-play:focus-visible .vsl-btn{transform:scale(1.08)}
+.vsl-btn svg{margin-left:5px}
