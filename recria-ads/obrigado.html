@@ -23,9 +23,10 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 <!-- ===================== CONFIGURAÇÃO (cole os links aqui) =====================
   SALA:     link de acesso dos alunos na Hotmart (confirmar; padrão: https://consumer.hotmart.com)
   WHATSAPP: link de convite do grupo do WhatsApp do curso
-  OFERTA.LINK: link de pagamento (Hotmart) do "Recria Ads Próximo Passo". Vazio = a oferta não aparece.
+  OFERTA.LINK: link de pagamento (Hotmart) do "Recria Ads Mini Mentoria". Vazio = a oferta não aparece.
+  OFERTA.LINK_METRICAS: link de pagamento do e-book/planilhas "Recria Ads Métricas" (downsell). Vazio = não mostra o downsell.
 =============================================================================== -->
-<script>window.RECRIA={SALA:"https://consumer.hotmart.com",WHATSAPP:"",OFERTA:{LINK:""}};</script>
+<script>window.RECRIA={SALA:"https://consumer.hotmart.com",WHATSAPP:"https://chat.whatsapp.com/Dh1nhxW4POm2h0Z6iPXkIV",OFERTA:{LINK:"",LINK_METRICAS:""}};</script>
 
 <style>
 .of-sec{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:#fbf8f1}
@@ -100,7 +101,7 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 var s=document.getElementById("btn-sala"); if(c.SALA)s.href=c.SALA;
 var w=document.getElementById("btn-whats"); if(c.WHATSAPP){w.href=c.WHATSAPP;}else{w.style.opacity=".55";w.textContent="Link do grupo em breve";w.removeAttribute("href");}
 
-/* ===== Oferta: Recria Ads Próximo Passo (2 encontros) e, se recusar, o Diagnóstico avulso ===== */
+/* ===== Oferta: Recria Ads Mini Mentoria (2 encontros) e, se recusar, o downsell Recria Ads Métricas (só com link) e o convite do grupo ===== */
 var OF=c.OFERTA||{};
 if(OF.LINK){
  var ofSec=document.getElementById("of"),ofBox=document.getElementById("of-box");
@@ -108,21 +109,20 @@ var REGUA='<div class="of-regua"><h3>O seu caminho, dia a dia</h3><div class="of
  var GRUPO_LINK=c.WHATSAPP||"https://chat.whatsapp.com/Dh1nhxW4POm2h0Z6iPXkIV";
  var GRUPO_TXT=c.WHATSAPP?"Entre no grupo do WhatsApp do Recria Ads, onde eu e a minha equipe compartilhamos conteúdos novos, bastidores e avisos.":"Entre na comunidade Recriadores, o grupo de WhatsApp de negócios que se reinventam e se recriam para vender cada vez mais.";
  var ET={
-  up:{ev:"recria-ads-proximo-passo",kick:"Apliquei. E agora?",h2:'Recria Ads <em>Próximo Passo</em>',
-   ps:['Aplicar é só metade do caminho. No <b>Recria Ads Próximo Passo</b> você aprende a <b>analisar cada ação que tomou para decidir a próxima</b>: a hora de mexer no criativo, de mudar a oferta, de subir ou pausar uma campanha, de testar um novo influenciador, de mudar o posicionamento da marca, a estrutura ou os formatos.',
-       'Dentro do Recria Ads você já conta com o suporte: tira as suas dúvidas sobre as aulas nos comentários e no grupo do WhatsApp. O <b>Recria Ads Próximo Passo vai além disso</b>: sou eu olhando para o seu negócio, para os seus números e para os seus resultados.'],
-   bul:['<b>2 encontros individuais comigo</b>, por vídeo, de 1 hora cada','<b>Nos primeiros 7 dias:</b> a primeira aula, em vídeo, dentro da plataforma, e o link para você agendar o seu encontro','<b>Até o dia 15:</b> as planilhas e o material de apoio, liberados na plataforma quando você já tiver pelo menos 15 dias de aplicação, para fazer a sua autoanálise de dados e métricas','<b>1º encontro, entre o dia 30 e o dia 45</b> (contados da compra): eu entendo como foi o seu primeiro mês aplicando, os primeiros resultados e as primeiras métricas, e te direciono nos ajustes','<b>2º encontro, o fechamento, entre o dia 45 e o dia 60</b>: analisamos os seus 60 dias com tudo aplicado, o que ajustar e resolver. Na prática, uma mentoria direcionada para o seu negócio','<b>Um documento final</b> sobre o seu negócio, para você consultar sempre que precisar e continuar recriando'],
+  up:{ev:"recria-ads-mini-mentoria",kick:"Apliquei. E agora?",h2:'Recria Ads <em>Mini Mentoria</em>',
+   ps:['Um <b>acompanhamento de 60 dias</b> para você aplicar o que aprendeu no Recria Ads, com os seus dados analisados e um direcional claro do que ajustar.','Aplicar é só metade do caminho. Na <b>Recria Ads Mini Mentoria</b> você aprende a <b>analisar cada ação que tomou para decidir a próxima</b>: a hora de mexer no criativo, de mudar a oferta, de subir ou pausar uma campanha, de testar um novo influenciador, de mudar o posicionamento da marca, a estrutura ou os formatos.',
+       'Dentro do Recria Ads você já conta com o suporte: tira as suas dúvidas sobre as aulas nos comentários e no grupo do WhatsApp. A <b>Mini Mentoria vai além disso</b>: sou eu olhando para o seu negócio, para os seus números e para os seus resultados.'],
+   bul:['<b>2 encontros individuais comigo</b>, por vídeo, de 1 hora cada','<b>Nos primeiros 7 dias:</b> a primeira aula, em vídeo, dentro da plataforma, e o link para você agendar o seu encontro','<b>Até o dia 15:</b> as planilhas e o material de apoio, liberados na plataforma quando você já tiver pelo menos 15 dias de aplicação, para fazer a sua autoanálise de dados e métricas','<b>1º encontro, entre o dia 30 e o dia 45</b> (contados da compra): eu entendo como foi o seu primeiro mês aplicando, os primeiros resultados e as primeiras métricas, e te direciono nos ajustes. <b>Você sai com uma tarefa personalizada</b> para aplicar e testar','<b>2º encontro, o fechamento, entre o dia 45 e o dia 60</b>: analisamos os seus 60 dias com tudo aplicado, o que ajustar e resolver. Na prática, uma mentoria direcionada para o seu negócio','<b>Um documento final</b> sobre o seu negócio, para você consultar sempre que precisar e continuar recriando'],
    regua:'REGUA',
-   cmp:'<div class="of-cmp"><div class="of-col"><h3>Suporte do curso</h3><p><b>Para quê:</b> tirar dúvidas sobre as aulas e a metodologia</p><p><b>Como:</b> por escrito, nos comentários e no grupo do WhatsApp</p><p><b>Foco:</b> o conteúdo do curso, para todos os alunos</p><p><b>Você sai com:</b> a resposta da dúvida</p></div><div class="of-col of-dest"><h3>Recria Ads Próximo Passo</h3><p><b>Para quê:</b> analisar os seus dados e decidir os próximos passos</p><p><b>Como:</b> 2 encontros individuais comigo, por vídeo, de 1 hora</p><p><b>Foco:</b> o seu negócio, as suas métricas e os seus resultados</p><p><b>Você sai com:</b> um plano de ajustes e um documento final</p></div></div>',
+   cmp:'<div class="of-cmp"><div class="of-col"><h3>Suporte do curso</h3><p><b>Para quê:</b> tirar dúvidas sobre as aulas e a metodologia</p><p><b>Como:</b> por escrito, nos comentários e no grupo do WhatsApp</p><p><b>Foco:</b> o conteúdo do curso, para todos os alunos</p><p><b>Você sai com:</b> a resposta da dúvida</p></div><div class="of-col of-dest"><h3>Recria Ads Mini Mentoria</h3><p><b>Para quê:</b> analisar os seus dados e decidir os próximos passos</p><p><b>Como:</b> 2 encontros individuais comigo, por vídeo, de 1 hora</p><p><b>Foco:</b> o seu negócio, as suas métricas e os seus resultados</p><p><b>Você sai com:</b> um plano de ajustes e um documento final</p></div></div>',
    aviso:'<b>Importante:</b> eu só atendo quem terminou o curso e aplicou a metodologia no negócio. Os encontros são para tirar as dúvidas que vierem da sua prática.',
-   aviso1:'<b>Prazos:</b> o 1º encontro acontece entre o dia 30 e o dia 45, e o 2º entre o dia 45 e o dia 60, sempre contados da compra. Quem não usar os encontros dentro desses prazos <b>não recebe a análise do seu negócio</b>: envio apenas um vídeo gravado e um documento gerais, que servem para qualquer negócio. Eu quero ao meu lado quem está comprometido(a) em mudar o negócio.',
+   aviso1:'<b>Prazos:</b> o 1º encontro acontece entre o dia 30 e o dia 45, e o 2º entre o dia 45 e o dia 60, sempre contados da compra. Quem não usar os encontros dentro desses prazos <b>não recebe a análise do seu negócio</b>: envio apenas um vídeo gravado e um documento gerais, que servem para qualquer negócio. Cada encontro pode ser agendado em até 3 tentativas (o agendamento e mais duas remarcações). Depois disso, só combinando comigo pelo WhatsApp. Eu quero ao meu lado quem está comprometido(a) em mudar o negócio.',
    aviso2:'<b>Esta oferta só existe nesta página.</b> É um complemento para quem está realmente comprometido(a) em mudar o negócio. Depois que você sair daqui, este acompanhamento não fica à venda.',
-   preco:'R$ 197',sub:'2 encontros individuais · Como o atendimento é individual, as vagas na agenda são limitadas',btn:'Sim, quero o Recria Ads Próximo Passo',link:OF.LINK,val:197,nao:'Agora não, obrigado(a)'},
-  down:{ev:"diagnostico",kick:"Tudo bem!",h2:'Prefere uma sessão <em>pontual</em>?',
-   ps:['Se agora você prefere algo mais simples, eu tenho o <b>Diagnóstico Recria</b>: uma consultoria individual comigo, de 1 hora, sobre o seu negócio.'],
-   bul:['Por chamada de vídeo ou, sem chamada, por formulário e WhatsApp','Diagnóstico em PDF, com o passo a passo, em até 5 dias úteis','Atendimento feito por mim, sem terceirizar'],
-   preco:'R$ 67',sub:'Pagamento único',btn:'Quero uma sessão do Diagnóstico por R$ 67',link:OF.LINK_DIAG||"https://hotmart.com/pt-br/marketplace/produtos/consultoria-recria/R106762961O",val:67,nao:'Não, obrigado(a)'}
-,
+   preco:'R$ 197',sub:'2 encontros individuais · Como o atendimento é individual, as vagas na agenda são limitadas',btn:'Sim, quero a Recria Ads Mini Mentoria',link:OF.LINK,val:197,nao:'Agora não, obrigado(a)'},
+  down:{ev:"metricas",kick:"Prefere ir por conta própria?",h2:'Recria Ads <em>Métricas</em>',
+   ps:['Se agora você prefere fazer a análise sozinho(a), eu tenho o <b>Recria Ads Métricas</b>: um e-book com planilhas para você analisar os seus dados e tomar as suas próprias decisões.'],
+   bul:['<b>O passo a passo da análise</b>: ROAS, engajamento e vendas, e o que cada número diz','<b>Quando mexer</b> no criativo, na oferta ou na campanha','Como ler os números conforme o que você vende: produto digital, serviço ou produto físico','<b>Planilhas</b> para preencher com os seus dados'],
+   preco:'R$ 67',sub:'E-book com planilhas · Acesso imediato',btn:'Quero o Recria Ads Métricas por R$ 67',link:OF.LINK_METRICAS,val:67,nao:'Não, obrigado(a)'},
   fim:{ev:"grupo",kick:"Tudo certo!",h2:'Vamos <em>seguir juntos</em>',
    ps:['Sem problema! O mais importante agora é você começar o curso.',GRUPO_TXT],
    bul:[],btn:'Entrar no grupo do WhatsApp',link:GRUPO_LINK}
@@ -145,7 +145,7 @@ var REGUA='<div class="of-regua"><h3>O seu caminho, dia a dia</h3><div class="of
   evt("OfertaVista",{oferta:o.ev,de:"recria-ads"});
   document.getElementById("of-sim").addEventListener("click",function(){evt("OfertaAceita",{oferta:o.ev,de:"recria-ads"});if(typeof fbq!=="undefined")fbq("track","InitiateCheckout",{value:o.val,currency:"BRL",content_name:o.ev});});
   document.getElementById("of-nao").addEventListener("click",function(){evt("OfertaRecusada",{oferta:o.ev,de:"recria-ads"});
-   mostra(et==="up"?"down":"fim");ofSec.scrollIntoView({behavior:"smooth",block:"start"});});
+   mostra(et==="up"&&OF.LINK_METRICAS?"down":"fim");ofSec.scrollIntoView({behavior:"smooth",block:"start"});});
  };
  mostra("up");
 }
