@@ -29,7 +29,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
   CHECKOUT: link do checkout da Hotmart (ex.: https://pay.hotmart.com/XXXXXXXX)
   Enquanto estiverem vazios, o vídeo mostra um espaço reservado e os botões levam até o preço.
 =============================================================================== -->
-<script>window.RECRIA={VIDEO:"https://youtu.be/SAZ0Gd8BcUk",CHECKOUT:"https://pay.hotmart.com/X107955216M"};</script>
+<script>window.RECRIA={VIDEO:"https://youtu.be/SAZ0Gd8BcUk",ESPERA:6,CHECKOUT:"https://pay.hotmart.com/X107955216M"};</script>
 
 </head><body>
 
@@ -63,6 +63,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
 <div class="kick">A virada</div>
 <h2>Todo mundo pula anúncio. <em>Mas para por uma boa história.</em></h2>
 <p style="max-width:720px;margin:0 auto 14px">As marcas que mais vendem hoje entenderam isso: vendem sem parecer que estão vendendo. E isso não é coisa só de marca grande. Dá para fazer no seu negócio, com o seu celular e com o orçamento que você tem.</p>
+<a class="btn" href="#oferta" style="margin-top:14px">Quero entrar no Recria Ads</a>
 </div></section>
 
 <!-- 3b. UAU -->
@@ -105,6 +106,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
 <div class="kick">Para o seu cenário</div>
 <h2>Funciona para <em>qualquer tamanho de negócio</em></h2>
 <p style="max-width:760px;margin:0 auto">Eupresa · negócio local · e-commerce · empresa média · empresa grande · serviços e consultoria · negócio digital (infoprodutos, mentorias, consultorias e serviços online). Toda aula tem um momento "Como adaptar" para a sua realidade, do orçamento zero à verba para influenciadores.</p>
+<a class="btn" href="#oferta" style="margin-top:14px">Quero entrar no Recria Ads</a>
 </div></section>
 
 <!-- 7. COM O QUE VOCÊ SAI + BÔNUS -->
@@ -178,23 +180,23 @@ if(c.CHECKOUT){document.querySelectorAll('a[data-checkout]').forEach(function(a)
 if(c.VIDEO){var v=c.VIDEO,src=v,m,yid="";
  if((m=v.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/))){yid=m[1];src="https://www.youtube.com/embed/"+yid+"?rel=0&playsinline=1&modestbranding=1";}
  else if((m=v.match(/vimeo\.com\/(\d+)/)))src="https://player.vimeo.com/video/"+m[1];
- var box=document.getElementById("vsl"),av=document.getElementById("vslAviso"),pl=null,tocou=false;
+ var box=document.getElementById("vsl"),av=document.getElementById("vslAviso"),pl=null,tocou=false,espera=null;
  box.className="video vsl-capa";box.style.padding="0";
- box.innerHTML='<div id="ytp" class="vsl-yt"></div><button type="button" class="vsl-play" aria-label="Assistir ao vídeo com som"><img src="assets/vsl-capa.jpg" alt="Você cria conteúdo e anúncio e ainda não vende? Assista ao vídeo do Recria Ads" width="1280" height="720"><span class="vsl-btn"><svg viewBox="0 0 24 24" width="38" height="38"><path d="M8 5v14l11-7z" fill="#0B0B0B"/></svg></span></button><button type="button" class="vsl-som" style="display:none">🔊 Ouvir com som</button>';
+ box.innerHTML='<div id="ytp" class="vsl-yt"></div><button type="button" class="vsl-play" aria-label="Assistir ao vídeo com som"><img src="assets/vsl-capa.jpg" alt="Você cria conteúdo e anúncio e ainda não vende? Assista ao vídeo do Recria Ads" width="1280" height="720"><span class="vsl-btn"><svg viewBox="0 0 24 24" width="38" height="38"><path d="M8 5v14l11-7z" fill="#0B0B0B"/></svg></span><span class="vsl-barra"><i></i></span></button><button type="button" class="vsl-som" style="display:none">🔊 Ouvir com som</button>';
  var cap=box.querySelector(".vsl-play"),som=box.querySelector(".vsl-som");
  function avisa(t){av.textContent=t;av.style.display="block";}
  function contou(){if(!tocou){tocou=true;if(typeof fbq!=="undefined")fbq("trackCustom","VSLPlay");}}
  function comSom(){
-  contou();som.style.display="none";cap.style.display="none";av.style.display="none";
+  clearTimeout(espera);contou();som.style.display="none";cap.style.display="none";av.style.display="none";
   if(pl&&pl.unMute){pl.seekTo(0,true);pl.unMute();pl.setVolume(100);pl.playVideo();}
   else{box.innerHTML='<iframe src="'+src+(src.indexOf("?")>-1?"&":"?")+'autoplay=1" style="width:100%;height:100%;border:0;border-radius:8px" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de vendas do Recria Ads"></iframe>';}
  }
  cap.addEventListener("click",comSom);som.addEventListener("click",comSom);
- avisa("🔊 Para ouvir com som, clique no vídeo. Ele tem legenda, então dá para assistir sem áudio também.");
+ avisa("▶ O vídeo começa em instantes, sem som e com legenda. Para ouvir com som, clique no vídeo.");
  if(yid){
   window.onYouTubeIframeAPIReady=function(){
    pl=new YT.Player("ytp",{videoId:yid,width:"100%",height:"100%",playerVars:{autoplay:1,mute:1,playsinline:1,rel:0,modestbranding:1,controls:1},events:{
-    onReady:function(e){try{e.target.mute();e.target.playVideo();}catch(x){}},
+    onReady:function(e){try{e.target.mute();}catch(x){}var bar=cap.querySelector(".vsl-barra i"),seg=(c.ESPERA===undefined?6:c.ESPERA);if(bar){bar.style.transition="width "+seg+"s linear";requestAnimationFrame(function(){bar.style.width="100%";});}espera=setTimeout(function(){if(!tocou)try{e.target.playVideo();}catch(x){}},seg*1000);},
     onStateChange:function(e){if(e.data===1&&!tocou){cap.style.display="none";som.style.display="block";avisa("▶ O vídeo está rodando sem som, com legenda. Clique em “Ouvir com som” para ativar o áudio.");}}
    }});
   };
