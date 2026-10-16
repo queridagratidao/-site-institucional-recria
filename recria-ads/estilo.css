@@ -71,3 +71,10 @@ footer{background:var(--preto);color:#9d927c;text-align:center;padding:30px 20px
 .vsl-barra i{display:block;height:100%;width:0;background:var(--ouro)}
 .vsl-capa .vsl-btn{left:auto;top:auto;right:3.5%;bottom:11%;width:58px;height:58px;margin:0;box-shadow:0 0 0 6px rgba(201,162,78,.3)}
 .vsl-capa .vsl-btn svg{width:26px;height:26px;margin-left:3px}
+.prova-sec{border-top:1px solid rgba(0,0,0,.08)}
+.prova-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;align-items:start;margin:0 auto;max-width:980px}
+.prova-grid figure{margin:0}
+.prova-grid img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(0,0,0,.12);box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.prova-grid figcaption{font-size:15px;margin-top:10px;color:#555;line-height:1.4}
+.prova-nota{font-size:14px;color:#666;max-width:640px;margin:22px auto 0}
+@media(max-width:720px){.prova-grid{grid-template-columns:1fr}}
