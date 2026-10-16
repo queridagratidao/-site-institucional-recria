@@ -78,3 +78,5 @@ footer{background:var(--preto);color:#9d927c;text-align:center;padding:30px 20px
 .prova-grid figcaption{font-size:15px;margin-top:10px;color:#555;line-height:1.4}
 .prova-nota{font-size:14px;color:#666;max-width:640px;margin:22px auto 0}
 @media(max-width:720px){.prova-grid{grid-template-columns:1fr}}
+.prova-iceberg{max-width:760px;margin:30px auto 0;font-size:19px;line-height:1.55}
+.prova-grid figcaption b{color:#2a2a2a}
