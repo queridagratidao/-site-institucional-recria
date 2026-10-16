@@ -29,7 +29,7 @@ fbq('init','2122997488598240');fbq('track','PageView');
   CHECKOUT: link do checkout da Hotmart (ex.: https://pay.hotmart.com/XXXXXXXX)
   Enquanto estiverem vazios, o vídeo mostra um espaço reservado e os botões levam até o preço.
 =============================================================================== -->
-<script>window.RECRIA={VIDEO:"https://youtu.be/SAZ0Gd8BcUk",ESPERA:18,CHECKOUT:"https://pay.hotmart.com/X107955216M"};</script>
+<script>window.RECRIA={VIDEO:"https://youtu.be/SAZ0Gd8BcUk",ESPERA:20,CHECKOUT:"https://pay.hotmart.com/X107955216M"};</script>
 
 </head><body>
 
@@ -212,7 +212,7 @@ if(c.VIDEO){var v=c.VIDEO,src=v,m,yid="";
   window.onYouTubeIframeAPIReady=function(){
    pl=new YT.Player("ytp",{videoId:yid,width:"100%",height:"100%",playerVars:{autoplay:1,mute:1,playsinline:1,rel:0,modestbranding:1,controls:1},events:{
     onReady:function(e){try{e.target.mute();}catch(x){}
-     var seg=(c.ESPERA===undefined?18:c.ESPERA);
+     var seg=(c.ESPERA===undefined?20:c.ESPERA);
      function inicia(){var bar=cap.querySelector(".vsl-barra i");if(bar){bar.style.transition="width "+seg+"s linear";requestAnimationFrame(function(){bar.style.width="100%";});}
       espera=setTimeout(function(){if(!tocou)try{e.target.playVideo();}catch(x){}},seg*1000);}
      if("IntersectionObserver" in window){var io=new IntersectionObserver(function(en){if(en[0].isIntersecting){io.disconnect();inicia();}},{threshold:.6});io.observe(box);}else inicia();
