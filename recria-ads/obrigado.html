@@ -40,7 +40,10 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 .vcard .btn{font-size:15px;padding:12px 18px;text-align:center}
 .v-seta{position:absolute;top:42%;width:42px;height:42px;border-radius:50%;border:0;background:var(--ouro);color:#0b0b0b;font-size:26px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.25);display:none;z-index:2}
 .v-ant{left:-14px}.v-prox{right:-14px}
+@media(max-width:899px){.vcard{flex:0 0 100%}.v-seta{display:block;width:38px;height:38px;font-size:24px}.v-ant{left:-6px}.v-prox{right:-6px}.carrossel{padding-left:0;padding-right:0}}
 @media(min-width:900px){.v-seta{display:block}}
+.v-seta[hidden]{display:none!important}
+.v-cont{font-size:14px;color:#6b6252;margin:0 0 4px}
 .of-sec{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:#fbf8f1}
 .of-preco{display:inline-block;border:1.5px solid var(--ouro);border-radius:10px;padding:16px 28px;margin:6px 0 18px}
 .of-preco .v{display:block;font-family:"Playfair Display",serif;font-size:52px;line-height:1.05;color:#a8822f}
@@ -112,9 +115,11 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 <h2>A vitrine da <em>Recria</em></h2>
 <p style="max-width:700px;margin:0 auto 8px">Do primeiro passo à mentoria: arraste para o lado e escolha o que faz sentido para o seu momento.</p>
 <p class="v-dica" aria-hidden="true">Arraste para o lado →</p>
+<p class="v-cont" id="v-cont" aria-live="polite"></p>
 <div class="v-wrap">
 <button type="button" class="v-seta v-ant" aria-label="Anterior">‹</button>
 <div class="carrossel" id="carrossel" tabindex="0" aria-label="Produtos da Recria">
+<div class="vcard"><h3>Recria Calendário de Conteúdos</h3><p>Planeje 30 dias de conteúdos, com planilha pronta</p><p class="vp">R$ 5</p><a class="btn" href="../calendario-de-conteudos/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="calendario-de-conteudos">Quero também</a></div>
 <div class="vcard"><h3>Recria Negócio Local no Digital</h3><p>Faça o seu negócio local também faturar no digital</p><p class="vp">R$ 10</p><a class="btn" href="../negocio-local/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="negocio-local">Quero também</a></div>
 <div class="vcard"><h3>Recria Esteira de Produtos</h3><p>Monte a sua esteira e venda mais para cada cliente</p><p class="vp">R$ 12</p><a class="btn" href="../esteira-de-produtos/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="esteira-de-produtos">Quero também</a></div>
 <div class="vcard"><h3>Recria MIV</h3><p>O manual de identidade visual da sua marca</p><p class="vp">R$ 15</p><a class="btn" href="../miv/?utm_source=obrigado&utm_medium=pagina&utm_campaign=cross_recria-ads" data-extra="miv">Quero também</a></div>
@@ -193,10 +198,14 @@ var REGUA='<div class="of-regua"><h3>O seu caminho, dia a dia</h3><div class="of
 (function(){
 document.querySelectorAll('a[data-extra]').forEach(function(a){a.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:'recria-ads',para:a.getAttribute('data-extra')});});});
 var car=document.getElementById('carrossel'),arrastou=false;
-function passo(d){car.scrollBy({left:d*(car.clientWidth*0.8),behavior:'smooth'});}
-var pa=document.querySelector('.v-ant'),pn=document.querySelector('.v-prox');
+var pa=document.querySelector('.v-ant'),pn=document.querySelector('.v-prox'),cont=document.getElementById('v-cont');
+function larg(){var c=car.querySelector('.vcard');return c?c.offsetWidth+16:car.clientWidth;}
+function atualiza(){var l=larg(),tot=car.querySelectorAll('.vcard').length,i=Math.round(car.scrollLeft/l)+1;
+ if(pa)pa.hidden=car.scrollLeft<10;if(pn)pn.hidden=car.scrollLeft>car.scrollWidth-car.clientWidth-10;
+ var vis=Math.max(1,Math.round(car.clientWidth/l));if(cont)cont.textContent=(vis>1?('Produtos '+i+' a '+Math.min(tot,i+vis-1)):('Produto '+i))+' de '+tot;}
+function passo(d){car.scrollBy({left:d*larg(),behavior:'smooth'});}
 if(pa)pa.addEventListener('click',function(){passo(-1);});if(pn)pn.addEventListener('click',function(){passo(1);});
-if(car)car.addEventListener('scroll',function(){if(!arrastou&&car.scrollLeft>40){arrastou=true;if(typeof fbq!=='undefined')fbq('trackCustom','VitrineArrastou',{de:'recria-ads'});}},{passive:true});
+if(car){car.addEventListener('scroll',function(){atualiza();if(!arrastou&&car.scrollLeft>40){arrastou=true;if(typeof fbq!=='undefined')fbq('trackCustom','VitrineArrastou',{de:'recria-ads'});}},{passive:true});window.addEventListener('resize',atualiza);atualiza();}
 var v=document.getElementById('ver-tudo');if(v)v.addEventListener('click',function(){if(typeof fbq!=='undefined')fbq('trackCustom','CliqueVendaExtra',{de:'recria-ads',para:'links'});});
 })();
 </script>
