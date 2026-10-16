@@ -23,9 +23,24 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 <!-- ===================== CONFIGURAÇÃO (cole os links aqui) =====================
   SALA:     link de acesso dos alunos na Hotmart (confirmar; padrão: https://consumer.hotmart.com)
   WHATSAPP: link de convite do grupo do WhatsApp do curso
+  OFERTA.LINK: link de pagamento (Hotmart) do "Recria Ads Personalizado". Vazio = a oferta não aparece.
 =============================================================================== -->
-<script>window.RECRIA={SALA:"https://consumer.hotmart.com",WHATSAPP:""};</script>
+<script>window.RECRIA={SALA:"https://consumer.hotmart.com",WHATSAPP:"",OFERTA:{LINK:""}};</script>
 
+<style>
+.of-sec{border-top:1px solid rgba(0,0,0,.1);border-bottom:1px solid rgba(0,0,0,.1);background:#fbf8f1}
+.of-preco{display:inline-block;border:1.5px solid var(--ouro);border-radius:10px;padding:16px 28px;margin:6px 0 18px}
+.of-preco .v{display:block;font-family:"Playfair Display",serif;font-size:52px;line-height:1.05;color:#a8822f}
+.of-preco .s{display:block;font-size:16px;margin-top:6px}
+.of-cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px;margin:0 auto 20px;text-align:left}
+.of-col{background:#fff;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:16px 18px}
+.of-col h3{font-size:19px;margin:0 0 10px}
+.of-col p{font-size:16px;margin:0 0 8px;line-height:1.45}
+.of-dest{border:2px solid var(--ouro);background:#fffaf0}
+@media(max-width:640px){.of-cmp{grid-template-columns:1fr}}
+.of-aviso{max-width:680px;margin:0 auto 18px;font-size:16px;background:#fff;border-left:4px solid var(--ouro);padding:12px 16px;text-align:left}
+.of-nao{display:block;margin:20px auto 0;font-size:16px;color:#6b6252;text-decoration:underline;background:none;border:0;cursor:pointer;font-family:inherit}
+</style>
 </head><body>
 <section class="dark"><div class="wrap center">
 <img class="logo" src="assets/logo.png" alt="Agência Recria">
@@ -33,6 +48,8 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 <h1>Bem-vindo(a) ao <em>Recria Ads!</em> 🎉</h1>
 <p style="font-size:20px;max-width:700px;margin:0 auto">Que alegria ter você aqui. A partir de hoje, você começa a vender sem parecer aquele vendedor chato. Siga os 3 passos abaixo para começar agora mesmo.</p>
 </div></section>
+
+<section id="of" class="of-sec" style="display:none"><div class="wrap center" id="of-box"></div></section>
 
 <section><div class="wrap" style="max-width:760px">
 <div class="kick">Seus próximos passos</div>
@@ -70,6 +87,51 @@ fbq('track','Purchase',{ value: 97, currency: 'BRL' });
 (function(){var c=window.RECRIA||{};
 var s=document.getElementById("btn-sala"); if(c.SALA)s.href=c.SALA;
 var w=document.getElementById("btn-whats"); if(c.WHATSAPP){w.href=c.WHATSAPP;}else{w.style.opacity=".55";w.textContent="Link do grupo em breve";w.removeAttribute("href");}
+
+/* ===== Oferta: Recria Ads Personalizado (2 encontros) e, se recusar, o Diagnóstico avulso ===== */
+var OF=c.OFERTA||{};
+if(OF.LINK){
+ var ofSec=document.getElementById("of"),ofBox=document.getElementById("of-box");
+ var GRUPO_LINK=c.WHATSAPP||"https://chat.whatsapp.com/Dh1nhxW4POm2h0Z6iPXkIV";
+ var GRUPO_TXT=c.WHATSAPP?"Entre no grupo do WhatsApp do Recria Ads, onde eu e a minha equipe compartilhamos conteúdos novos, bastidores e avisos.":"Entre na comunidade Recriadores, o grupo de WhatsApp de negócios que se reinventam e se recriam para vender cada vez mais.";
+ var ET={
+  up:{ev:"recria-ads-personalizado",kick:"Um convite para você, aluno(a)",h2:'Recria Ads <em>Personalizado</em>',
+   ps:['Dentro do Recria Ads você já conta com o suporte: tira as suas dúvidas sobre as aulas nos comentários e no grupo do WhatsApp. O <b>Recria Ads Personalizado vai além disso</b>: sou eu olhando para o seu negócio, para os seus números e para os seus resultados.',
+       'Depois que você concluir o curso e aplicar toda a metodologia no seu negócio, a gente se encontra para analisar os seus dados, as suas métricas e os seus primeiros resultados: quais alavancas mexer e o que ajustar.'],
+   bul:['<b>2 encontros individuais comigo</b>, por vídeo, de 1 hora cada','<b>1º encontro, cerca de 1 mês depois</b>, quando você terminar o curso: eu entendo como foi o seu primeiro mês aplicando, os primeiros resultados e as primeiras métricas, e te direciono nos ajustes','<b>2º encontro, o fechamento, por volta dos 60 dias</b>: analisamos os seus 60 dias com tudo aplicado, o que ajustar e resolver. Na prática, uma mentoria direcionada para o seu negócio','<b>Um documento final</b>, para você consultar sempre que precisar e continuar recriando o seu negócio','<b>Vídeo de boas-vindas e planilhas</b>, para você começar a sua autoanálise de dados e métricas'],
+   cmp:'<div class="of-cmp"><div class="of-col"><h3>Suporte do curso</h3><p><b>Para quê:</b> tirar dúvidas sobre as aulas e a metodologia</p><p><b>Como:</b> por escrito, nos comentários e no grupo do WhatsApp</p><p><b>Foco:</b> o conteúdo do curso, para todos os alunos</p><p><b>Você sai com:</b> a resposta da dúvida</p></div><div class="of-col of-dest"><h3>Recria Ads Personalizado</h3><p><b>Para quê:</b> analisar os seus dados e decidir os próximos passos</p><p><b>Como:</b> 2 encontros individuais comigo, por vídeo, de 1 hora</p><p><b>Foco:</b> o seu negócio, as suas métricas e os seus resultados</p><p><b>Você sai com:</b> um plano de ajustes e um documento final</p></div></div>',
+   aviso:'<b>Importante:</b> eu só atendo quem terminou o curso e aplicou a metodologia no negócio. Os encontros são para tirar as dúvidas que vierem da sua prática.',
+   aviso2:'<b>Esta oferta só existe nesta página.</b> É um complemento para quem está realmente comprometido(a) em mudar o negócio. Depois que você sair daqui, o Recria Ads Personalizado não fica à venda.',
+   preco:'R$ 197',sub:'2 encontros individuais · Como o atendimento é individual, as vagas na agenda são limitadas',btn:'Sim, quero o Recria Ads Personalizado',link:OF.LINK,val:197,nao:'Agora não, obrigado(a)'},
+  down:{ev:"diagnostico",kick:"Tudo bem!",h2:'Prefere uma sessão <em>pontual</em>?',
+   ps:['Se agora você prefere algo mais simples, eu tenho o <b>Diagnóstico Recria</b>: uma consultoria individual comigo, de 1 hora, sobre o seu negócio.'],
+   bul:['Por chamada de vídeo ou, sem chamada, por formulário e WhatsApp','Diagnóstico em PDF, com o passo a passo, em até 5 dias úteis','Atendimento feito por mim, sem terceirizar'],
+   preco:'R$ 67',sub:'Pagamento único',btn:'Quero uma sessão do Diagnóstico por R$ 67',link:OF.LINK_DIAG||"https://hotmart.com/pt-br/marketplace/produtos/consultoria-recria/R106762961O",val:67,nao:'Não, obrigado(a)'}
+,
+  fim:{ev:"grupo",kick:"Tudo certo!",h2:'Vamos <em>seguir juntos</em>',
+   ps:['Sem problema! O mais importante agora é você começar o curso.',GRUPO_TXT],
+   bul:[],btn:'Entrar no grupo do WhatsApp',link:GRUPO_LINK}
+ };
+ var evt=function(n,d){if(typeof fbq!=="undefined")fbq("trackCustom",n,d||{});};
+ var mostra=function(et){
+  var o=ET[et],h='<div class="kick">'+o.kick+'</div><h2>'+o.h2+'</h2>';
+  o.ps.forEach(function(t){h+='<p style="max-width:720px;margin:0 auto 14px">'+t+'</p>';});
+  if(o.bul.length)h+='<ul class="lista" style="max-width:660px;margin:18px auto 20px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
+  if(o.cmp)h+=o.cmp;
+  if(o.aviso)h+='<p class="of-aviso">'+o.aviso+'</p>';
+  if(o.aviso2)h+='<p class="of-aviso">'+o.aviso2+'</p>';
+  if(o.preco)h+='<div class="of-preco"><span class="v">'+o.preco+'</span><span class="s">'+o.sub+'</span></div><br>';
+  h+='<a class="btn" id="of-sim" href="'+o.link+'" target="_blank" rel="noopener">'+o.btn+'</a>';
+  if(o.nao)h+='<button type="button" class="of-nao" id="of-nao">'+o.nao+'</button>';
+  ofBox.innerHTML=h;ofSec.style.display="block";
+  if(et==="fim"){evt("GrupoWhatsAppVisto",{de:"recria-ads"});document.getElementById("of-sim").addEventListener("click",function(){evt("GrupoWhatsAppClique",{de:"recria-ads"});});return;}
+  evt("OfertaVista",{oferta:o.ev,de:"recria-ads"});
+  document.getElementById("of-sim").addEventListener("click",function(){evt("OfertaAceita",{oferta:o.ev,de:"recria-ads"});if(typeof fbq!=="undefined")fbq("track","InitiateCheckout",{value:o.val,currency:"BRL",content_name:o.ev});});
+  document.getElementById("of-nao").addEventListener("click",function(){evt("OfertaRecusada",{oferta:o.ev,de:"recria-ads"});
+   mostra(et==="up"?"down":"fim");ofSec.scrollIntoView({behavior:"smooth",block:"start"});});
+ };
+ mostra("up");
+}
 })();
 </script>
 </body></html>
