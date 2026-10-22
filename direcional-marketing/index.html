@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Direcional de Marketing e Negócios · Agência Recria</title>
+<meta name="description" content="Um guia prático para olhar para o seu negócio com outros olhos: o básico bem feito que separa quem cresce de quem fica pelo caminho. Gratuito.">
+<link rel="icon" href="../assets/icone.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../lp.css">
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init","2122997488598240");fbq("track","PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2122997488598240&ev=PageView&noscript=1"/></noscript>
+<!-- Fim Meta Pixel -->
+</head><body class="escuro">
+<section class="dark"><div class="wrap center">
+<img class="logo" src="../assets/logo.png" alt="Agência Recria">
+<div class="kick">Presente gratuito</div>
+<h1>Direcional de <em>Marketing e Negócios</em></h1>
+<p class="sub">O básico bem feito que separa os negócios que crescem dos que ficam pelo caminho. Um guia prático para você olhar para o seu negócio com outros olhos.</p>
+<a class="btn" href="#baixar">Quero o direcional gratuito</a>
+<p style="font-size:14px;color:#b8ad96;margin-top:14px">Gratuito · Você baixa na próxima tela</p>
+</div></section>
+
+<section><div class="wrap">
+<h2>Muitos negócios <em>param no meio do caminho</em></h2>
+<ul class="dores">
+<li>Quase nunca é por falta de esforço.</li>
+<li>O negócio cresce no improviso: sem saber quem é o cliente ideal e sem um canal próprio de comunicação.</li>
+<li>Vende sempre para clientes novos e esquece quem já comprou.</li>
+</ul>
+<div class="box">A boa notícia: o básico bem feito já coloca você à frente da maior parte do mercado.</div>
+<h3 style="margin-top:26px;text-align:center">No direcional você encontra 9 pilares:</h3>
+<ul class="lista">
+<li>Presença digital: ser encontrado e passar confiança.</li>
+<li>Quem é o seu cliente de verdade e por que ele deveria escolher você.</li>
+<li>Os 5 níveis de consciência: o que comunicar para cada pessoa.</li>
+<li>Um canal que é seu e como vender de novo para quem já comprou.</li>
+<li>Recorrência, atendimento comercial e os números para acompanhar.</li>
+<li>Um autodiagnóstico para ver onde o seu negócio está hoje.</li>
+</ul>
+</div></section>
+
+<section id="baixar" class="dark"><div class="wrap center">
+<h2>Receba o direcional <em>agora</em></h2>
+<p style="max-width:620px;margin:0 auto 22px">Deixe os seus dados e, na próxima tela, você baixa o direcional. É gratuito.</p>
+<form class="lead-form" id="leadForm" novalidate>
+<input type="text" name="nome" id="nome" placeholder="Seu nome" autocomplete="name" required>
+<input type="tel" name="whatsapp" id="whatsapp" placeholder="WhatsApp com DDD, ex.: 51 99999-9999" autocomplete="tel" inputmode="tel" required>
+<input type="email" name="email" id="email" placeholder="Seu melhor e-mail" autocomplete="email" required>
+<button type="submit" class="btn" id="submitBtn">Quero baixar o direcional</button>
+<p class="form-status" id="formStatus" role="status"></p>
+<small style="display:block;color:#b8ad96;font-size:13px;margin-top:10px">Usaremos os seus dados para enviar o direcional e conteúdos da Recria. Você pode pedir para sair quando quiser.</small>
+</form>
+</div></section>
+
+<footer>Agência Recria · Dúvidas? <a href="https://wa.me/5551991091697" target="_blank" rel="noopener">WhatsApp</a><br><a href="https://www.instagram.com/agencia.recria" target="_blank" rel="noopener">@agencia.recria</a> · <a href="https://www.instagram.com/amandarecria" target="_blank" rel="noopener">@amandarecria</a> · <a href="https://www.agenciarecria.com.br">agenciarecria.com.br</a></footer>
+
+<script>
+const SCRIPT_URL='https://script.google.com/macros/s/AKfycbzmffW-fZJ3FTydV9TRyiI2ZLUv9vxMppKqpN00so8kIyyU-WsqGjlO8pJhdnTJPnwcQg/exec';
+function detectarCanal(){
+ var p=new URLSearchParams(location.search);
+ var s=(p.get('utm_source')||'').toLowerCase();
+ if(!s)return 'Orgânico (sem UTM)';
+ if(s.indexOf('automacao')>-1||s.indexOf('automação')>-1)return 'Automação Instagram';
+ if(s.indexOf('recriadores')>-1)return 'Comunidade Recriadores (WhatsApp)';
+ if(s.indexOf('google')>-1)return 'Google Ads';
+ if(s.indexOf('bio')>-1)return 'Link da bio (Instagram)';
+ if(s==='instagram_ads'||s.indexOf('ads')>-1)return 'Instagram Ads';
+ return s;
+}
+document.getElementById('leadForm').addEventListener('submit',async function(e){
+ e.preventDefault();
+ var btn=document.getElementById('submitBtn'),st=document.getElementById('formStatus');
+ var nome=document.getElementById('nome').value.trim(),wa=document.getElementById('whatsapp').value.trim(),em=document.getElementById('email').value.trim();
+ var dig=wa.replace(/\D/g,'');if(dig.indexOf('55')===0&&dig.length>11)dig=dig.slice(2);
+ st.style.color='#ff6b6b';
+ if(nome.length<2){st.textContent='Informe o seu nome.';return;}
+ if(dig.length<10||dig.length>11){st.textContent='Informe o WhatsApp com DDD, por exemplo 51 99999-9999.';return;}
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){st.textContent='Informe um e-mail válido.';return;}
+ btn.textContent='Enviando...';btn.disabled=true;st.textContent='';
+ var data={canal:detectarCanal(),nome:nome,negocio:'',whatsapp:wa,email:em,momento:'Direcional de Marketing - Captura',mensagem:'',utm:location.search.replace(/^\?/,''),pagina:location.href};
+ try{
+  await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  if(typeof fbq!=='undefined')fbq('track','Lead');
+  st.style.color='#E4C988';st.textContent='Recebido! Te levando para o download...';
+  setTimeout(function(){location.href='obrigado.html'+location.search;},600);
+}catch(err){
+  st.textContent='Erro ao enviar. Tente novamente.';btn.textContent='Quero baixar o direcional';btn.disabled=false;
+}
+});
+</script>
+</body></html>
