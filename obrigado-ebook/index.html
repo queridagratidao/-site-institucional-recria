@@ -26,16 +26,53 @@ fbq("init","2122997488598240");fbq("track","PageView");
 .of-video img{width:100%;height:100%;object-fit:cover;display:block}
 .of-video iframe{width:100%;height:100%;border:0;display:block}
 .of-play{position:absolute;right:14px;bottom:14px;background:var(--ouro);color:#0b0b0b;border:0;border-radius:999px;padding:10px 18px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.5)}
-.of-sub{font-family:"Playfair Display",serif;font-size:24px;margin:26px 0 10px}
-.of-mods{max-width:640px;margin:0 auto 6px;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px;padding:0;list-style:none}
-.of-mods li{font-size:16px;line-height:1.35}
-.of-mods li b{color:var(--ouro2)}
-.of-prova{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:6px auto 4px;max-width:640px}
-.of-prova img{width:calc(50% - 6px);min-width:220px;border:1.5px solid var(--ouro);border-radius:10px}
-.of-nota{font-size:13.5px;color:#b8ad96;max-width:560px;margin:8px auto 4px}
-.of-gar{max-width:560px;margin:4px auto 18px;font-size:16px}
+.of-sub{font-family:"Playfair Display",serif;font-size:26px;margin:34px 0 14px}
+.of-quote{font-family:"Playfair Display",serif;font-style:italic;font-size:22px;line-height:1.35;color:var(--ouro2);max-width:640px;margin:0 auto 18px}
+.of-comp{max-width:640px;margin:30px auto 8px;border:1.5px solid var(--ouro);border-radius:12px;padding:22px 20px}
+.of-comp .k{letter-spacing:.2em;font-size:13px;text-transform:uppercase;color:var(--ouro)}
+.of-comp .g{font-family:"Playfair Display",serif;font-size:40px;line-height:1.1;margin:6px 0 8px;color:#fff}
+.of-comp .g em{color:var(--ouro2)}
+.of-mods{max-width:900px;margin:0 auto 6px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0;list-style:none;text-align:left}
+.of-mods li{border:1px solid rgba(201,162,78,.55);border-radius:10px;padding:14px 14px 16px;background:rgba(201,162,78,.07)}
+.of-mods .n{display:block;font-family:"Playfair Display",serif;font-size:28px;line-height:1;color:var(--ouro)}
+.of-mods .t{display:block;font-weight:700;font-size:16px;margin:6px 0 4px;color:#fff}
+.of-mods .d{display:block;font-size:14px;line-height:1.35;color:#d9cfb8}
+.of-prova{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:20px;align-items:start;text-align:left}
+.of-prova figure{margin:0}
+.of-prova img{display:block;width:100%;height:auto;border-radius:10px;border:1.5px solid var(--ouro)}
+.of-prova figcaption{font-size:15px;line-height:1.4;margin-top:10px;color:#e6dcc6}
+.of-prova figcaption b{color:var(--ouro2)}
+.of-nota{font-size:13.5px;color:#b8ad96;max-width:620px;margin:16px auto 4px}
+.of-gar{max-width:560px;margin:18px auto;font-size:16px}
 .of-ver{display:block;margin:14px auto 0;font-size:15px;color:#c9bda4}
-@media(max-width:560px){.of-mods{grid-template-columns:1fr}.of-prova img{width:100%}}
+.of-cols{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+.of-cols>div{border:1px solid rgba(201,162,78,.55);border-radius:12px;padding:16px 18px;background:rgba(201,162,78,.06)}
+.of-cols h3{font-family:"Playfair Display",serif;font-size:20px;margin:0 0 8px;color:var(--ouro2)}
+.of-cols ul{margin:0;padding-left:18px}.of-cols li{margin:5px 0;font-size:15.5px;line-height:1.4}
+.of-passos{max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:0;list-style:none}
+.of-passos li{border:1px solid rgba(201,162,78,.55);border-radius:10px;padding:12px 8px;font-size:15px;line-height:1.3;background:rgba(201,162,78,.07)}
+.of-passos b{display:block;font-family:"Playfair Display",serif;font-size:26px;color:var(--ouro)}
+.of-faq{max-width:700px;margin:0 auto;text-align:left}
+.of-faq details{border-bottom:1px solid rgba(201,162,78,.35);padding:10px 2px}
+.of-faq summary{cursor:pointer;font-weight:700;font-size:16px}
+.of-faq p{margin:8px 0 2px;font-size:15.5px;line-height:1.45}
+.cerebro{max-width:640px;margin:26px auto 8px;border:1.5px solid var(--ouro);border-radius:14px;padding:22px 16px 18px;background:rgba(201,162,78,.05)}
+.cb-tit{font-family:"Playfair Display",serif;font-size:24px;margin-bottom:14px}
+.cb-pill{display:inline-block;border:1.5px solid var(--ouro);border-radius:999px;padding:8px 20px;font-weight:700;letter-spacing:.04em;color:var(--ouro2)}
+.cb-seta{font-size:22px;line-height:1;color:var(--ouro);margin:8px 0}
+.cb-par{display:grid;grid-template-columns:1fr 1fr;max-width:520px;margin:0 auto}
+.cb-par>div{padding:20px 14px 18px;text-align:center}
+.cb-l{background:var(--ouro);color:#0b0b0b;border-radius:90px 14px 14px 90px}
+.cb-r{background:#f6f2ea;color:#0b0b0b;border-radius:14px 90px 90px 14px;border-left:3px solid #0b0b0b}
+.cb-par b{display:block;font-family:"Playfair Display",serif;font-size:24px;letter-spacing:.05em}
+.cb-par span{display:block;font-style:italic;margin:2px 0 8px}
+.cb-par small{display:block;font-size:14px;line-height:1.35}
+.cb-dec{display:inline-block;background:#fff;color:#0b0b0b;border-radius:10px;padding:10px 30px;font-weight:700;letter-spacing:.08em}
+.cb-res{display:flex;gap:12px;justify-content:center;margin-top:10px}
+.cb-res span{border:1px solid rgba(201,162,78,.6);border-radius:8px;padding:6px 16px;font-size:15px}
+.cb-leg{font-size:15.5px;line-height:1.45;margin:14px auto 0;max-width:520px;color:#e6dcc6}
+@media(max-width:700px){.of-mods{grid-template-columns:1fr 1fr}.of-prova{grid-template-columns:1fr}.of-cols{grid-template-columns:1fr}.of-passos{grid-template-columns:1fr 1fr}.of-comp .g{font-size:32px}}
+@media(max-width:380px){.of-mods{grid-template-columns:1fr}}
 .of-nao{display:block;margin:20px auto 0;font-size:16px;color:#c9bda4;text-decoration:underline;background:none;border:0;cursor:pointer;font-family:inherit}
 </style>
 </head><body class="escuro">
@@ -125,22 +162,33 @@ var GR={};['calendario-de-conteudos','calendario-com-ia','post','reels','miv'].f
 ['negocio-local','esteira-de-produtos','100-ideias-low-ticket','medium-ticket','high-ticket','estrutura-de-negocio'].forEach(function(x){GR[x]='n';});
 var OFS={
  c:{up:{ev:'recria-ads',kick:'Um convite',h2:'Transforme o seu conteúdo em <em>máquinas de venda</em>',
-   ps:['Se você acabou de comprar o <b>{nome}</b>, o próximo passo para te ajudar é transformar os seus posts, os seus reels, o seu conteúdo em máquinas de venda. Vendendo com leveza, sem parecer que está vendendo e sem parecer aquele vendedor chato.',
-       'Por isso eu te convido a conhecer o <b>Recria Ads</b>: aprenda a criar conteúdos e anúncios sem cara de anúncio. Eu vou abrir para você a metodologia que uso na minha agência, a mesma que só os meus clientes têm acesso, com neurociência, jornada do consumidor e tudo o que eu sintetizei em mais de 10 anos de prática.',
-       'Você só precisa de 10 minutos por dia e, em cerca de um mês, terá tudo aplicado no seu negócio.'],
-   bul:['<b>8 módulos</b>, com uma aula por dia de no máximo 10 minutos','A metodologia da Agência Recria: neurociência, jornada do consumidor, storytelling, ganchos e copy','Materiais práticos em PDF e atividades em cada aula','Suporte nos comentários e grupo do WhatsApp do curso','<b>1 ano de acesso</b>'],
+   ps:['Aprenda a criar conteúdos que te farão vender todos os dias, com leveza, sem parecer que está vendendo e sem parecer aquele vendedor chato.',
+       'Você terá acesso à metodologia que eu lapidei em mais de 10 anos de prática e que, hoje, só eu e os meus clientes usamos. Ela se apoia em neurociência, jornada do consumidor, storytelling e muito mais. Primeiro você entende como o cérebro humano decide. Depois, aprende a usar isso a seu favor nas vendas do seu negócio: é neuromarketing e dados juntos, e o seu conteúdo é o veículo que leva tudo isso às pessoas certas.'],
+   cerebro:true,
+   comp:{k:'Único compromisso que te peço',g:'<em>10 minutos</em> por dia!',t:'Você só precisa de 10 minutos por dia e, em cerca de um mês, terá tudo aplicado no seu negócio.'},
    video:{id:'SAZ0Gd8BcUk',capa:'../recria-ads/assets/vsl-capa.jpg'},
-   mods:['<b>0.</b> Comece aqui: o seu cenário e 30 ideias de conteúdo no primeiro dia','<b>1.</b> A mente de quem compra','<b>2.</b> Storytelling','<b>3.</b> Estratégia: posicionamento e o conteúdo certo para cada momento','<b>4.</b> Ganchos e copy','<b>5.</b> Sem cara de anúncio, com casos reais de grandes marcas','<b>6.</b> Os dois calendários com IA','<b>7.</b> Rotina e o seu Plano de 30 dias'],
+   bul:['<b>8 módulos</b>, com uma aula por dia de no máximo 10 minutos','Materiais práticos em PDF e atividades em cada aula','Suporte nos comentários e grupo do WhatsApp do curso','<b>1 ano de acesso</b>'],
+   modsTit:'Os 8 módulos <em>do curso</em>',
+   mods:[['0','Comece aqui','O seu cenário e 30 ideias de conteúdo no primeiro dia.'],['1','A mente de quem compra','Por que as pessoas compram, de verdade.'],['2','Storytelling','Histórias que prendem e vendem.'],['3','Estratégia','O seu posicionamento e o conteúdo certo para cada momento do cliente.'],['4','Ganchos e copy','Os 2 primeiros segundos que decidem tudo.'],['5','Sem cara de anúncio','A estrutura, com análises de casos reais de grandes marcas.'],['6','Calendários com IA','O calendário de conteúdo e o de anúncios, com a CTA certa.'],['7','Rotina e plano','A sua rotina de criação e o seu Plano de 30 dias.']],
    bonus:'E mais: o direcional “Meu mês de conteúdo” (30 ideias no primeiro dia), o Acervo Recria e o grupo do WhatsApp do curso.',
-   prova:['../recria-ads/assets/prova-carrossel-curso.jpg','../recria-ads/assets/prova-carrossel-comentarios.jpg'],
-   provaTxt:'Olha o que aconteceu no meu perfil de yoga: as pessoas se identificaram, comentaram “eu quero” e eu continuei a conversa no direct com a oferta do meu curso. Casos reais do meu perfil. Os resultados variam de pessoa para pessoa.',
+   provaTit:'Veja na <em>prática</em>',
+   prova:[['../recria-ads/assets/prova-carrossel-curso.jpg','Carrossel do perfil de yoga vendendo um curso, com o comentário de uma cliente dizendo que as aulas são incríveis','<b>Venda direta:</b> a capa já deixa claro que é um curso de R$ 12. Mesmo assim, a pessoa fica, lê e ainda deixa depoimento.'],['../recria-ads/assets/prova-carrossel-comentarios.jpg','Carrossel “7 verdades duras que nunca te contaram”, com vários comentários de pessoas pedindo o conteúdo','<b>Venda indireta:</b> ao longo do conteúdo, a pessoa se identifica e comenta “eu quero”.']],
+   provaTxt:'Casos reais do meu perfil de yoga. Nos dois, quem comenta recebe a oferta do meu curso no direct. Os resultados variam de pessoa para pessoa.',
    gar:'<b>Garantia de 7 dias:</b> se não for para você, é só pedir o reembolso pela própria Hotmart.',
    ver:'../recria-ads/?utm_source=obrigado_ebook&utm_medium=pagina&utm_campaign=upsell_ver_pagina',verTxt:'Quero ler a página completa do Recria Ads antes',
    preco:'R$ 97',sub:'ou em até 12x no cartão · Garantia de 7 dias',btn:'Sim, quero o Recria Ads',link:'https://pay.hotmart.com/X107955216M',val:97,nao:'Agora não, obrigado(a)'},
   down:{ev:'manual',kick:'Tudo bem!',h2:'Talvez o curso completo <em>não seja para agora</em>',
-   ps:['Então eu separei um primeiro passo mais leve, em e-book: o <b>Manual de Narrativas Atraentes Que Vendem</b>. É o seu aliado para vender sem parecer que está vendendo, sem lives, sem lançamentos e sem postar todo dia.'],
-   bul:['<b>E-book vitalício</b>, com mais de 50 páginas','Neuromarketing, copywriting e storytelling','Narrativas que vendem em story, feed e outros formatos','Acervo de ideias "copia e cola" para adaptar ao seu negócio','Bônus surpresa e desconto em cursos e workshops'],
-   preco:'R$ 47',sub:'Acesso imediato · Garantia de 7 dias',btn:'Quero o Manual por R$ 47',link:'https://pay.hotmart.com/V82947349N',val:47,nao:'Não, obrigado(a). Quero continuar'}},
+   quote:'“Quem vende mais não é quem tem o melhor produto. É quem conta as melhores histórias.”',
+   ps:['Então eu separei um primeiro passo mais leve, em e-book: o <b>Manual de Narrativas Atraentes Que Vendem</b>. É o seu aliado para vender sem parecer que está vendendo, sem lives, sem lançamentos e sem postar todo dia.',
+       'Que tal ter uma fonte inesgotável de narrativas que vendem com extrema facilidade, sem dedicar horas do seu dia a conteúdos e eventos na internet?'],
+   bul:['<b>Prendem a atenção</b> de quem passa pelo seu perfil','<b>Aumentam a consciência</b> do seu cliente sobre a necessidade ou o desejo pelo seu produto ou serviço','<b>Despertam a vontade</b> de querer mais','<b>Geram conexão e autoridade</b> para você'],
+   passosTit:'Cada narrativa, em um só conteúdo:',passos:['Atrai a atenção','Gera identificação e conexão','Inspira a se recriar','Instiga a comprar'],
+   colsTit:'O Manual, <em>por dentro</em>',para:['Está cansado(a) de produzir conteúdo e ter pouco ou nenhum retorno financeiro','Se sente refém das redes sociais e precisa se esforçar muito','Não aguenta mais lives e lançamentos que dão trabalho e frustram no final','Quer vender todo dia, de um jeito mais leve'],
+   acessoTit:'O que você vai receber',acesso:['Manual em e-book (PDF), com mais de 50 páginas','Neuromarketing, copywriting e storytelling','Narrativas que vendem em story, feed e outros formatos','Acervo de ideias “copia e cola” para adaptar ao seu negócio','Desconto em cursos e workshops','Bônus surpresa'],
+   faq:[['Serve para quem está começando ou tem audiência pequena?','Sim. Não importa o número de seguidores: as narrativas permitem vender para a audiência que você já tem hoje.'],['Funciona para o meu nicho?','Serve para infoprodutor, prestador de serviço, autônomo, criador de conteúdo ou profissional liberal.'],['Posso acessar pelo celular?','Sim, pelo smartphone ou por qualquer dispositivo com internet.']],
+   gar:'<b>Garantia de 7 dias:</b> se não for para você, é só pedir o reembolso pela própria Hotmart.',
+   ver:'../manual/?utm_source=obrigado_ebook&utm_medium=pagina&utm_campaign=downsell_ver_pagina',verTxt:'Quero ler a página completa do Manual antes',
+   preco:'R$ 47',sub:'Acesso vitalício · Garantia de 7 dias',btn:'Quero o Manual por R$ 47',link:'https://pay.hotmart.com/V82947349N',val:47,nao:'Não, obrigado(a). Quero continuar'}},
  n:{up:{ev:'diagnostico',kick:'Um convite',h2:'Vamos olhar para o <em>seu negócio</em>, juntos',
    ps:['Se você acabou de comprar o <b>{nome}</b>, o próximo passo para te ajudar é aplicar isso no seu negócio, com alguém olhando para o seu caso.',
        'Por isso eu te convido para o <b>Diagnóstico Recria</b>: uma consultoria individual comigo, de uma hora, e um diagnóstico documentado do seu negócio, com o passo a passo para você agir.'],
@@ -155,13 +203,19 @@ var gr=GR[p],resto=document.getElementById('resto'),ofSec=document.getElementByI
 function evt(n,d){if(typeof fbq!=='undefined')fbq('trackCustom',n,d||{});}
 function liberaResto(rolar){ofSec.style.display='none';resto.style.display='block';if(rolar)resto.scrollIntoView({behavior:'smooth',block:'start'});}
 function mostra(etapa){
- var o=OFS[gr][etapa],nome=(P[p]&&P[p][0])||'seu e-book';
- var h='<div class="kick">'+o.kick+'</div><h2>'+o.h2+'</h2>';
- o.ps.forEach(function(t){h+='<p style="max-width:720px;margin:0 auto 14px">'+t.replace('{nome}',nome)+'</p>';});
- if(o.video)h+='<div class="of-video" id="of-video"><img src="'+o.video.capa+'" alt="Assistir ao vídeo sobre o Recria Ads" loading="lazy"><button type="button" class="of-play">▶ Assistir ao vídeo</button></div>';
+ var o=OFS[gr][etapa],nome=(P[p]&&P[p][0])||'seu e-book',h='<div class="kick">'+o.kick+'</div><h2>'+o.h2+'</h2>';
+ var W='max-width:720px;margin:0 auto 14px';
+ if(o.quote)h+='<p class="of-quote">'+o.quote+'</p>';
+ o.ps.forEach(function(t){h+='<p style="'+W+'">'+t.replace('{nome}',nome)+'</p>';});
+ if(o.cerebro)h+='<div class="cerebro"><div class="cb-tit">Como o cérebro decide uma compra</div><span class="cb-pill">O SEU CONTEÚDO</span><div class="cb-seta">▼</div><div class="cb-par"><div class="cb-l"><b>EMOÇÃO</b><span>o que a pessoa sente</span><small>identificação, história, desejo e confiança</small></div><div class="cb-r"><b>RAZÃO</b><span>o que a pessoa pensa</span><small>preço, prova, garantia e “vale a pena?”</small></div></div><div class="cb-seta">▼</div><span class="cb-dec">DECISÃO</span><div class="cb-res"><span>Compra</span><span>Não compra</span></div><p class="cb-leg">O seu conteúdo é o veículo que leva a emoção e a razão certas até as pessoas certas.</p></div>';
+ if(o.comp)h+='<div class="of-comp"><div class="k">'+o.comp.k+'</div><div class="g">'+o.comp.g+'</div><p style="margin:0">'+o.comp.t+'</p></div>';
+ if(o.video)h+='<div class="of-video" id="of-video" style="margin-top:26px"><img src="'+o.video.capa+'" alt="Assistir ao vídeo sobre o Recria Ads"><button type="button" class="of-play">▶ Assistir ao vídeo</button></div>';
  h+='<ul class="lista" style="max-width:640px;margin:18px auto 22px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
- if(o.mods){h+='<div class="of-sub">Os 8 módulos <em>do curso</em></div><ul class="of-mods">'+o.mods.map(function(m){return '<li>'+m+'</li>';}).join('')+'</ul>';if(o.bonus)h+='<p style="max-width:640px;margin:12px auto 0">'+o.bonus+'</p>';}
- if(o.prova){h+='<div class="of-sub">Veja na <em>prática</em></div><div class="of-prova">'+o.prova.map(function(u){return '<img src="'+u+'" alt="Exemplo real do perfil de yoga">';}).join('')+'</div><p class="of-nota">'+o.provaTxt+'</p>';}
+ if(o.passos)h+='<div class="of-sub" style="margin-top:8px">'+o.passosTit+'</div><ol class="of-passos">'+o.passos.map(function(t,k){return '<li><b>'+(k+1)+'</b>'+t+'</li>';}).join('')+'</ol>';
+ if(o.para){h+='<div class="of-sub">'+o.colsTit+'</div><div class="of-cols"><div><h3>Para você que:</h3><ul>'+o.para.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div><div><h3>'+o.acessoTit+'</h3><ul>'+o.acesso.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div></div>';}
+ if(o.mods){h+='<div class="of-sub">'+o.modsTit+'</div><ul class="of-mods">'+o.mods.map(function(m){return '<li><span class="n">'+m[0]+'</span><span class="t">'+m[1]+'</span><span class="d">'+m[2]+'</span></li>';}).join('')+'</ul>';if(o.bonus)h+='<p style="max-width:640px;margin:14px auto 0">'+o.bonus+'</p>';}
+ if(o.prova){h+='<div class="of-sub">'+o.provaTit+'</div><div class="of-prova">'+o.prova.map(function(x){return '<figure><img src="'+x[0]+'" alt="'+x[1]+'"><figcaption>'+x[2]+'</figcaption></figure>';}).join('')+'</div><p class="of-nota">'+o.provaTxt+'</p>';}
+ if(o.faq)h+='<div class="of-sub">Dúvidas <em>frequentes</em></div><div class="of-faq">'+o.faq.map(function(f){return '<details><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>';}).join('')+'</div>';
  if(o.gar)h+='<p class="of-gar">'+o.gar+'</p>';
  h+='<div class="of-preco"><span class="v">'+o.preco+'</span><span class="s">'+o.sub+'</span></div><br><a class="btn" id="of-sim" href="'+o.link+'" target="_blank" rel="noopener">'+o.btn+'</a>'+(o.ver?'<a class="of-ver" id="of-ver" href="'+o.ver+'" target="_blank" rel="noopener">'+o.verTxt+'</a>':'')+'<button type="button" class="of-nao" id="of-nao">'+o.nao+'</button>';
  ofBox.innerHTML=h;ofSec.style.display='block';
