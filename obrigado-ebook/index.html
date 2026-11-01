@@ -73,6 +73,11 @@ fbq("init","2122997488598240");fbq("track","PageView");
 .cb-leg{font-size:15.5px;line-height:1.45;margin:14px auto 0;max-width:520px;color:#e6dcc6}
 @media(max-width:700px){.of-mods{grid-template-columns:1fr 1fr}.of-prova{grid-template-columns:1fr}.of-cols{grid-template-columns:1fr}.of-passos{grid-template-columns:1fr 1fr}.of-comp .g{font-size:32px}}
 @media(max-width:380px){.of-mods{grid-template-columns:1fr}}
+.of-neuro{max-width:760px;margin:30px auto 8px;text-align:left}
+.of-neuro img{display:block;width:100%;height:auto;border-radius:12px;margin:0 auto 22px}
+.of-neuro p{font-size:17.5px;line-height:1.6;margin:0 0 14px}
+.of-neuro h3{font-family:"Playfair Display",serif;font-size:26px;margin:26px 0 10px;color:var(--ouro2)}
+.of-neuro .dest{border-left:4px solid var(--ouro);padding:10px 16px;background:rgba(201,162,78,.08);border-radius:0 10px 10px 0}
 .of-nao{display:block;margin:20px auto 0;font-size:16px;color:#c9bda4;text-decoration:underline;background:none;border:0;cursor:pointer;font-family:inherit}
 </style>
 </head><body class="escuro">
@@ -164,6 +169,12 @@ var OFS={
  c:{up:{ev:'recria-ads',kick:'Um convite',h2:'Transforme o seu conteúdo em <em>máquinas de venda</em>',
    ps:['Aprenda a criar conteúdos que te farão vender todos os dias, com leveza, sem parecer que está vendendo e sem parecer aquele vendedor chato.',
        'Você terá acesso à metodologia que eu lapidei em mais de 10 anos de prática e que, hoje, só eu e os meus clientes usamos. Ela se apoia em neurociência, jornada do consumidor, storytelling e muito mais. Primeiro você entende como o cérebro humano decide. Depois, aprende a usar isso a seu favor nas vendas do seu negócio: é neuromarketing e dados juntos, e o seu conteúdo é o veículo que leva tudo isso às pessoas certas.'],
+   neuro:{img:'../assets/esquema-cerebro-decisao.png',alt:'Esquema do cérebro: emoção e razão levam à decisão de compra',kick:'Neuromarketing na prática',h2:'Por que o seu conteúdo precisa <em>começar pela emoção</em>',
+     ps:['Alcançar as pessoas certas nem sempre é suficiente para vender. O que faz a diferença é um conteúdo bem envelopado: primeiro ele aciona a <b>emoção</b>, que dá à pessoa a vontade de comprar de você. Depois, a <b>razão</b> entra para justificar a compra. Aí, sim: compra feita.',
+         'E o trabalho não termina na primeira venda. Quando você sabe reter essa pessoa, você a fideliza e <b>vende várias vezes para a mesma pessoa</b>.'],
+     h3:'A dor de pagar',
+     ps2:['Pagar também tem um peso no cérebro. Estudos de neuroimagem mostram que, quando o preço parece alto demais, uma região ligada ao desconforto (a ínsula) tende a se ativar. Ou seja: para o cérebro, pagar pode parecer uma perda.','Por isso a pessoa precisa sentir que está levando <b>muito mais valor</b> do que o dinheiro que está entregando. Esse é o ponto que eu ensino a trabalhar no seu conteúdo, nos seus anúncios e na sua oferta, sem forçar a venda.'],
+     dest:'Sou engenheira, com mestrado em biologia celular e molecular, e trago esse olhar de dados e ciência para o marketing.'},
    comp:{k:'Único compromisso que te peço',g:'<em>10 minutos</em> por dia!',t:'Você só precisa de 10 minutos por dia e, em cerca de um mês, terá tudo aplicado no seu negócio.'},
    video:{id:'SAZ0Gd8BcUk',capa:'../recria-ads/assets/vsl-capa.jpg'},
    bul:['Acesso à <b>metodologia da Agência Recria</b>','<b>8 módulos</b>, com uma aula por dia de no máximo 10 minutos','Materiais práticos em PDF e atividades em cada aula','Suporte nos comentários e grupo do WhatsApp do curso','<b>1 ano de acesso</b>'],
@@ -208,6 +219,7 @@ function mostra(etapa){
  o.ps.forEach(function(t){h+='<p style="'+W+'">'+t.replace('{nome}',nome)+'</p>';});
  if(o.video)h+='<div class="of-video" id="of-video" style="margin-top:22px"><img src="'+o.video.capa+'" alt="Assistir ao vídeo sobre o Recria Ads"><button type="button" class="of-play">▶ Assistir ao vídeo</button></div>';
  if(o.bul)h+='<div class="of-sub" style="margin-top:10px">O que você <em>vai receber</em></div><ul class="lista" style="max-width:640px;margin:8px auto 22px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
+ if(o.neuro){var n=o.neuro;h+='<div class="of-neuro"><div style="text-align:center"><div class="kick">'+n.kick+'</div><h2>'+n.h2+'</h2></div><img src="'+n.img+'" alt="'+n.alt+'">'+n.ps.map(function(t){return '<p>'+t+'</p>';}).join('')+'<h3>'+n.h3+'</h3>'+n.ps2.map(function(t){return '<p>'+t+'</p>';}).join('')+'<p class="dest">'+n.dest+'</p></div>';}
  if(o.comp)h+='<div class="of-comp"><div class="k">'+o.comp.k+'</div><div class="g">'+o.comp.g+'</div><p style="margin:0">'+o.comp.t+'</p></div>';
  if(o.passos)h+='<div class="of-sub" style="margin-top:8px">'+o.passosTit+'</div><ol class="of-passos">'+o.passos.map(function(t,k){return '<li><b>'+(k+1)+'</b>'+t+'</li>';}).join('')+'</ol>';
  if(o.para){h+='<div class="of-sub">'+o.colsTit+'</div><div class="of-cols"><div><h3>Para você que:</h3><ul>'+o.para.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div><div><h3>'+o.acessoTit+'</h3><ul>'+o.acesso.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div></div>';}
