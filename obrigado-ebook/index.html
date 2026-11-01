@@ -164,10 +164,9 @@ var OFS={
  c:{up:{ev:'recria-ads',kick:'Um convite',h2:'Transforme o seu conteúdo em <em>máquinas de venda</em>',
    ps:['Aprenda a criar conteúdos que te farão vender todos os dias, com leveza, sem parecer que está vendendo e sem parecer aquele vendedor chato.',
        'Você terá acesso à metodologia que eu lapidei em mais de 10 anos de prática e que, hoje, só eu e os meus clientes usamos. Ela se apoia em neurociência, jornada do consumidor, storytelling e muito mais. Primeiro você entende como o cérebro humano decide. Depois, aprende a usar isso a seu favor nas vendas do seu negócio: é neuromarketing e dados juntos, e o seu conteúdo é o veículo que leva tudo isso às pessoas certas.'],
-   cerebro:true,
    comp:{k:'Único compromisso que te peço',g:'<em>10 minutos</em> por dia!',t:'Você só precisa de 10 minutos por dia e, em cerca de um mês, terá tudo aplicado no seu negócio.'},
    video:{id:'SAZ0Gd8BcUk',capa:'../recria-ads/assets/vsl-capa.jpg'},
-   bul:['<b>8 módulos</b>, com uma aula por dia de no máximo 10 minutos','Materiais práticos em PDF e atividades em cada aula','Suporte nos comentários e grupo do WhatsApp do curso','<b>1 ano de acesso</b>'],
+   bul:['Acesso à <b>metodologia da Agência Recria</b>','<b>8 módulos</b>, com uma aula por dia de no máximo 10 minutos','Materiais práticos em PDF e atividades em cada aula','Suporte nos comentários e grupo do WhatsApp do curso','<b>1 ano de acesso</b>'],
    modsTit:'Os 8 módulos <em>do curso</em>',
    mods:[['0','Comece aqui','O seu cenário e 30 ideias de conteúdo no primeiro dia.'],['1','A mente de quem compra','Por que as pessoas compram, de verdade.'],['2','Storytelling','Histórias que prendem e vendem.'],['3','Estratégia','O seu posicionamento e o conteúdo certo para cada momento do cliente.'],['4','Ganchos e copy','Os 2 primeiros segundos que decidem tudo.'],['5','Sem cara de anúncio','A estrutura, com análises de casos reais de grandes marcas.'],['6','Calendários com IA','O calendário de conteúdo e o de anúncios, com a CTA certa.'],['7','Rotina e plano','A sua rotina de criação e o seu Plano de 30 dias.']],
    bonus:'E mais: o direcional “Meu mês de conteúdo” (30 ideias no primeiro dia), o Acervo Recria e o grupo do WhatsApp do curso.',
@@ -207,10 +206,9 @@ function mostra(etapa){
  var W='max-width:720px;margin:0 auto 14px';
  if(o.quote)h+='<p class="of-quote">'+o.quote+'</p>';
  o.ps.forEach(function(t){h+='<p style="'+W+'">'+t.replace('{nome}',nome)+'</p>';});
- if(o.cerebro)h+='<div class="cerebro"><div class="cb-tit">Como o cérebro decide uma compra</div><span class="cb-pill">O SEU CONTEÚDO</span><div class="cb-seta">▼</div><div class="cb-par"><div class="cb-l"><b>EMOÇÃO</b><span>o que a pessoa sente</span><small>identificação, história, desejo e confiança</small></div><div class="cb-r"><b>RAZÃO</b><span>o que a pessoa pensa</span><small>preço, prova, garantia e “vale a pena?”</small></div></div><div class="cb-seta">▼</div><span class="cb-dec">DECISÃO</span><div class="cb-res"><span>Compra</span><span>Não compra</span></div><p class="cb-leg">O seu conteúdo é o veículo que leva a emoção e a razão certas até as pessoas certas.</p></div>';
+ if(o.video)h+='<div class="of-video" id="of-video" style="margin-top:22px"><img src="'+o.video.capa+'" alt="Assistir ao vídeo sobre o Recria Ads"><button type="button" class="of-play">▶ Assistir ao vídeo</button></div>';
+ if(o.bul)h+='<div class="of-sub" style="margin-top:10px">O que você <em>vai receber</em></div><ul class="lista" style="max-width:640px;margin:8px auto 22px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
  if(o.comp)h+='<div class="of-comp"><div class="k">'+o.comp.k+'</div><div class="g">'+o.comp.g+'</div><p style="margin:0">'+o.comp.t+'</p></div>';
- if(o.video)h+='<div class="of-video" id="of-video" style="margin-top:26px"><img src="'+o.video.capa+'" alt="Assistir ao vídeo sobre o Recria Ads"><button type="button" class="of-play">▶ Assistir ao vídeo</button></div>';
- h+='<ul class="lista" style="max-width:640px;margin:18px auto 22px;text-align:left">'+o.bul.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>';
  if(o.passos)h+='<div class="of-sub" style="margin-top:8px">'+o.passosTit+'</div><ol class="of-passos">'+o.passos.map(function(t,k){return '<li><b>'+(k+1)+'</b>'+t+'</li>';}).join('')+'</ol>';
  if(o.para){h+='<div class="of-sub">'+o.colsTit+'</div><div class="of-cols"><div><h3>Para você que:</h3><ul>'+o.para.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div><div><h3>'+o.acessoTit+'</h3><ul>'+o.acesso.map(function(t){return '<li>'+t+'</li>';}).join('')+'</ul></div></div>';}
  if(o.mods){h+='<div class="of-sub">'+o.modsTit+'</div><ul class="of-mods">'+o.mods.map(function(m){return '<li><span class="n">'+m[0]+'</span><span class="t">'+m[1]+'</span><span class="d">'+m[2]+'</span></li>';}).join('')+'</ul>';if(o.bonus)h+='<p style="max-width:640px;margin:14px auto 0">'+o.bonus+'</p>';}
